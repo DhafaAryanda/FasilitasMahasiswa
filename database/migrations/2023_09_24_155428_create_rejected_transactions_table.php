@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rejected_requests', function (Blueprint $table) {
+        Schema::create('rejected_transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('transaction_id')->constrained('transactions');
             $table->String('message');
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rejected_requests');
+        Schema::dropIfExists('rejected_transactions');
     }
 };
