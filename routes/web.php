@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::view('/', 'member.auth');
-
-Route::get('/login', [MemberLoginController::class, 'index'])->name('member.login');
-Route::post('/login', [MemberLoginController::class, 'auth'])->name('member.login.auth');
+Route::group(['prefix' => 'admin'], function(){
+    Route::view('/', 'admin.dashboard')->name('admin.dashboard');
+    Route::view('/profile', 'admin.profile')->name('admin.profile');
+    // Route::view('/manajemen-peminjaman/fasilitas', 'admin.profile')->name('admin.profile');
+    // Route::view('/manajemen-konten/fasilitas', 'admin.profile')->name('admin.profile');
+});
