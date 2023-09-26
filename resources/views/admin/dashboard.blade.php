@@ -125,11 +125,11 @@
                   x-transition:leave="transition-all ease-in-out duration-300"
                   x-transition:leave-start="opacity-100 max-h-xl"
                   x-transition:leave-end="opacity-0 max-h-0"
-                  class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50"
+                  class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md"
                   aria-label="submenu"
                 >
                   <li
-                    class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
+                    class="inline-flex items-center justify-between w-full px-2 py-1 transition-colors duration-150 hover:text-gray-800 bg-slate-400"
                   >
                     <a class="w-full" href="pages/login.html">Fasilitas Gelanggang</a>
                   </li>
