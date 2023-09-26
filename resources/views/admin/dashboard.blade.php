@@ -11,7 +11,7 @@
       @vite('resources/css/app.css')
       
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="{{asset('fasilitasmahasiswa/assets/init-alpine.js')}}"></script>
+    <script src="{{asset('fasilitasmahasiswa/assets/js/init-alpine.js')}}"></script>
 
   </head>
   <body>
@@ -125,20 +125,24 @@
                   x-transition:leave="transition-all ease-in-out duration-300"
                   x-transition:leave-start="opacity-100 max-h-xl"
                   x-transition:leave-end="opacity-0 max-h-0"
-                  class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md"
+                  class="p-1 space-y-3 overflow-hidden text-sm font-medium text-gray-500 rounded-md"
                   aria-label="submenu"
                 >
                   <li
-                    class="inline-flex items-center justify-between w-full px-2 py-1 transition-colors duration-150 hover:text-gray-800 bg-slate-400"
+                    class="mt-2 px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
-                    <a class="w-full" href="pages/login.html">Fasilitas Gelanggang</a>
+                    <span class="inline-flex items-center justify-between w-full ">
+                      <img src="{{ asset('fasilitasmahasiswa/svgs/dot-inactive.svg') }}" alt="Icon">
+                      <a class="w-full ml-5" href="pages/login.html">Fasilitas Gelanggang</a>
+                    </span>
                   </li>
                   <li
-                    class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
+                    class="mt-1 px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
-                    <a class="w-full" href="pages/create-account.html">
-                      Kesenian & Alat Olahraga
-                    </a>
+                    <span class="inline-flex items-center justify-between w-full ">
+                      <img src="{{ asset('fasilitasmahasiswa/svgs/dot-inactive.svg') }}" alt="Icon">
+                      <a class="w-full ml-5" href="pages/login.html">Kesenian & Alat Olahraga</a>
+                    </span>
                   </li>
                 </ul>
               </template>
@@ -187,23 +191,49 @@
                   x-transition:leave="transition-all ease-in-out duration-300"
                   x-transition:leave-start="opacity-100 max-h-xl"
                   x-transition:leave-end="opacity-0 max-h-0"
-                  class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50"
+                  class="p-1 space-y-3 overflow-hidden text-sm font-medium text-gray-500 rounded-md"
                   aria-label="submenu"
                 >
                   <li
-                    class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
+                    class="mt-2 px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
-                    <a class="w-full" href="pages/login.html">Fasilitas Gelanggang</a>
+                    <span class="inline-flex items-center justify-between w-full ">
+                      <img src="{{ asset('fasilitasmahasiswa/svgs/dot-inactive.svg') }}" alt="Icon">
+                      <a class="w-full ml-5" href="pages/login.html">Fasilitas Gelanggang</a>
+                    </span>
                   </li>
                   <li
-                    class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
+                    class="mt-1 px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
-                    <a class="w-full" href="pages/create-account.html">
-                      Kesenian & Alat Olahraga
-                    </a>
+                    <span class="inline-flex items-center justify-between w-full ">
+                      <img src="{{ asset('fasilitasmahasiswa/svgs/dot-inactive.svg') }}" alt="Icon">
+                      <a class="w-full ml-5" href="pages/login.html">Kesenian & Alat Olahraga</a>
+                    </span>
                   </li>
                 </ul>
               </template>
+            </li>
+            <li class="relative px-6 py-3">
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 :hover:text-gray-200"
+                href="forms.html"
+              >
+                <svg
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                  ></path>
+                </svg>
+                <span class="ml-4">Keluar</span>
+              </a>
             </li>
           </ul>
         </div>
@@ -414,6 +444,7 @@
                 </ul>
               </template>
             </li>
+            
           </ul>
         
         </div>
