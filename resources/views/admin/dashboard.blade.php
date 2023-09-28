@@ -25,12 +25,17 @@
       >
         <div class="py-4 text-gray-500">
           <a
-            class="ml-6 text-lg font-bold text-gray-800"
+            class="flex ml-8 items-center mt-1 mb-7"
             href="#"
           >
-            Fasilitas USK
+            <img src="https://mbkmunggul.usk.ac.id/assets/img/logo/logo_mbkm_dark.png" alt="Logo" class="w-auto max-h-14">
           </a>
-          <ul class="mt-6">
+
+          <div class="block  px-6 py-3">
+            <span class="font-bold text-slate-600 ml-5 text-sm">ADMIN</span>
+          </div>
+
+          <ul>
             <li class="relative px-6 py-3">
               <span
                 class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
@@ -262,14 +267,11 @@
         @click.away="closeSideMenu"
         @keydown.escape="closeSideMenu"
       >
-        <div class="py-4 text-gray-500">
-          <a
-            class="ml-6 text-lg font-bold text-gray-800"
-            href="#"
-          >
-            Fasilitas USK
-          </a>
-          <ul class="mt-6">
+        <div class="text-gray-500">
+          <div class="block  px-6 py-3">
+            <span class="font-bold text-slate-600 ml-5 text-sm">ADMIN</span>
+          </div>
+          <ul>
             <li class="relative px-6 py-3">
               <span
                 class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
@@ -364,20 +366,24 @@
                   x-transition:leave="transition-all ease-in-out duration-300"
                   x-transition:leave-start="opacity-100 max-h-xl"
                   x-transition:leave-end="opacity-0 max-h-0"
-                  class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50"
+                  class="p-1 space-y-3 overflow-hidden text-sm font-medium text-gray-500 rounded-md"
                   aria-label="submenu"
                 >
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
-                    <a class="w-full" href="pages/login.html">Fasilitas Gelanggang</a>
+                    <span class="inline-flex items-center justify-between w-full ">
+                      <img src="{{ asset('fasilitasmahasiswa/svgs/dot-inactive.svg') }}" alt="Icon">
+                      <a class="w-full ml-5" href="pages/login.html">Fasilitas Gelanggang</a>
+                    </span>
                   </li>
                   <li
-                    class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
+                    class="mt-1 px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
-                    <a class="w-full" href="pages/create-account.html">
-                      Kesenian & Alat Olahraga
-                    </a>
+                    <span class="inline-flex items-center justify-between w-full ">
+                      <img src="{{ asset('fasilitasmahasiswa/svgs/dot-inactive.svg') }}" alt="Icon">
+                      <a class="w-full ml-5" href="pages/login.html">Kesenian & Alat Olahraga</a>
+                    </span>
                   </li>
                 </ul>
               </template>
@@ -426,25 +432,50 @@
                   x-transition:leave="transition-all ease-in-out duration-300"
                   x-transition:leave-start="opacity-100 max-h-xl"
                   x-transition:leave-end="opacity-0 max-h-0"
-                  class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50"
+                  class="p-1 space-y-3 overflow-hidden text-sm font-medium text-gray-500 rounded-md"
                   aria-label="submenu"
                 >
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
-                    <a class="w-full" href="pages/login.html">Fasilitas Gelanggang</a>
+                    <span class="inline-flex items-center justify-between w-full ">
+                      <img src="{{ asset('fasilitasmahasiswa/svgs/dot-inactive.svg') }}" alt="Icon">
+                      <a class="w-full ml-5" href="pages/login.html">Fasilitas Gelanggang</a>
+                    </span>
                   </li>
                   <li
-                    class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
+                    class="mt-1 px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
-                    <a class="w-full" href="pages/create-account.html">
-                      Kesenian & Alat Olahraga
-                    </a>
+                    <span class="inline-flex items-center justify-between w-full ">
+                      <img src="{{ asset('fasilitasmahasiswa/svgs/dot-inactive.svg') }}" alt="Icon">
+                      <a class="w-full ml-5" href="pages/login.html">Kesenian & Alat Olahraga</a>
+                    </span>
                   </li>
                 </ul>
               </template>
             </li>
-            
+            <li class="relative px-6 py-3">
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+                href="forms.html"
+              >
+                <svg
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                  ></path>
+                </svg>
+                <span class="ml-4">Keluar</span>
+              </a>
+            </li>
           </ul>
         
         </div>
@@ -472,18 +503,18 @@
                   clip-rule="evenodd"
                 ></path>
               </svg>
+
+              
             </button>
-           
-            
             <ul class="flex items-center flex-shrink-0 space-x-6">
               <!-- Theme toggler -->
-              <li class="flex">
-                Dhafa Aryanda
+              <li class="flex px-2">
+                profil1
               </li>
              
               <!-- Profile menu -->
-              <li class="relative">
-                2008107010032
+              <li class="relative px-2">
+                profile2
               </li>
             </ul>
           </div>
