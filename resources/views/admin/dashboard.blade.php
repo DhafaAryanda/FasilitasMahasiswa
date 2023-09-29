@@ -4,10 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard Page</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
       @vite('resources/css/app.css')
       
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -21,7 +20,7 @@
     >
       <!-- Desktop sidebar -->
       <aside
-        class="z-20 hidden w-[274px] overflow-y-auto bg-white md:block flex-shrink-0"
+        class="z-20 hidden w-[274px] overflow-y-auto bg-white md:block flex-shrink-0 font-dmsans"
       >
         <div class="py-4 text-gray-500">
           <a
@@ -31,18 +30,18 @@
             <img src="https://mbkmunggul.usk.ac.id/assets/img/logo/logo_mbkm_dark.png" alt="Logo" class="w-auto max-h-14">
           </a>
 
-          <div class="block  px-6 py-3">
-            <span class="font-bold text-slate-600 ml-5 text-sm">ADMIN</span>
+          <div class="block px-6 py-3">
+            <span class="font-bold text-gray-400 ml-5 text-sm">ADMIN</span>
           </div>
 
           <ul>
             <li class="relative px-6 py-3">
               <span
-                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                class="absolute inset-y-0 left-0 w-1 bg-yellow-orange rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
               ></span>
               <a
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800"
+                class="inline-flex items-center w-full text-sm font-bold text-deep-purple transition-colors duration-150 hover:text-deep-purple"
                 href="index.html"
               >
                 <svg
@@ -66,7 +65,7 @@
           <ul>
             <li class="relative px-6 py-3">
               <a
-                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 :hover:text-gray-200"
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-blue-gray hover:text-deep-purple"
                 href="forms.html"
               >
                 <svg
@@ -88,7 +87,7 @@
             </li>
             <li class="relative px-6 py-3">
               <button
-                class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+                class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-blue-gray hover:text-deep-purple"
                 @click="toggleMenu(1)"
                 aria-haspopup="true"
               >
@@ -130,22 +129,26 @@
                   x-transition:leave="transition-all ease-in-out duration-300"
                   x-transition:leave-start="opacity-100 max-h-xl"
                   x-transition:leave-end="opacity-0 max-h-0"
-                  class="p-1 space-y-3 overflow-hidden text-sm font-medium text-gray-500 rounded-md"
+                  class="p-1 space-y-3 overflow-hidden text-sm font-medium text-blue-gray rounded-md"
                   aria-label="submenu"
                 >
                   <li
-                    class="mt-2 px-2 py-1 transition-colors duration-150 hover:text-gray-800"
+                    class="mt-2 px-2 py-1 transition-colors duration-150 hover:text-deep-purple"
                   >
-                    <span class="inline-flex items-center justify-between w-full ">
-                      <img src="{{ asset('fasilitasmahasiswa/svgs/dot-inactive.svg') }}" alt="Icon">
+                    <span class="inline-flex items-center justify-between w-full">
+                      <svg class="w-2.5 h-2.5 text-blue-soap" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="5.456" cy="5.5" rx="4.09174" ry="4.125" fill="currentColor"/>
+                      </svg>
                       <a class="w-full ml-5" href="pages/login.html">Fasilitas Gelanggang</a>
                     </span>
                   </li>
                   <li
-                    class="mt-1 px-2 py-1 transition-colors duration-150 hover:text-gray-800"
+                    class="mt-1 px-2 py-1 transition-colors duration-150 hover:text-deep-purple"
                   >
-                    <span class="inline-flex items-center justify-between w-full ">
-                      <img src="{{ asset('fasilitasmahasiswa/svgs/dot-inactive.svg') }}" alt="Icon">
+                    <span class="inline-flex items-center justify-between w-full">
+                      <svg class="w-2.5 h-2.5 text-blue-soap" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="5.456" cy="5.5" rx="4.09174" ry="4.125" fill="currentColor"/>
+                      </svg>
                       <a class="w-full ml-5" href="pages/login.html">Kesenian & Alat Olahraga</a>
                     </span>
                   </li>
@@ -202,16 +205,20 @@
                   <li
                     class="mt-2 px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
-                    <span class="inline-flex items-center justify-between w-full ">
-                      <img src="{{ asset('fasilitasmahasiswa/svgs/dot-inactive.svg') }}" alt="Icon">
+                    <span class="inline-flex items-center justify-between w-full">
+                      <svg class="w-2.5 h-2.5 text-blue-soap" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="5.456" cy="5.5" rx="4.09174" ry="4.125" fill="currentColor"/>
+                      </svg>
                       <a class="w-full ml-5" href="pages/login.html">Fasilitas Gelanggang</a>
                     </span>
                   </li>
                   <li
                     class="mt-1 px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
-                    <span class="inline-flex items-center justify-between w-full ">
-                      <img src="{{ asset('fasilitasmahasiswa/svgs/dot-inactive.svg') }}" alt="Icon">
+                    <span class="inline-flex items-center justify-between w-full">
+                      <svg class="w-2.5 h-2.5 text-blue-soap" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="5.456" cy="5.5" rx="4.09174" ry="4.125" fill="currentColor"/>
+                      </svg>
                       <a class="w-full ml-5" href="pages/login.html">Kesenian & Alat Olahraga</a>
                     </span>
                   </li>
@@ -506,17 +513,16 @@
 
               
             </button>
-            <ul class="flex items-center flex-shrink-0 space-x-6">
-              <!-- Theme toggler -->
-              <li class="flex px-2">
-                profil1
-              </li>
-             
-              <!-- Profile menu -->
-              <li class="relative px-2">
-                profile2
-              </li>
-            </ul>
+            <div class="flex items-center">
+              <span class="hidden md:flex lg:flex px-2">
+                Dashboard
+              </span>
+            </div>
+            <div class="items-center">
+              <span class="relative px-2">
+                Hi, namaUser
+              </span>
+            </div>
           </div>
         </header>
         <main class="h-full overflow-y-auto">

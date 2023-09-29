@@ -9,6 +9,13 @@ export default {
         extend: {
             fontFamily: {
                 poppins: ["Poppins"],
+                dmsans: ["DM Sans"],
+            },
+            colors: {
+                "deep-purple": "#2B3674",
+                "blue-gray": "#626777",
+                "blue-soap": "#D0D8F0",
+                "yellow-orange": "#E59934",
             },
         },
     },
