@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::group(['prefix' => 'admin'], function(){
     Route::view('/', 'admin.dashboard')->name('admin.dashboard');
     Route::view('/profile', 'admin.profile')->name('admin.profile');
