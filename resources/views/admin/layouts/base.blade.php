@@ -1,7 +1,3 @@
-
-@section('title', 'Dashboard')
-
-
 <!DOCTYPE html>
 <html x-data="data()" lang="en">
   <head>
