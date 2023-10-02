@@ -243,16 +243,12 @@
   </div>
   <ul>
     <li class="relative px-6 py-3">
-      <span
-        class="absolute inset-y-0 left-0 w-1 bg-yellow-orange rounded-tr-lg rounded-br-lg"
-        aria-hidden="true"
-      ></span>
       <a
-        class="inline-flex items-center w-full text-sm font-bold text-deep-purple transition-colors duration-150 hover:text-deep-purple"
+        class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-deep-purple"
         href="index.html"
       >
         <svg 
-          class="w-5 h-5 text-yellow-orange" 
+          class="w-5 h-5" 
           xmlns="http://www.w3.org/2000/svg" 
           fill="currentColor" 
           viewBox="0 0 24 24" 
@@ -330,7 +326,7 @@
           aria-label="submenu"
         >
           <li
-            class="px-2 py-1 transition-colors duration-150 hover:text-deep-purple"
+            class="px-2 py-1 transition-colors duration-150"
           >
             <span class="inline-flex items-center justify-between w-full hover:text-deep-purple">
               <svg class="w-2.5 h-2.5" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -352,13 +348,17 @@
         </ul>
       </template>
     </li>
-    <li class="relative px-6 py-3">
+    <li class="relative px-6 py-3" x-data="{ isMenu2Open:true }">
+      <span
+        class="absolute inset-y-0 left-0 w-1 bg-yellow-orange rounded-tr-lg rounded-br-lg"
+        aria-hidden="true"
+      ></span>
       <button
-        class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-deep-purple"
+        class="inline-flex items-center justify-between w-full text-sm font-bold transition-colors duration-150 hover:text-deep-purple"
         @click="toggleMenu(2)"
         aria-haspopup="true"
       >
-        <span class="inline-flex items-center">
+        <span class="inline-flex items-center text-yellow-orange">
           <svg
             class="w-5 h-5"
             aria-hidden="true"
@@ -373,7 +373,7 @@
               d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
             ></path>
           </svg>
-          <span class="ml-4">Manajemen Konten</span>
+          <span class="ml-4 text-deep-purple">Manajemen Konten</span>
         </span>
         <svg
           class="w-4 h-4"
@@ -402,8 +402,13 @@
           <li
             class="px-2 py-1 transition-colors duration-150 text-deep-purple"
           >
-            <span class="inline-flex items-center justify-between w-full hover:text-deep-purple">
-              <svg class="w-2.5 h-2.5" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <span class="inline-flex items-center font-bold justify-between w-full hover:text-deep-purple">
+              <svg 
+                class="w-2.5 h-2.5 text-yellow-orange" 
+                viewBox="0 0 11 11" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                >
                 <ellipse cx="5.456" cy="5.5" rx="4.09174" ry="4.125" fill="currentColor"/>
               </svg>
               <a class="w-full ml-5" href="pages/login.html">Fasilitas Gelanggang</a>

@@ -31,3 +31,11 @@ Route::group(['prefix' => 'admin'], function(){
         Route::view('/kesenian-dan-alat', 'admin.manajemen-konten.kesenian-dan-alat')->name('admin.manajemen-peminjaman.konten-dan-alat');
     });
 });
+
+Route::view('/dashboard', 'member.dashboard')->name('member.dashboard');
+Route::view('/profile', 'member.profile')->name('member.profile');
+Route::view('/fasilitas-gelanggang', 'member.fasilitas-gelanggang')->name('member.fasilitas-gelanggang');
+Route::view('/kesenian-&alat-olahraga', 'member.kesenian-&alat-olahraga')->name('member.kesenian-&alat-olahraga');
+
+
+
