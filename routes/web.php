@@ -35,7 +35,7 @@ Route::group(['prefix' => 'admin'], function(){
 Route::view('/dashboard', 'member.dashboard')->name('member.dashboard');
 Route::view('/profile', 'member.profile')->name('member.profile');
 Route::view('/fasilitas-gelanggang', 'member.fasilitas-gelanggang')->name('member.fasilitas-gelanggang');
-Route::view('/kesenian-&alat-olahraga', 'member.kesenian-&alat-olahraga')->name('member.kesenian-&alat-olahraga');
+Route::view('/kesenian-&alat-olahraga', 'member.kesenian-dan-alat-olahraga')->name('member.kesenian-dan-alat-olahraga');
 
 
 
