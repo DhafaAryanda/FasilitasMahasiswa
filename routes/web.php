@@ -28,7 +28,12 @@ Route::group(['prefix' => 'admin'], function(){
 
     Route::group(['prefix' => 'manajemen-konten'], function() {
         Route::view('/fasilitas-gelanggang', 'admin.manajemen-konten.fasilitas-gelanggang')->name('admin.manajemen-konten.fasilitas-gelanggang');
+        Route::view('/add-fasilitas-gelanggang', 'admin.manajemen-konten.add-fasilitas-gelanggang')->name('admin.manajemen-konten.add-fasilitas-gelanggang');
+        Route::view('/edit-fasilitas-gelanggang', 'admin.manajemen-konten.edit-fasilitas-gelanggang')->name('admin.manajemen-konten.edit-fasilitas-gelanggang');
         Route::view('/kesenian-dan-alat', 'admin.manajemen-konten.kesenian-dan-alat')->name('admin.manajemen-peminjaman.konten-dan-alat');
+        Route::view('/add-kesenian-dan-alat', 'admin.manajemen-konten.add-kesenian-dan-alat')->name('admin.manajemen-konten.add-kesenian-dan-alat');
+        Route::view('/edit-kesenian-dan-alat', 'admin.manajemen-konten.edit-kesenian-dan-alat')->name('admin.manajemen-konten.edit-kesenian-dan-alat');
+
     });
 });
 

@@ -20,7 +20,7 @@
   <body>
     <div class="flex items-center min-h-screen bg-gray-50">
       <div
-        class="flex-1 h-full max-w-4xl mx-auto bg-white rounded-lg shadow-xl"
+        class="flex-1 h-full max-w-4xl mx-auto bg-white rounded-lg shadow-xl font-poppins"
       >
         <div class="flex flex-col md:flex-row">
           <div class="h-32 md:h-auto md:w-1/2">
@@ -40,41 +40,41 @@
                 />
               </div>
               <h1
-                class="mb-4 text-3xl font-poppins font-semibold text-center text-gray-700"
+                class="mb-4 text-3xl font-semibold text-center text-gray-700"
               >
                 Login Fasilitas USK
               </h1>
               <h5
-                class="mb-16 text-sm font-poppins font-medium text-[#209AFB] text-center"
+                class="mb-16 text-sm font-medium text-[#209AFB] text-center"
               >
                 Gunakan akun KRS Online atau Simpeg
               </h5>
               <div>
                 <label
-                  class="block text-sm font-poppins after:content-['*'] after:text-red-500 after:-ml-0.5"
+                  class="block text-sm after:content-['*'] after:text-red-500 after:-ml-0.5"
                 >
                   NPM/NIP
                 </label>
                 <input
-                  class="w-full px-4 py-2 text-sm font-poppins border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  class="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
                   placeholder=""
                 />
               </div>
               <div>
                 <label
-                  class="block mt-7 text-sm font-poppins after:content-['*'] after:text-red-500 after:-ml-0.5"
+                  class="block mt-7 text-sm after:content-['*'] after:text-red-500 after:-ml-0.5"
                 >
                   Password
                 </label>
                 <input
-                  class="w-full mb-8 px-4 py-2 text-sm font-poppins border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  class="w-full mb-8 px-4 py-2 text-sm  border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
                   placeholder=""
                   type="password"
                 />
               </div>
 
               <button
-                class="block w-full px-4 py-2 mt-4 text-sm font-bold font-poppins leading-5 text-center text-white transition-colors duration-150 bg-gradient-to-br from-[#F3C158] to-[#E59934] rounded-lg hover:from-[#EBB33D] hover:to-[#EA8B0D] active:from-[#EBB33D] active:to-[#C0730C]"
+                class="block w-full px-4 py-2 mt-4 text-sm font-bold leading-5 text-center text-white transition-colors duration-150 bg-gradient-to-br from-[#F3C158] to-[#E59934] rounded-lg hover:from-[#EBB33D] hover:to-[#EA8B0D] active:from-[#EBB33D] active:to-[#C0730C]"
                 href="#"
               >
                 Login
@@ -82,20 +82,20 @@
 
               <hr class="my-8" />
 
-              <p class="mb-3 text-xs text-slate-500 font-poppins">
+              <p class="mb-3 text-xs text-slate-500">
                 Bukan Mahasiswa USK?
               </p>
 
               <div class="items-center justify-center gap-4">
                 <button
-                  class="block w-full items-center justify-center font-poppins font-bold px-4 py-2 text-sm bg-[#209AFB] text-white border border-gray-300 rounded-lg hover:border-gray-500 focus:border-gray-500"
+                  class="block w-full items-center justify-center font-bold px-4 py-2 text-sm bg-[#209AFB] text-white border border-gray-300 rounded-lg hover:border-gray-500 focus:border-gray-500"
                 >
                   Login Pengguna Umum
                 </button>
               </div>
 
               <div
-                class="mt-14 flex justify-between font-poppins font-bold text-xs text-slate-400"
+                class="mt-14 flex justify-between font-bold text-xs text-slate-400"
               >
                 <div>© 2023 FASILITAS USK</div>
                 <div>Contact</div>
