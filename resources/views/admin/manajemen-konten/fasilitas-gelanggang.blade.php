@@ -462,7 +462,7 @@
 
         <div class="bg-white rounded shadow-lg">
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                <table id="example" class="display" style="width:100%">
+                <table id="exampletable" class="display" style="width:100%">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -943,9 +943,17 @@
                     </tfoot>
                 </table>
             </div>
+
+            
         </div>
       </div>
     </div>
   </div>
 </div>
 @endsection
+
+{{-- @section('js')
+  <script>
+  $('#exampletable').DataTable();
+  </script>
+@endSection --}}
