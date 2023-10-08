@@ -41,6 +41,8 @@ Route::view('/dashboard', 'member.dashboard')->name('member.dashboard');
 Route::view('/profile', 'member.profile')->name('member.profile');
 Route::view('/fasilitas-gelanggang', 'member.fasilitas-gelanggang')->name('member.fasilitas-gelanggang');
 Route::view('/kesenian-&alat-olahraga', 'member.kesenian-dan-alat-olahraga')->name('member.kesenian-dan-alat-olahraga');
+Route::view('/login', 'member.auth')->name('member.auth');
+
 
 
 
