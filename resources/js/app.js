@@ -1,6 +1,10 @@
 //DataTable
 import DataTable from "datatables.net-dt";
 
-let table = new DataTable("#exampletable");
+new DataTable("#exampletable");
+// $("#example").DataTable();
 
-//
+// //Alpine.js
+// import Alpine from "alpinejs";
+// window.Alpine = Alpine;
+// Alpine.start();
