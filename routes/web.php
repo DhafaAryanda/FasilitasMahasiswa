@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\FacilityController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,18 @@ Route::group(['prefix' => 'admin'], function(){
     Route::view('/', 'admin.dashboard')->name('admin.dashboard');
     Route::view('/profile', 'admin.profile')->name('admin.profile');
     
+    Route::group(['prefix' => 'facility'], function() {
+        Route::get('/', [FacilityController::class, 'index'])->name('admin.facility');
+        Route::get('/create', [FacilityController::class, 'create'])->name('admin.facility.create');
+        Route::post('/store', [FacilityController::class, 'store'])->name('admin.facility.store');
+        
+    });
+
+
+
+
+
+
     Route::view('/manajemen-konten/fasilitas-gelanggang', 'admin.profile')->name('admin.profile');
     Route::view('/manajemen-konten/kesenian-dan-alat', 'admin.profile')->name('admin.profile');
 

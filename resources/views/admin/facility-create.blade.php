@@ -452,83 +452,103 @@
 @endsection
 
 @section('content')
-<!-- component -->
+
+
+
 <div class=" p-10 flex items-center justify-center font-dmsans">
   <div class="container max-w-screen-lg mx-auto">
+    @if ($errors->any())
+    <div class="mb-4" role="alert">
+      <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+        Danger
+      </div>
+      <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+        <ul>
+          @foreach($errors->all() as $errors)
+            <li>{{ $errors }}</li>
+          @endforeach
+        </ul>
+      </div>
+    </div>
+    @endif
     <div>
       <h2 class="font-semibold text-xl text-blue-gray">Tambah Fasilitas Gelanggang</h2>
       <p class="text-gray-500 mb-6 text-sm">Form untuk menambahkan kontent</p>
-      <div class="bg-white rounded-lg border border-gray-200 shadow-md ">
-        <div>
-          <p class="my-3 mx-5 font-bold">Form Tambah Fasilitas</p>
-          <hr>
-        </div>
-        <div class="lg:col-span-2 m-3 p-4 px-4 md:p-8 mb-6">            
-          <div class="grid gap-4 gap-y-3 text-sm grid-cols-1 md:grid-cols-5">
-            <div class="md:col-span-5 mb-5">
-              <label for="full_name" class="font-medium after:content-['*'] after:text-red-500 ">Fasilitas</label>
-              <input type="text" name="full_name" id="full_name" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" />
-              <p class="text-xs mt-2 text-[#858584]">Tuliskan nama fasilitas</p>
-            </div>
-            <div class="md:col-span-2 mb-5">
-              <label for="categories" class="font-medium after:content-['*'] after:text-red-500">Kategori</label>
-              <select type="text" name="categories" id="categories" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50">
-                <option selected>Pilih kategori</option>
-                <option value="Lapangan Indoor">Lapangan Indoor</option>
-                <option value="Lapangan Outdoor">Lapangan Outdoor</option>
-                <option value="Ruangan">Ruangan</option>
-                <option value="Prasarana">Prasarana</option>
-              </select>
-              <p class="text-xs mt-2 text-[#858584]">Pilih kategori fasilitas</p>
-            </div>
-
-            <div class="md:col-span-3 mb-5">
-              <label for="small-thumbnail" class="font-medium after:content-['*'] after:text-red-500 ">Small Thumbnail</label>
-              <input type="file" name="small-thumbnail" id="small-thumbnail" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-              <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk dijadikan thumbnail fasilitas</p>
-            </div>
-
-            <div class="md:col-span-5 mb-5">
-              <label for="about" class="font-medium after:content-['*'] after:text-red-500 ">About</label>
-              <textarea type="text" name="about" id="about" class="h-24 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" ></textarea>
-              <p class="text-xs mt-2 text-[#858584]">Tuliskan tentang fasilitas</p>
-            </div>
-
-            <div class="md:col-span-5 mb-5">
-              <label for="image-detail-1" class="font-medium after:content-['*'] after:text-red-500 ">Image Detail 1</label>
-              <input type="file" name="image-detail-1" id="image-detail-1" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-              <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
-            </div>
-
-            <div class="md:col-span-5 mb-5">
-              <label for="image-detail-2" class="font-medium after:content-['*'] after:text-red-500 ">Image Detail 2</label>
-              <input type="file" name="image-detail-2" id="image-detail-2" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-              <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
-            </div>
-
-            <div class="md:col-span-2 mb-5">
-              <label for="show" class="font-medium after:content-['*'] after:text-red-500">Tampilkan</label>
-              <select type="text" name="show" id="show" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50">
-                <option selected>Pilih tampilkan/sembunyikan</option>
-                <option value="true">Tampilkan</option>
-                <option value="false">Sembunyikan</option>
-              </select>
-              <p class="text-xs mt-2 text-[#858584]">Pilih kategori fasilitas</p>
-            </div>
-            <div class="md:col-span-5 mb-5">
-              <label for="added-by" class="font-medium after:content-['*'] after:text-red-500 ">Ditambahkan Oleh</label>
-              <input type="text" name="added-by" id="added-by" class="h-10 border mt-2 rounded px-4 w-full bg-gray-200 text-gray-700" value="nilai dari db" readonly />
-            </div>
-            <div class="md:col-span-5 text-right">
-              <div class="inline-flex items-end">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
-              </div>
-            </div>
-
+      <!-- Form Start -->
+      <form enctype="multipart/form-data" action="{{ route('admin.facility.store') }}" method="POST">
+        @csrf
+        <div class="bg-white rounded-lg border border-gray-200 shadow-md ">
+          <div>
+            <p class="my-3 mx-5 font-bold">Form Tambah Fasilitas</p>
+            <hr>
           </div>
+          <div class="lg:col-span-2 m-3 p-4 px-4 md:p-8 mb-6">            
+            <div class="grid gap-4 gap-y-3 text-sm grid-cols-1 md:grid-cols-5">
+              <div class="md:col-span-5 mb-5">
+                <label for="title" class="font-medium after:content-['*'] after:text-red-500 ">Fasilitas</label>
+                <input type="text" name="title" id="title" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="{{ old('title') }}"/>
+                <p class="text-xs mt-2 text-[#858584]">Tuliskan nama fasilitas</p>
+              </div>
+              <div class="md:col-span-2 mb-5">
+                <label for="categories" class="font-medium after:content-['*'] after:text-red-500">Kategori</label>
+                <select type="text" name="categories" id="categories" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50">
+                  <option value="" disabled selected>Pilih kategori</option>
+                  <option value="Lapangan Indoor">Lapangan Indoor</option>
+                  <option value="Lapangan Outdoor">Lapangan Outdoor</option>
+                  <option value="Ruangan">Ruangan</option>
+                  <option value="Prasarana">Prasarana</option>
+                </select>
+                <p class="text-xs mt-2 text-[#858584]">Pilih kategori fasilitas</p>
+              </div>
+  
+              <div class="md:col-span-3 mb-5">
+                <label for="small_thumbnail" class="font-medium after:content-['*'] after:text-red-500 ">Small Thumbnail</label>
+                <input type="file" name="small_thumbnail" id="small_thumbnail" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk dijadikan thumbnail fasilitas</p>
+              </div>
+  
+              <div class="md:col-span-5 mb-5">
+                <label for="about" class="font-medium after:content-['*'] after:text-red-500 ">About</label>
+                <textarea type="text" name="about" id="about" class="h-24 border mt-2 rounded px-4 w-full bg-gray-50" value="{{ old('about') }}" placeholder="" ></textarea>
+                <p class="text-xs mt-2 text-[#858584]">Tuliskan tentang fasilitas</p>
+              </div>
+  
+              <div class="md:col-span-5 mb-5">
+                <label for="image_detail_1" class="font-medium after:content-['*'] after:text-red-500 ">Image Detail 1</label>
+                <input type="file" name="image_detail_1" id="image_detail_1" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
+              </div>
+  
+              <div class="md:col-span-5 mb-5">
+                <label for="image-detail-2" class="font-medium after:content-['*'] after:text-red-500 ">Image Detail 2</label>
+                <input type="file" name="image_detail_2" id="image_detail_2" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
+              </div>
+  
+              <div class="md:col-span-2 mb-5">
+                <label for="show" class="font-medium after:content-['*'] after:text-red-500">Tampilkan</label>
+                <select type="text" name="show" id="show" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50">
+                  <option value="" disabled selected>Pilih tampilkan/sembunyikan konten</option>
+                  <option value="0" {{ old('show') }}>Sembunyikan</option>
+                  <option value="1" {{ old('show')  }}>Tampilkan</option>
+                </select>
+                <p class="text-xs mt-2 text-[#858584]">Pilih kategori fasilitas</p>
+              </div>
+              {{-- <div class="md:col-span-5 mb-5">
+                <label for="added_by" class="font-medium after:content-['*'] after:text-red-500 ">Ditambahkan Oleh</label>
+                <input type="text" name="added_by" id="added_by" class="h-10 border mt-2 rounded px-4 w-full bg-gray-200 text-gray-700" value="" readonly />
+              </div> --}}
+              <div class="md:col-span-5 text-right">
+                <div class="inline-flex items-end">
+                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+          
         </div>
-        
-      </div>
+      </form>
     </div>
   </div>
 </div>

@@ -15,12 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('small_thumbnail');
-            $table->string('image_detail1');
-            $table->string('image_detail2');
+            $table->string('image_detail_1');
+            $table->string('image_detail_2');
             $table->string('categories');
-            $table->text('about');
-            $table->dateTime('latest_schedule');
-            $table->boolean('hide');
+            $table->string('about');
+            // $table->dateTime('latest_schedule');
+            $table->boolean('show');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

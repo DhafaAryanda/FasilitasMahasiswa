@@ -4,22 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Facility extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'facilities';
 
     protected $fillable = [
         'title',
-        'small_thumbnail',
-        'refund_proof',
-        'image_detail1',
-        'image_detail2',
         'categories',
+        'small_thumbnail',
         'about',
-        'latest_schedule',
-        'hide'
+        'image_detail_1',
+        'image_detail_2',
+        'show'
+    
     ];
 }
