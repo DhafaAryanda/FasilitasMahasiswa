@@ -493,10 +493,10 @@
                 <label for="categories" class="font-medium after:content-['*'] after:text-red-500">Kategori</label>
                 <select type="text" name="categories" id="categories" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50">
                   <option value="" disabled selected>Pilih kategori</option>
-                  <option value="Lapangan Indoor">Lapangan Indoor</option>
-                  <option value="Lapangan Outdoor">Lapangan Outdoor</option>
-                  <option value="Ruangan">Ruangan</option>
-                  <option value="Prasarana">Prasarana</option>
+                  <option value="Lapangan Indoor" {{ old('categories') == 'Lapangan Indoor' ? 'selected' : '' }}>Lapangan Indoor</option>
+                  <option value="Lapangan Outdoor" {{ old('categories') == 'Lapangan Outdoor' ? 'selected' : '' }}>Lapangan Outdoor</option>
+                  <option value="Ruangan" {{ old('categories') == 'Ruangan' ? 'selected' : '' }}>Ruangan</option>
+                  <option value="Prasarana" {{ old('categories') == 'Prasarana' ? 'selected' : '' }}>Prasarana</option>
                 </select>
                 <p class="text-xs mt-2 text-[#858584]">Pilih kategori fasilitas</p>
               </div>
@@ -509,7 +509,7 @@
   
               <div class="md:col-span-5 mb-5">
                 <label for="about" class="font-medium after:content-['*'] after:text-red-500 ">About</label>
-                <textarea type="text" name="about" id="about" class="h-24 border mt-2 rounded px-4 w-full bg-gray-50" value="{{ old('about') }}" placeholder="" ></textarea>
+                <textarea type="text" name="about" id="about" class="h-24 border mt-2 rounded px-4 w-full bg-gray-50" placeholder="" >{{ old('about')}}</textarea>
                 <p class="text-xs mt-2 text-[#858584]">Tuliskan tentang fasilitas</p>
               </div>
   
@@ -529,8 +529,8 @@
                 <label for="show" class="font-medium after:content-['*'] after:text-red-500">Tampilkan</label>
                 <select type="text" name="show" id="show" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50">
                   <option value="" disabled selected>Pilih tampilkan/sembunyikan konten</option>
-                  <option value="0" {{ old('show') }}>Sembunyikan</option>
-                  <option value="1" {{ old('show')  }}>Tampilkan</option>
+                  <option value="0" {{ old('show') == '0' ? 'selected' : '' }} >Sembunyikan</option>
+                  <option value="1" {{ old('show') == '1' ? 'selected' : '' }}>Tampilkan</option>
                 </select>
                 <p class="text-xs mt-2 text-[#858584]">Pilih kategori fasilitas</p>
               </div>

@@ -22,6 +22,12 @@ class FacilityController extends Controller
         return view('admin.facility-create');
     }
 
+    public function edit($id)
+    {
+        $facility = Facility::find($id);
+        return view('admin.facility-edit', ['facility' => $facility]);
+    }
+
     public function store(Request $request)
     {
         $data = $request->except('_token');
@@ -41,7 +47,6 @@ class FacilityController extends Controller
         $imageDetail1 = $request->image_detail_1;
         $imageDetail2 = $request->image_detail_2;
 
-
         $originalSmallThumbnailName = Str::random(10).$smallThumbnail->getClientOriginalName();
         $originalImageDetail1Name = Str::random(10).$imageDetail1->getClientOriginalName();
         $originalImageDetail2Name = Str::random(10).$imageDetail2->getClientOriginalName();
@@ -57,5 +62,68 @@ class FacilityController extends Controller
         Facility::create($data);
         return redirect()->route('admin.facility')->with('success', 'Fasilitas berhasil ditambahkan');
 
+    }
+
+    public function update(Request $request, $id) 
+    {
+
+        $data = $request->except('_token');
+
+        $request->validate([
+            'title' => 'required|string',
+            'categories' => 'required|string',
+            'small_thumbnail' => 'image|mimes:jpeg,jpg,png',
+            'about' => 'required|string',
+            'image_detail_1' => 'image|mimes:jpeg,jpg,png',
+            'image_detail_2' => 'image|mimes:jpeg,jpg,png',
+            'show' => 'required|boolean'
+            
+        ]);
+
+        $facility = Facility::find($id);
+
+        if ($request->small_thumbnail) {
+            // save new images
+            $smallThumbnail = $request->small_thumbnail;
+            $originalSmallThumbnailName = Str::random(10).$smallThumbnail->getClientOriginalName();
+            $smallThumbnail->storeAs('public/thumbnail', $originalSmallThumbnailName);
+            $data['small_thumbnail'] = $originalSmallThumbnailName;
+
+            //delete old images
+            Storage::delete('public/thumbnail/'.$facility->small_thumbnail);
+        }
+
+        if ($request->image_detail_1) {
+            // save new images
+            $imageDetail1 = $request->image_detail_1;
+            $originalImageDetail1Name = Str::random(10).$imageDetail1->getClientOriginalName();
+            $imageDetail1->storeAs('public/detail', $originalImageDetail1Name);
+            $data['image_detail_1'] = $originalImageDetail1Name;
+            
+            //delete old images
+            Storage::delete('public/thumbnail/'.$facility->image_detail_1);
+        }
+
+        if ($request->image_detail_2) {
+            // save new images
+            $imageDetail2 = $request->image_detail_2;
+            $originalImageDetail2Name = Str::random(10).$imageDetail2->getClientOriginalName();
+            $imageDetail2->storeAs('public/detail', $originalImageDetail2Name);
+            $data['image_detail_2'] = $originalImageDetail2Name;
+                
+             //delete old images
+             Storage::delete('public/thumbnail/'.$facility->image_detail_2);
+        }
+
+        $facility->update($data);
+
+        return redirect()->route('admin.facility')->with('success', 'Fasilitas berhasil diperbarui');
+    }
+
+    public function destroy($id)
+    {
+        Facility::find($id)->delete();
+
+        return redirect()->route('admin.facility')->with('success', 'Fasilitas berhasil dihapus');
     }
 }

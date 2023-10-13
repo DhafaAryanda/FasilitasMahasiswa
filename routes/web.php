@@ -24,7 +24,9 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('/', [FacilityController::class, 'index'])->name('admin.facility');
         Route::get('/create', [FacilityController::class, 'create'])->name('admin.facility.create');
         Route::post('/store', [FacilityController::class, 'store'])->name('admin.facility.store');
-        
+        Route::get('/edit/{id}', [FacilityController::class, 'edit'])->name('admin.facility.edit');
+        Route::put('/update/{id}', [FacilityController::class, 'update'])->name('admin.facility.update');
+        Route::delete('/destroy/{id}', [FacilityController::class, 'destroy'])->name('admin.facility.destroy');
     });
 
 
