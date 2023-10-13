@@ -475,7 +475,7 @@
       <h2 class="font-semibold text-xl text-blue-gray">Edit Fasilitas Gelanggang</h2>
       <p class="text-gray-500 mb-6 text-sm">Form untuk menambahkan kontent</p>
       <!-- Form Start -->
-      <form enctype="multipart/form-data" action="{{ route('admin.facility.update', $facility->id) }}" method="POST">
+      <form enctype="multipart/form-data" action="{{ route('admin.facility.update', $facility->id) }}" method="POST" id="facilityForm">
         @csrf
         @method('PUT')
         <div class="bg-white rounded-lg border border-gray-200 shadow-md ">
@@ -537,15 +537,29 @@
               </div>
               <div class="md:col-span-5 text-right">
                 <div class="inline-flex items-end">
-                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Perbarui</button>
+                  <button type="button" id="deleteButton" class="bg-red-500 mx-2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Hapus Fasilitas</button>
+                  <button type="submit" name="action" value="update" class="bg-blue-500 mx-2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Perbarui</button>
                 </div>
               </div>
-  
             </div>
           </div>
-          
         </div>
       </form>
+      <script>
+        document.getElementById('deleteButton').addEventListener('click', function() {
+            if (confirm("Apakah Anda yakin ingin menghapus fasilitas ini?")) {
+                var form = document.getElementById('facilityForm');
+                var inputMethod = document.createElement('input');
+                inputMethod.type = 'hidden';
+                inputMethod.name = '_method';
+                inputMethod.value = 'DELETE';
+                form.appendChild(inputMethod);
+    
+                form.action = "{{ route('admin.facility.destroy', $facility->id) }}"; // Ganti dengan rute penghapusan yang sesuai
+                form.submit();
+            }
+        });
+    </script>
     </div>
   </div>
 </div>
