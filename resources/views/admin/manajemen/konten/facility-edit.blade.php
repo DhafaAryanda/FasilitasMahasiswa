@@ -453,8 +453,6 @@
 
 @section('content')
 
-
-
 <div class=" p-10 flex items-center justify-center font-dmsans">
   <div class="container max-w-screen-lg mx-auto">
     @if ($errors->any())
@@ -475,7 +473,7 @@
       <h2 class="font-semibold text-xl text-blue-gray">Edit Fasilitas Gelanggang</h2>
       <p class="text-gray-500 mb-6 text-sm">Form untuk menambahkan kontent</p>
       <!-- Form Start -->
-      <form enctype="multipart/form-data" action="{{ route('admin.facility.update', $facility->id) }}" method="POST" id="facilityForm">
+      <form enctype="multipart/form-data" action="{{ route('admin.manajemen.konten.facility.update', $facility->id) }}" method="POST" id="facilityForm">
         @csrf
         @method('PUT')
         <div class="bg-white rounded-lg border border-gray-200 shadow-md ">
@@ -536,11 +534,14 @@
                 <p class="text-xs mt-2 text-[#858584]">Pilih kategori fasilitas</p>
               </div>
               <div class="md:col-span-5 text-right">
-                <div class="inline-flex items-end">
-                  <button type="button" id="deleteButton" class="bg-red-500 mx-2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Hapus Fasilitas</button>
-                  <button type="submit" name="action" value="update" class="bg-blue-500 mx-2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Perbarui</button>
+                <div class="flex items-end">
+                  <button type="button" id="deleteButton" class="bg-red-500 mx-2 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Hapus Fasilitas</button>
+                  <div class="ml-auto">
+                    <a href="{{ route('admin.manajemen.konten.facility') }}" class="bg-gray-400 mx-2 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">Kembali</a>
+                    <button type="submit" name="action" value="update" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Perbarui</button>
+                  </div>
                 </div>
-              </div>
+              </div>                         
             </div>
           </div>
         </div>
@@ -555,7 +556,7 @@
                 inputMethod.value = 'DELETE';
                 form.appendChild(inputMethod);
     
-                form.action = "{{ route('admin.facility.destroy', $facility->id) }}"; // Ganti dengan rute penghapusan yang sesuai
+                form.action = "{{ route('admin.manajemen.konten.facility.destroy', $facility->id) }}";
                 form.submit();
             }
         });

@@ -8,24 +8,24 @@ use Illuminate\Support\Str;
 use App\Models\Facility;
 use Illuminate\Support\Facades\Storage;
 
-class FacilityController extends Controller
+class ManajemenKontenController extends Controller
 {
     public function index()
     {
         $facilities = Facility::all();
 
-        return view('admin.facility', ['facilities' => $facilities]);
+        return view('admin.manajemen.konten.facility', ['facilities' => $facilities]);
     }
 
     public function create()
     {
-        return view('admin.facility-create');
+        return view('admin.manajemen.konten.facility-create');
     }
 
     public function edit($id)
     {
         $facility = Facility::find($id);
-        return view('admin.facility-edit', ['facility' => $facility]);
+        return view('admin.manajemen.konten.facility-edit', ['facility' => $facility]);
     }
 
     public function store(Request $request)
@@ -60,7 +60,7 @@ class FacilityController extends Controller
         $data['image_detail_2'] = $originalImageDetail2Name;
 
         Facility::create($data);
-        return redirect()->route('admin.facility')->with('success', 'Fasilitas berhasil ditambahkan');
+        return redirect()->route('admin.manajemen.konten.facility')->with('success', 'Fasilitas berhasil ditambahkan');
 
     }
 
@@ -117,13 +117,13 @@ class FacilityController extends Controller
 
         $facility->update($data);
 
-        return redirect()->route('admin.facility')->with('success', 'Fasilitas berhasil diperbarui');
+        return redirect()->route('admin.manajemen.konten.facility')->with('success', 'Fasilitas berhasil diperbarui');
     }
 
     public function destroy($id)
     {
         Facility::find($id)->delete();
 
-        return redirect()->route('admin.facility')->with('success', 'Fasilitas berhasil dihapus');
+        return redirect()->route('admin.manajemen.konten.facility')->with('success', 'Fasilitas berhasil dihapus');
     }
 }
