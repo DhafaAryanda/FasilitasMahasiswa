@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ManajemenKontenController;
 use App\Http\Controllers\Admin\ManajemenPeminjamanController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Member\RegisterController;
 
 
 
@@ -52,35 +53,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function(){
             
         });
 
-
-
-
-
     });
-
-
-
-
-
-
-    // Route::view('/manajemen-konten/fasilitas-gelanggang', 'admin.profile')->name('admin.profile');
-    // Route::view('/manajemen-konten/kesenian-dan-alat', 'admin.profile')->name('admin.profile');
-
-    // Route::group(['prefix' => 'manajemen-peminjaman'], function() {
-    //     Route::view('/fasilitas-gelanggang', 'admin.manajemen-peminjaman.fasilitas-gelanggang')->name('admin.manajemen-peminjaman.fasilitas-gelanggang');
-    //     Route::view('/kesenian-dan-alat', 'admin.manajemen-peminjaman.kesenian-dan-alat')->name('admin.manajemen-peminjaman.kesenian-dan-alat');
-    // });
-
-    // Route::group(['prefix' => 'manajemen-konten'], function() {
-    //     Route::view('/fasilitas-gelanggang', 'admin.manajemen-konten.fasilitas-gelanggang')->name('admin.manajemen-konten.fasilitas-gelanggang');
-    //     Route::view('/add-fasilitas-gelanggang', 'admin.manajemen-konten.add-fasilitas-gelanggang')->name('admin.manajemen-konten.add-fasilitas-gelanggang');
-    //     Route::view('/edit-fasilitas-gelanggang', 'admin.manajemen-konten.edit-fasilitas-gelanggang')->name('admin.manajemen-konten.edit-fasilitas-gelanggang');
-    //     Route::view('/kesenian-dan-alat', 'admin.manajemen-konten.kesenian-dan-alat')->name('admin.manajemen-peminjaman.konten-dan-alat');
-    //     Route::view('/add-kesenian-dan-alat', 'admin.manajemen-konten.add-kesenian-dan-alat')->name('admin.manajemen-konten.add-kesenian-dan-alat');
-    //     Route::view('/edit-kesenian-dan-alat', 'admin.manajemen-konten.edit-kesenian-dan-alat')->name('admin.manajemen-konten.edit-kesenian-dan-alat');
-
-    // });
 });
+
+Route::get('/register', [RegisterController::class, 'index'])->name('member.register');
+Route::post('/register', [RegisterController::class, 'store'])->name('member.register.store');
+
 
 Route::view('/dashboard', 'member.dashboard')->name('member.dashboard');
 Route::view('/profile', 'member.profile')->name('member.profile');
