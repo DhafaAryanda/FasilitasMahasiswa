@@ -22,7 +22,7 @@
       ></span>
       <a
         class="inline-flex items-center w-full text-sm font-bold text-deep-purple transition-colors duration-150 hover:text-deep-purple"
-        href="index.html"
+        href="{{route('admin.dashboard')}}"
       >
         <svg 
           class="w-5 h-5 text-yellow-orange" 
@@ -39,7 +39,7 @@
     <li class="relative px-6 py-3 duration-150">
       <a
         class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-blue-gray hover:text-deep-purple"
-        href="forms.html"
+        href="{{route('admin.profile')}}"
       >
         <svg 
           class="w-5 h-5" 
@@ -108,7 +108,7 @@
               <svg class="w-2.5 h-2.5" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <ellipse cx="5.456" cy="5.5" rx="4.09174" ry="4.125" fill="currentColor"/>
               </svg>
-              <a class="w-full ml-5" href="pages/login.html">Fasilitas Gelanggang</a>
+              <a class="w-full ml-5" href="{{route('admin.manajemen.peminjaman.facility')}}">Fasilitas Gelanggang</a>
             </span>
           </li>
           <li

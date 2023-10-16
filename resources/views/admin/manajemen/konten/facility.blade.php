@@ -6,7 +6,7 @@
 <div class="py-4 text-blue-gray">
   <a
     class="flex ml-8 items-center mt-1 mb-7"
-    href="#"
+    href="{{route('admin.dashboard')}}"
   >
     <img src="https://mbkmunggul.usk.ac.id/assets/img/logo/logo_mbkm_dark.png" alt="Logo" class="w-auto max-h-14">
   </a>
@@ -18,7 +18,7 @@
     <li class="relative px-6 py-3 duration-150">
       <a
         class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-blue-gray hover:text-deep-purple"
-        href="forms.html"
+        href="{{route('admin.dashboard')}}"
       >
         <svg 
             class="w-5 h-5" 
@@ -35,7 +35,7 @@
     <li class="relative px-6 py-3">
         <a
           class="inline-flex items-center w-full text-sm font-semibold text-blue-gray transition-colors duration-150 hover:text-deep-purple"
-          href="index.html"
+          href="{{route('admin.profile')}}"
         >
             <svg 
             class="w-5 h-5" 
@@ -109,7 +109,7 @@
                 >
                 <ellipse cx="5.456" cy="5.5" rx="4.09174" ry="4.125" fill="currentColor"/>
               </svg>
-              <a class="w-full ml-5" href="pages/login.html">Fasilitas Gelanggang</a>
+              <a class="w-full ml-5" href="{{route('admin.manajemen.peminjaman.facility')}}">Fasilitas Gelanggang</a>
             </span>
           </li>
           <li
@@ -193,7 +193,7 @@
                 >
                 <ellipse cx="5.456" cy="5.5" rx="4.09174" ry="4.125" fill="currentColor"/>
               </svg>
-              <a class="w-full ml-5" href="pages/login.html">Fasilitas Gelanggang</a>
+              <a class="w-full ml-5" href="{{route('admin.manajemen.konten.facility')}}">Fasilitas Gelanggang</a>
             </span>
           </li>
           <li
@@ -217,7 +217,7 @@
     <li class="relative px-6 py-3">
       <a
         class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-blue-gray hover:text-red-800"
-        href="forms.html"
+        href="{{route('admin.logout')}}"
       >
         <svg 
           class="w-5 h-5" 
