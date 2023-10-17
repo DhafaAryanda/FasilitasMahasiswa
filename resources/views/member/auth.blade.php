@@ -42,58 +42,58 @@
               <h1
                 class="mb-4 text-3xl font-semibold text-center text-gray-700"
               >
-                Login Fasilitas USK
+                 Fasilitas USK
               </h1>
               <h5
-                class="mb-16 text-sm font-medium text-[#209AFB] text-center"
+                class="my-5 text-sm font-semibold text-[#209AFB] text-left"
               >
-                Gunakan akun KRS Online atau Simpeg
+                Login Akun Member
               </h5>
-              <div>
+
+            <form action="{{ route('member.login.auth') }}" method="POST">
+              @csrf
+            
+              <div class="my-3">
                 <label
                   class="block text-sm after:content-['*'] after:text-red-500 after:-ml-0.5"
                 >
-                  NPM/NIP
+                  Email
                 </label>
                 <input
-                  class="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
-                  placeholder=""
+                  type="email" class="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  placeholder="Masukkan Alamat Email" name="email" value="{{ old('email') }}"
                 />
+                @error('email')
+                  <div class="text-red-500 text-sm">{{$message}}</div>
+                @enderror
               </div>
-              <div>
+              <div class="my-3">
                 <label
-                  class="block mt-7 text-sm after:content-['*'] after:text-red-500 after:-ml-0.5"
+                  class="block text-sm after:content-['*'] after:text-red-500 after:-ml-0.5"
                 >
                   Password
                 </label>
                 <input
-                  class="w-full mb-8 px-4 py-2 text-sm  border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
-                  placeholder=""
+                  class="w-full px-4 py-2 text-sm  border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  placeholder="Masukkan Kata Sandi"
                   type="password"
+                  name="password"
                 />
+                @error('password')
+                  <div class="text-red-500 text-sm">{{$message}}</div>
+                @enderror
               </div>
-
+                @error('credentials')
+                <div class="text-red-500 text-sm">{{$message}}</div>
+                @enderror
+              
               <button
-                class="block w-full px-4 py-2 mt-4 text-sm font-bold leading-5 text-center text-white transition-colors duration-150 bg-gradient-to-br from-[#F3C158] to-[#E59934] rounded-lg hover:from-[#EBB33D] hover:to-[#EA8B0D] active:from-[#EBB33D] active:to-[#C0730C]"
-                href="#"
+                class="block w-full items-center justify-center font-bold px-4 py-2 text-sm bg-[#209AFB] text-white border border-gray-300 rounded-lg hover:border-gray-500 focus:border-gray-500"
               >
-                Login
+                 Login 
               </button>
-
+            </form>
               <hr class="my-8" />
-
-              <p class="mb-3 text-xs text-slate-500">
-                Bukan Mahasiswa USK?
-              </p>
-
-              <div class="items-center justify-center gap-4">
-                <button
-                  class="block w-full items-center justify-center font-bold px-4 py-2 text-sm bg-[#209AFB] text-white border border-gray-300 rounded-lg hover:border-gray-500 focus:border-gray-500"
-                >
-                  Login Pengguna Umum
-                </button>
-              </div>
-
               <div
                 class="mt-14 flex justify-between font-bold text-xs text-slate-400"
               >

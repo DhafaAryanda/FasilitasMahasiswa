@@ -40,6 +40,6 @@ class RegisterController extends Controller
 
         User::create($data);
 
-        return redirect()->route('admin.login');
+        return redirect()->route('member.login.auth');
     }
 }
