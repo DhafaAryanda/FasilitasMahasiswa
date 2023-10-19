@@ -240,7 +240,7 @@
   <div class="container max-w-screen-lg mx-auto">
     <div>
       <h2 class="font-semibold text-xl text-blue-gray">{{ $facility->title }}</h2>
-
+<div></div>
       <div class="grid gap-4">
         <div>
             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg" alt="">
@@ -255,7 +255,7 @@
             <div>
                 <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="">
             </div>
-            <div>
+            <div> 
                 <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="">
             </div>
             <div>
