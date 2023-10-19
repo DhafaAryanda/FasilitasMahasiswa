@@ -7,6 +7,10 @@ use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Member\RegisterController;
 use App\Http\Controllers\Member\LoginController as MemberLoginController;
+use App\Http\Controllers\Member\DashboardController;
+use App\Http\Controllers\Member\FacilityController;
+
+
 
 
 
@@ -49,7 +53,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function(){
             
             Route::group(['prefix' => 'facility'], function() {
                 Route::get('/', [TransactionController::class, 'index'])->name('admin.manajemen.peminjaman.facility');
-
+                
             });
             
         });
@@ -63,6 +67,17 @@ Route::post('/register', [RegisterController::class, 'store'])->name('member.reg
 Route::get('/login', [MemberLoginController::class, 'index'])->name('member.login');
 Route::post('/login', [MemberLoginController::class, 'auth'])->name('member.login.auth');
 
+Route::group(['prefix' => 'member'], function() {
+    Route::get('/', [DashboardController::class, 'index'])->name('member.dashboard');
+
+    Route::group(['prefix' => 'konten'], function() {
+
+        Route::group(['prefix' => 'facility'], function() {
+            Route::get('/', [FacilityController::class, 'index'])->name('member.konten.facility');
+            Route::get('/{id}', [FacilityController::class, 'show'])->name('member.konten.facility.detail');
+        });
+    });
+});
 
 
 Route::view('/dashboard', 'member.dashboard')->name('member.dashboard');

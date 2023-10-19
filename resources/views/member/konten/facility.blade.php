@@ -2,7 +2,7 @@
 
 @section('role', 'MAHASISWA')
 
-@section('title', 'Dashboard')
+@section('title', 'Fasilitas Gelanggang')
 
 @section('sidebar-menu-desktop')
 <div class="py-4 text-gray-500">
@@ -18,16 +18,12 @@
   </div>
   <ul>
     <li class="relative px-6 py-3">
-      <span
-        class="absolute inset-y-0 left-0 w-1 bg-yellow-orange rounded-tr-lg rounded-br-lg"
-        aria-hidden="true"
-      ></span>
       <a
-        class="inline-flex items-center w-full text-sm font-bold text-deep-purple transition-colors duration-150 hover:text-deep-purple"
+        class="inline-flex items-center w-full text-sm font-semibold text-blue-gray transition-colors duration-150 hover:text-deep-purple"
         href="index.html"
       >
         <svg 
-          class="w-5 h-5 text-yellow-orange" 
+          class="w-5 h-5" 
           xmlns="http://www.w3.org/2000/svg" 
           fill="currentColor" 
           viewBox="0 0 24 24" 
@@ -57,12 +53,16 @@
       </a>
     </li>
     <li class="relative px-6 py-3 duration-150">
+        <span
+        class="absolute inset-y-0 left-0 w-1 bg-yellow-orange rounded-tr-lg rounded-br-lg"
+        aria-hidden="true">
+        </span>
       <a
-        class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-blue-gray hover:text-deep-purple"
-        href="{{ route('member.konten.facility') }}"
+        class="inline-flex items-center w-full text-sm font-bold transition-colors duration-150 text-deep-purple hover:text-deep-purple"
+        href="forms.html"
       >
         <svg
-          class="w-5 h-5"
+          class="w-5 h-5 text-yellow-orange"
           aria-hidden="true"
           fill="none"
           stroke-linecap="round"
@@ -81,7 +81,7 @@
     <li class="relative px-6 py-3 duration-150">
       <a
         class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-blue-gray hover:text-deep-purple"
-        href="#"
+        href="forms.html"
       >
         <svg
             class="w-5 h-5"
@@ -125,20 +125,16 @@
 @section('sidebar-menu-mobile')
 <div class="text-gray-500">
   <div class="block  px-6 py-3">
-    <span class="font-bold text-slate-600 ml-5 text-sm">ADMIN</span>
+    <span class="font-bold text-slate-600 ml-5 text-sm">@yield('role')</span>
   </div>
   <ul>
     <li class="relative px-6 py-3">
-      <span
-        class="absolute inset-y-0 left-0 w-1 bg-yellow-orange rounded-tr-lg rounded-br-lg"
-        aria-hidden="true"
-      ></span>
       <a
-        class="inline-flex items-center w-full text-sm font-bold text-deep-purple transition-colors duration-150 hover:text-deep-purple"
+        class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-deep-purple"
         href="index.html"
       >
         <svg 
-          class="w-5 h-5 text-yellow-orange" 
+          class="w-5 h-5" 
           xmlns="http://www.w3.org/2000/svg" 
           fill="currentColor" 
           viewBox="0 0 24 24" 
@@ -167,12 +163,16 @@
       </a>
     </li>
     <li class="relative px-6 py-3">
+        <span
+        class="absolute inset-y-0 left-0 w-1 bg-yellow-orange rounded-tr-lg rounded-br-lg"
+        aria-hidden="true">
+        </span>
       <a
-        class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-deep-purple"
+        class="inline-flex items-center w-full text-sm font-bold text-deep-purple transition-colors duration-150 hover:text-deep-purple"
         href="forms.html"
       >
         <svg
-          class="w-5 h-5"
+          class="w-5 h-5 text-yellow-orange"
           aria-hidden="true"
           fill="none"
           stroke-linecap="round"
@@ -213,7 +213,7 @@
     <li class="relative px-6 py-3">
       <a
         class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-red-800"
-        href="{{ route('admin.logout') }}"
+        href="form.html"
       >
         <svg 
           class="w-5 h-5" 
@@ -234,3 +234,55 @@
 </div>
 @endsection
 
+@section('content')
+
+<div class=" p-10 flex items-center justify-center font-dmsans">
+  <div class="container max-w-screen-lg mx-auto">
+    <div>
+      <h2 class="font-semibold text-xl text-blue-gray">Tambah Fasilitas Gelanggang</h2>
+      <p class="text-gray-500 mb-6 text-sm">Form untuk menambahkan kontent</p>
+
+      <div class="grid grid-cols-3 gap-4">
+        @foreach ($facilities as $facility)
+          <div class="relative flex flex-col text-gray-700 bg-white shadow-md w-[310px]  rounded-[20px] bg-clip-border">
+            <div class="relative mx-[10px] my-[10px] overflow-hidden text-white shadow-lg rounded-[20px] bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
+              <img
+                src="{{ asset('storage/thumbnail/'.$facility->small_thumbnail) }}"
+                alt="img"
+                class="w-[290px] h-[200px] object-cover"
+              />
+            </div>
+            <div class="px-6 mt-2 mb-5">
+              <h5 class="block mb-[10px] font-poppins text-base antialiased font-medium leading-snug tracking-normal text-blue-gray-900">
+                {{ $facility->title }}
+              </h5>
+              <div class="flex flex-row justify-between items-center">
+  
+                <div class="flex flex-col">
+                  <h6 class="mt-2 text-xs font-poppins font-normal text-[#858584]">
+                    Harga
+                  </h6>
+                  <h6 class="mt-2 text-xs font-poppins font-normal">
+                    Rp. 25.000,00/hrs
+                  </h6>
+                </div>
+                <a href="{{ route('member.konten.facility.detail', $facility->id) }}"
+                  class=" flex justify-center items-center rounded-3xl w-20 h-8 bg-yellow-orange text-center align-middle font-sans text-xs font-medium text-white shadow-md shadow-orange-500/20 transition-all hover:shadow-lg  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                  type="button"
+                  data-ripple-light="true"
+                >
+                  Detail
+                </a>
+              </div>
+            </div>
+          </div>
+            
+        @endforeach
+
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+@endsection

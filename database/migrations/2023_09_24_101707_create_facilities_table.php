@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('image_detail_1');
             $table->string('image_detail_2');
             $table->string('categories');
-            $table->string('about');
+            $table->text('about');
             // $table->dateTime('latest_schedule');
             $table->boolean('show');
             $table->softDeletes();
