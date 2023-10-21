@@ -514,14 +514,26 @@
               </div>
   
               <div class="md:col-span-5 mb-5">
-                <label for="image_detail_1" class="font-medium after:content-['*'] after:text-red-500 ">Image Detail 1</label>
-                <input type="file" name="image_detail_1" id="image_detail_1" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                <label for="image1_detail" class="font-medium after:content-['*'] after:text-red-500 ">Image Detail 1</label>
+                <input type="file" name="image1_detail" id="image1_detail" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                 <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
               </div>
   
               <div class="md:col-span-5 mb-5">
-                <label for="image-detail-2" class="font-medium after:content-['*'] after:text-red-500 ">Image Detail 2</label>
-                <input type="file" name="image_detail_2" id="image_detail_2" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                <label for="image2_detail" class="font-medium after:content-['*'] after:text-red-500 ">Image Detail 2</label>
+                <input type="file" name="image2_detail" id="image2-detail" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
+              </div>
+
+              <div class="md:col-span-5 mb-5">
+                <label for="image3_detail" class="font-medium ">Image Detail 3</label>
+                <input type="file" name="image3_detail" id="image3-detail" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
+              </div>
+
+              <div class="md:col-span-5 mb-5">
+                <label for="image4_detail" class="font-medium">Image Detail 4</label>
+                <input type="file" name="image4_detail" id="image4-detail" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                 <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
               </div>
   

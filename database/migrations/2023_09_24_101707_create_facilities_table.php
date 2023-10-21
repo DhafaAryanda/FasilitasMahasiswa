@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('small_thumbnail');
-            $table->string('image_detail_1');
-            $table->string('image_detail_2');
+            $table->string('image1_detail');
+            $table->string('image2_detail');
+            $table->string('image3_detail')->nullable();
+            $table->string('image4_detail')->nullable();
             $table->string('categories');
             $table->text('about');
             // $table->dateTime('latest_schedule');

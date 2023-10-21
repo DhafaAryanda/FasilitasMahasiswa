@@ -239,31 +239,45 @@
 <div class=" p-10 flex items-center justify-center font-dmsans">
   <div class="container max-w-screen-lg mx-auto">
     <div>
-      <h2 class="font-semibold text-xl text-blue-gray">{{ $facility->title }}</h2>
-<div></div>
-      <div class="grid gap-4">
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg" alt="">
+      <h2 class="font-bold text-2xl text-slate-800">{{ $facility->title }}</h2>
+
+      <div class="flex flex-row gap-4 my-10">
+        <div class="w-[700px] h-[450px]">
+          <img id="featured-image" class="w-full h-full object-cover rounded-lg" src="{{ asset('storage/detail/'.$facility->image1_detail) }}" alt="img">
         </div>
-        <div class="grid grid-cols-5 gap-4">
-            <div>
-                <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
+        <div class="flex flex-col gap-4">
+          <div class="w-36 h-24">
+            <img class="w-full h-full object-cover rounded-lg" src="{{ asset('storage/detail/'.$facility->image2_detail) }}" alt="img" onclick="setFeaturedImage(this)">
+          </div>
+          @if(isset($facility->image3_detail))
+            <div class="w-36 h-24">
+              <img class="w-full h-full object-cover rounded-lg" src="{{ asset('storage/detail/'.$facility->image3_detail) }}" alt="img" onclick="setFeaturedImage(this)">
             </div>
-            <div>
-                <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
+          @endif
+
+          @if(isset($facility->image4_detail))
+            <div class="w-36 h-24">
+              <img class="w-full h-full object-cover rounded-lg" src="{{ asset('storage/detail/'.$facility->image4_detail) }}" alt="img" onclick="setFeaturedImage(this)">
             </div>
-            <div>
-                <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="">
-            </div>
-            <div> 
-                <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="">
-            </div>
-            <div>
-                <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="">
-            </div>
+          @endif
         </div>
-    </div>
+      </div>
+
+      <h4 class="font-semibold text-xl text-slate-800 my-3">About</h4>
+      <p>{!! $facility->about !!}</p>
+
+
     </div>
   </div>
 </div>
+
+<script>
+  // Fungsi untuk mengganti "featured image" saat mengklik gambar lain
+  function setFeaturedImage(clickedImage) {
+    const featuredImage = document.getElementById('featured-image');
+    const tempImageUrl = featuredImage.src;
+    featuredImage.src = clickedImage.src;
+    clickedImage.src = tempImageUrl;
+  }
+</script>
 @endsection

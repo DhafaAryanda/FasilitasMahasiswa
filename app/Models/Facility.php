@@ -17,8 +17,10 @@ class Facility extends Model
         'categories',
         'small_thumbnail',
         'about',
-        'image_detail_1',
-        'image_detail_2',
+        'image1_detail',
+        'image2_detail',
+        'image3_detail',
+        'image4_detail',
         'show'
     
     ];

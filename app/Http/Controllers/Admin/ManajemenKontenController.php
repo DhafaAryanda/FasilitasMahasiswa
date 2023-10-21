@@ -37,27 +37,71 @@ class ManajemenKontenController extends Controller
             'categories' => 'required|string',
             'small_thumbnail' => 'required|image|mimes:jpeg,jpg,png',
             'about' => 'required|string',
-            'image_detail_1' => 'required|image|mimes:jpeg,jpg,png',
-            'image_detail_2' => 'required|image|mimes:jpeg,jpg,png',
+            'image1_detail' => 'required|image|mimes:jpeg,jpg,png',
+            'image2_detail' => 'required|image|mimes:jpeg,jpg,png',
+            'image3_detail' => 'sometimes|image|mimes:jpeg,jpg,png',
+            'image4_detail' => 'sometimes|image|mimes:jpeg,jpg,png',
             'show' => 'required|boolean'
             
         ]);
 
-        $smallThumbnail = $request->small_thumbnail;
-        $imageDetail1 = $request->image_detail_1;
-        $imageDetail2 = $request->image_detail_2;
+        $data['about'] = nl2br($data['about']);
 
-        $originalSmallThumbnailName = Str::random(10).$smallThumbnail->getClientOriginalName();
-        $originalImageDetail1Name = Str::random(10).$imageDetail1->getClientOriginalName();
-        $originalImageDetail2Name = Str::random(10).$imageDetail2->getClientOriginalName();
+        $smallThumbnail = $request->file('small_thumbnail');
+        $image1Detail = $request->file('image1_detail');
+        $image2Detail = $request->file('image2_detail');
+        $image3Detail = $request->file('image3_detail');
+        $image4Detail = $request->file('image4_detail');
 
-        $smallThumbnail->storeAs('public/thumbnail', $originalSmallThumbnailName);
-        $imageDetail1->storeAs('public/detail', $originalImageDetail1Name);
-        $imageDetail2->storeAs('public/detail', $originalImageDetail2Name);
+        if ($smallThumbnail) {
+            $originalSmallThumbnailName = Str::random(10).$smallThumbnail->getClientOriginalName();
+            $smallThumbnail->storeAs('public/thumbnail', $originalSmallThumbnailName);
+            $data['small_thumbnail'] = $originalSmallThumbnailName;
+        }
 
-        $data['small_thumbnail'] = $originalSmallThumbnailName;
-        $data['image_detail_1'] = $originalImageDetail1Name;
-        $data['image_detail_2'] = $originalImageDetail2Name;
+        if ($image1Detail) {
+            $originalImage1DetailName = Str::random(10).$image1Detail->getClientOriginalName();
+            $image1Detail->storeAs('public/detail', $originalImage1DetailName);
+            $data['image1_detail'] = $originalImage1DetailName;
+        }
+
+        if ($image2Detail) {
+            $originalImage2DetailName = Str::random(10).$image2Detail->getClientOriginalName();
+            $image2Detail->storeAs('public/detail', $originalImage2DetailName);
+            $data['image2_detail'] = $originalImage2DetailName;
+        }
+
+        if ($image3Detail) {
+            $originalImage3DetailName = Str::random(10).$image3Detail->getClientOriginalName();
+            $image3Detail->storeAs('public/detail', $originalImage3DetailName);
+            $data['image3_detail'] = $originalImage3DetailName;
+        }
+
+        if ($image4Detail) {
+            $originalImage4DetailName = Str::random(10).$image4Detail->getClientOriginalName();
+            $image4Detail->storeAs('public/detail', $originalImage4DetailName);
+            $data['image4_detail'] = $originalImage4DetailName;
+        }
+
+
+
+        // $originalSmallThumbnailName = Str::random(10).$smallThumbnail->getClientOriginalName();
+        // $originalImage1DetailName = Str::random(10).$image1Detail->getClientOriginalName();
+        // $originalImage2DetailName = Str::random(10).$image2Detail->getClientOriginalName();
+        // $originalImage3DetailName = Str::random(10).$image3Detail->getClientOriginalName();
+        // $originalImage4DetailName = Str::random(10).$image4Detail->getClientOriginalName();
+
+        // $smallThumbnail->storeAs('public/thumbnail', $originalSmallThumbnailName);
+        // $image1Detail->storeAs('public/detail', $originalImage1DetailName);
+        // $image2Detail->storeAs('public/detail', $originalImage2DetailName);
+        // $image3Detail->storeAs('public/detail', $originalImage3DetailName);
+        // $image4Detail->storeAs('public/detail', $originalImage4DetailName);
+
+        // $data['small_thumbnail'] = $originalSmallThumbnailName;
+        // $data['image1_detail'] = $originalImage1DetailName;
+        // $data['image2_detail'] = $originalImage2DetailName;
+        // $data['image3_detail'] = $originalImage3DetailName;
+        // $data['image4_detail'] = $originalImage4DetailName;
 
         Facility::create($data);
         return redirect()->route('admin.manajemen.konten.facility')->with('success', 'Fasilitas berhasil ditambahkan');
@@ -74,15 +118,19 @@ class ManajemenKontenController extends Controller
             'categories' => 'required|string',
             'small_thumbnail' => 'image|mimes:jpeg,jpg,png',
             'about' => 'required|string',
-            'image_detail_1' => 'image|mimes:jpeg,jpg,png',
-            'image_detail_2' => 'image|mimes:jpeg,jpg,png',
+            'image1_detail' => 'image|mimes:jpeg,jpg,png',
+            'image2_detail' => 'image|mimes:jpeg,jpg,png',
+            'image3_detail' => 'sometimes|image|mimes:jpeg,jpg,png',
+            'image4_detail' => 'sometimes|image|mimes:jpeg,jpg,png',
             'show' => 'required|boolean'
             
         ]);
 
         $facility = Facility::find($id);
 
-        if ($request->small_thumbnail) {
+        $data['about'] = nl2br($data['about']);
+
+        if ($request->hasFile('small_thumbnail')) {
             // save new images
             $smallThumbnail = $request->small_thumbnail;
             $originalSmallThumbnailName = Str::random(10).$smallThumbnail->getClientOriginalName();
@@ -93,26 +141,48 @@ class ManajemenKontenController extends Controller
             Storage::delete('public/thumbnail/'.$facility->small_thumbnail);
         }
 
-        if ($request->image_detail_1) {
+        if ($request->image1_detail) {
             // save new images
-            $imageDetail1 = $request->image_detail_1;
-            $originalImageDetail1Name = Str::random(10).$imageDetail1->getClientOriginalName();
-            $imageDetail1->storeAs('public/detail', $originalImageDetail1Name);
-            $data['image_detail_1'] = $originalImageDetail1Name;
+            $image1Detail = $request->image1_detail;
+            $originalImage1DetailName = Str::random(10).$image1Detail->getClientOriginalName();
+            $image1Detail->storeAs('public/detail', $originalImage1DetailName);
+            $data['image1_detail'] = $originalImage1DetailName;
             
             //delete old images
-            Storage::delete('public/thumbnail/'.$facility->image_detail_1);
+            Storage::delete('public/detail/'.$facility->image1_detail);
         }
 
-        if ($request->image_detail_2) {
+        if ($request->image2_detail) {
             // save new images
-            $imageDetail2 = $request->image_detail_2;
-            $originalImageDetail2Name = Str::random(10).$imageDetail2->getClientOriginalName();
-            $imageDetail2->storeAs('public/detail', $originalImageDetail2Name);
-            $data['image_detail_2'] = $originalImageDetail2Name;
-                
-             //delete old images
-             Storage::delete('public/thumbnail/'.$facility->image_detail_2);
+            $image2Detail = $request->image2_detail;
+            $originalImage2DetailName = Str::random(10).$image2Detail->getClientOriginalName();
+            $image2Detail->storeAs('public/detail', $originalImage2DetailName);
+            $data['image2_detail'] = $originalImage2DetailName;
+            
+            //delete old images
+            Storage::delete('public/detail/'.$facility->image2_detail);
+        }
+
+        if ($request->image3_detail) {
+            // save new images
+            $image3Detail = $request->image3_detail;
+            $originalImage3DetailName = Str::random(10).$image3Detail->getClientOriginalName();
+            $image3Detail->storeAs('public/detail', $originalImage3DetailName);
+            $data['image3_detail'] = $originalImage3DetailName;
+            
+            //delete old images
+            Storage::delete('public/detail/'.$facility->image3_detail);
+        }
+
+        if ($request->image4_detail) {
+            // save new images
+            $image4Detail = $request->image4_detail;
+            $originalImage4DetailName = Str::random(10).$image4Detail->getClientOriginalName();
+            $image4Detail->storeAs('public/detail', $originalImage4DetailName);
+            $data['image4_detail'] = $originalImage4DetailName;
+            
+            //delete old images
+            Storage::delete('public/detail/'.$facility->image4_detail);
         }
 
         $facility->update($data);
