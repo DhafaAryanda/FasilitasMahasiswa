@@ -453,9 +453,7 @@
 
 @section('content')
 
-
-
-<div class=" p-10 flex items-center justify-center font-dmsans">
+<div class=" m-10 flex items-center justify-center font-dmsans">
   <div class="container max-w-screen-lg mx-auto">
     @if ($errors->any())
     <div class="mb-4" role="alert">
@@ -477,67 +475,126 @@
       <!-- Form Start -->
       <form enctype="multipart/form-data" action="{{ route('admin.manajemen.konten.facility.store') }}" method="POST">
         @csrf
-        <div class="bg-white rounded-lg border border-gray-200 shadow-md ">
-          <div>
-            <p class="my-3 mx-5 font-bold">Form Tambah Fasilitas</p>
-            <hr>
+        <section>
+          <div class="bg-white rounded-lg border border-gray-200 shadow-md mb-3">
+            <div>
+              <p class="mt-8 mx-10 font-bold">Informasi Fasilitas</p>
+            </div>
+            <div class="lg:col-span-2 mt-8 mb-4 mx-10 ">            
+              <div class="grid gap-4 gap-y-3 text-sm grid-cols-1 md:grid-cols-5">
+                <div class="md:col-span-5 mb-5">
+                  <label for="title" class="font-medium after:content-['*'] after:text-red-500 ">Fasilitas</label>
+                  <input type="text" name="title" id="title" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="{{ old('title') }}"/>
+                  <p class="text-xs mt-2 text-[#858584]">Tuliskan nama fasilitas</p>
+                </div>
+                <div class="md:col-span-5 mb-5">
+                  <label for="categories" class="font-medium after:content-['*'] after:text-red-500">Kategori</label>
+                  <select type="text" name="categories" id="categories" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50">
+                    <option value="" disabled selected>Pilih kategori</option>
+                    <option value="Lapangan Indoor" {{ old('categories') == 'Lapangan Indoor' ? 'selected' : '' }}>Lapangan Indoor</option>
+                    <option value="Lapangan Outdoor" {{ old('categories') == 'Lapangan Outdoor' ? 'selected' : '' }}>Lapangan Outdoor</option>
+                    <option value="Ruangan" {{ old('categories') == 'Ruangan' ? 'selected' : '' }}>Ruangan</option>
+                    <option value="Prasarana" {{ old('categories') == 'Prasarana' ? 'selected' : '' }}>Prasarana</option>
+                  </select>
+                  <p class="text-xs mt-2 text-[#858584]">Pilih kategori fasilitas</p>
+                </div>
+              </div>
+            </div>
+            
           </div>
-          <div class="lg:col-span-2 m-3 p-4 px-4 md:p-8 mb-6">            
-            <div class="grid gap-4 gap-y-3 text-sm grid-cols-1 md:grid-cols-5">
-              <div class="md:col-span-5 mb-5">
-                <label for="title" class="font-medium after:content-['*'] after:text-red-500 ">Fasilitas</label>
-                <input type="text" name="title" id="title" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="{{ old('title') }}"/>
-                <p class="text-xs mt-2 text-[#858584]">Tuliskan nama fasilitas</p>
-              </div>
-              <div class="md:col-span-2 mb-5">
-                <label for="categories" class="font-medium after:content-['*'] after:text-red-500">Kategori</label>
-                <select type="text" name="categories" id="categories" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50">
-                  <option value="" disabled selected>Pilih kategori</option>
-                  <option value="Lapangan Indoor" {{ old('categories') == 'Lapangan Indoor' ? 'selected' : '' }}>Lapangan Indoor</option>
-                  <option value="Lapangan Outdoor" {{ old('categories') == 'Lapangan Outdoor' ? 'selected' : '' }}>Lapangan Outdoor</option>
-                  <option value="Ruangan" {{ old('categories') == 'Ruangan' ? 'selected' : '' }}>Ruangan</option>
-                  <option value="Prasarana" {{ old('categories') == 'Prasarana' ? 'selected' : '' }}>Prasarana</option>
-                </select>
-                <p class="text-xs mt-2 text-[#858584]">Pilih kategori fasilitas</p>
-              </div>
+        </section>
+
+        <section>
+          <div class="bg-white rounded-lg border border-gray-200 shadow-md mb-3">
+            <div>
+              <p class="mt-8 mx-10 font-bold">Detail Fasilitas</p>
+            </div>
+            <div class="lg:col-span-2 mt-8 mb-4 mx-10 ">            
+              <div class="flex py-6 mx-2">
+                <div class="mt-5 pr-32 font-semibold">
+                  <p>Foto</p>
+                  <p>Fasilitas</p>
+                  <p class="font-normal text-xs mt-2 text-[#858584]">Unggah Foto Fasilitas</p>
+                </div>
   
-              <div class="md:col-span-3 mb-5">
-                <label for="small_thumbnail" class="font-medium after:content-['*'] after:text-red-500 ">Small Thumbnail</label>
-                <input type="file" name="small_thumbnail" id="small_thumbnail" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk dijadikan thumbnail fasilitas</p>
+                <div class="grid grid-cols-4 gap-3">
+                  <div class="items-center justify-center w-full">
+                    <label for="image1_detail" class="flex flex-col items-center justify-center w-36 h-36 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white dark:hover:bg-bray-800 hover:bg-gray-50">
+                      <div class="flex flex-col items-center justify-center pt-5 pb-6 gap-2">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M13 4H8.8C7.11984 4 6.27976 4 5.63803 4.32698C5.07354 4.6146 4.6146 5.07354 4.32698 5.63803C4 6.27976 4 7.11984 4 8.8V15.2C4 16.8802 4 17.7202 4.32698 18.362C4.6146 18.9265 5.07354 19.3854 5.63803 19.673C6.27976 20 7.11984 20 8.8 20H15.2C16.8802 20 17.7202 20 18.362 19.673C18.9265 19.3854 19.3854 18.9265 19.673 18.362C20 17.7202 20 16.8802 20 15.2V11" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M4 16L8.29289 11.7071C8.68342 11.3166 9.31658 11.3166 9.70711 11.7071L13 15M13 15L15.7929 12.2071C16.1834 11.8166 16.8166 11.8166 17.2071 12.2071L20 15M13 15L15.25 17.25" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M18.5 3V5.5M18.5 8V5.5M18.5 5.5H16M18.5 5.5H21" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <img id="selected-image-1" src="" alt="" class="w-full h-full hidden">
+                        <p id="image-text-1" class="mb-2 text-base text-gray-500">Foto Utama</p>
+                      </div>
+                      <input id="image1_detail" name="image1_detail" type="file" class="hidden" accept="image/*">
+                    </label>
+                  </div>
+                  <div class=" items-center justify-center w-full">
+                    <label for="image2_detail" class="flex flex-col items-center justify-center w-36 h-36 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white dark:hover:bg-bray-800 hover:bg-gray-50">
+                      <div class="flex flex-col items-center justify-center pt-5 pb-6 gap-2">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M13 4H8.8C7.11984 4 6.27976 4 5.63803 4.32698C5.07354 4.6146 4.6146 5.07354 4.32698 5.63803C4 6.27976 4 7.11984 4 8.8V15.2C4 16.8802 4 17.7202 4.32698 18.362C4.6146 18.9265 5.07354 19.3854 5.63803 19.673C6.27976 20 7.11984 20 8.8 20H15.2C16.8802 20 17.7202 20 18.362 19.673C18.9265 19.3854 19.3854 18.9265 19.673 18.362C20 17.7202 20 16.8802 20 15.2V11" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M4 16L8.29289 11.7071C8.68342 11.3166 9.31658 11.3166 9.70711 11.7071L13 15M13 15L15.7929 12.2071C16.1834 11.8166 16.8166 11.8166 17.2071 12.2071L20 15M13 15L15.25 17.25" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M18.5 3V5.5M18.5 8V5.5M18.5 5.5H16M18.5 5.5H21" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <img id="selected-image-2" src="" alt="" class="w-full h-full hidden">
+                        <p id="image-text-2" class="mb-2 text-base text-gray-500">Foto 2</p>
+                      </div>
+                      <input id="image2_detail" name="image2_detail" type="file" class="hidden" accept="image/*">
+                    </label>
+                  </div>
+                  <div class=" items-center justify-center w-full">
+                    <label for="image3_detail" class="flex flex-col items-center justify-center w-36 h-36 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white dark:hover:bg-bray-800 hover:bg-gray-50">
+                      <div class="flex flex-col items-center justify-center pt-5 pb-6 gap-2">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M13 4H8.8C7.11984 4 6.27976 4 5.63803 4.32698C5.07354 4.6146 4.6146 5.07354 4.32698 5.63803C4 6.27976 4 7.11984 4 8.8V15.2C4 16.8802 4 17.7202 4.32698 18.362C4.6146 18.9265 5.07354 19.3854 5.63803 19.673C6.27976 20 7.11984 20 8.8 20H15.2C16.8802 20 17.7202 20 18.362 19.673C18.9265 19.3854 19.3854 18.9265 19.673 18.362C20 17.7202 20 16.8802 20 15.2V11" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M4 16L8.29289 11.7071C8.68342 11.3166 9.31658 11.3166 9.70711 11.7071L13 15M13 15L15.7929 12.2071C16.1834 11.8166 16.8166 11.8166 17.2071 12.2071L20 15M13 15L15.25 17.25" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M18.5 3V5.5M18.5 8V5.5M18.5 5.5H16M18.5 5.5H21" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <img id="selected-image-3" src="" alt="" class="w-full h-full hidden">
+                        <p id="image-text-3" class="mb-2 text-base text-gray-500">Foto 3</p>
+                      </div>
+                      <input id="image3_detail" name="image3_detail" type="file" class="hidden" accept="image/*">
+                    </label>
+                  </div>
+                  <div class="items-center justify-center w-full">
+                    <label for="image4_detail" class="flex flex-col items-center justify-center w-36 h-36 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white dark:hover:bg-bray-800 hover:bg-gray-50">
+                      <div class="flex flex-col items-center justify-center pt-5 pb-6 gap-2">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M13 4H8.8C7.11984 4 6.27976 4 5.63803 4.32698C5.07354 4.6146 4.6146 5.07354 4.32698 5.63803C4 6.27976 4 7.11984 4 8.8V15.2C4 16.8802 4 17.7202 4.32698 18.362C4.6146 18.9265 5.07354 19.3854 5.63803 19.673C6.27976 20 7.11984 20 8.8 20H15.2C16.8802 20 17.7202 20 18.362 19.673C18.9265 19.3854 19.3854 18.9265 19.673 18.362C20 17.7202 20 16.8802 20 15.2V11" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M4 16L8.29289 11.7071C8.68342 11.3166 9.31658 11.3166 9.70711 11.7071L13 15M13 15L15.7929 12.2071C16.1834 11.8166 16.8166 11.8166 17.2071 12.2071L20 15M13 15L15.25 17.25" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M18.5 3V5.5M18.5 8V5.5M18.5 5.5H16M18.5 5.5H21" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <img id="selected-image-4" src="" alt="" class="w-full h-full hidden">
+                        <p id="image-text-4" class="mb-2 text-base text-gray-500">Foto 4</p>
+                      </div>
+                      <input id="image4_detail" name="image4_detail" type="file" class="hidden" accept="image/*">
+                    </label>
+                  </div>
+                </div>
               </div>
+              
+              <div class="flex py-6 mx-2">
+                <div class="mt-5 pr-32 font-semibold">
+                  <p>Deskripsi</p>
+                  <p>Fasilitas</p>
+                  <p class="font-normal text-xs mt-2 text-[#858584]">Tuliskan deskripsi fasilitas</p>
+                </div>
+                <textarea type="text" name="about" id="about" class="mr-20 text-sm h-64 w-[650px] border  mt-2 rounded px-4 bg-gray-50 " placeholder="" >{{ old('about')}}</textarea>
+
+              </div>
+              
   
-              <div class="md:col-span-5 mb-5">
+              {{-- <div class="md:col-span-5 mb-5">
                 <label for="about" class="font-medium after:content-['*'] after:text-red-500 ">About</label>
                 <textarea type="text" name="about" id="about" class="h-24 border mt-2 rounded px-4 w-full bg-gray-50" placeholder="" >{{ old('about')}}</textarea>
                 <p class="text-xs mt-2 text-[#858584]">Tuliskan tentang fasilitas</p>
-              </div>
-  
-              <div class="md:col-span-5 mb-5">
-                <label for="image1_detail" class="font-medium after:content-['*'] after:text-red-500 ">Image Detail 1</label>
-                <input type="file" name="image1_detail" id="image1_detail" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
-              </div>
-  
-              <div class="md:col-span-5 mb-5">
-                <label for="image2_detail" class="font-medium after:content-['*'] after:text-red-500 ">Image Detail 2</label>
-                <input type="file" name="image2_detail" id="image2-detail" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
-              </div>
+              </div> --}}
 
-              <div class="md:col-span-5 mb-5">
-                <label for="image3_detail" class="font-medium ">Image Detail 3</label>
-                <input type="file" name="image3_detail" id="image3-detail" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
-              </div>
-
-              <div class="md:col-span-5 mb-5">
-                <label for="image4_detail" class="font-medium">Image Detail 4</label>
-                <input type="file" name="image4_detail" id="image4-detail" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
-              </div>
-  
-              <div class="md:col-span-2 mb-5">
+              {{-- <div class="md:col-span-2 mb-5">
                 <label for="show" class="font-medium after:content-['*'] after:text-red-500">Tampilkan</label>
                 <select type="text" name="show" id="show" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50">
                   <option value="" disabled selected>Pilih tampilkan/sembunyikan konten</option>
@@ -545,23 +602,112 @@
                   <option value="1" {{ old('show') == '1' ? 'selected' : '' }}>Tampilkan</option>
                 </select>
                 <p class="text-xs mt-2 text-[#858584]">Pilih kategori fasilitas</p>
-              </div>
-              {{-- <div class="md:col-span-5 mb-5">
-                <label for="added_by" class="font-medium after:content-['*'] after:text-red-500 ">Ditambahkan Oleh</label>
-                <input type="text" name="added_by" id="added_by" class="h-10 border mt-2 rounded px-4 w-full bg-gray-200 text-gray-700" value="" readonly />
               </div> --}}
-              <div class="md:col-span-5 text-right">
+              {{-- <div class="md:col-span-5 text-right">
                 <div class="inline-flex items-end">
                   <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
                 </div>
-              </div>
-  
+              </div> --}}
+
+
+
             </div>
+            
           </div>
-          
+        </section>
+
+        <section>
+          <div class="bg-white rounded-lg border border-gray-200 shadow-md mb-3">
+            <div>
+              <p class="mt-8 mx-10 font-bold">Harga</p>
+            </div>
+            {{-- <div class="lg:col-span-2 mt-8 mb-4 mx-10 ">            
+              <div class="grid gap-4 gap-y-3 text-sm grid-cols-1 md:grid-cols-5">
+                <div class="md:col-span-5 mb-5">
+                  <label for="title" class="font-medium after:content-['*'] after:text-red-500 ">Fasilitas</label>
+                  <input type="text" name="title" id="title" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="{{ old('title') }}"/>
+                  <p class="text-xs mt-2 text-[#858584]">Tuliskan nama fasilitas</p>
+                </div>
+                <div class="md:col-span-5 mb-5">
+                  <label for="categories" class="font-medium after:content-['*'] after:text-red-500">Kategori</label>
+                  <select type="text" name="categories" id="categories" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50">
+                    <option value="" disabled selected>Pilih kategori</option>
+                    <option value="Lapangan Indoor" {{ old('categories') == 'Lapangan Indoor' ? 'selected' : '' }}>Lapangan Indoor</option>
+                    <option value="Lapangan Outdoor" {{ old('categories') == 'Lapangan Outdoor' ? 'selected' : '' }}>Lapangan Outdoor</option>
+                    <option value="Ruangan" {{ old('categories') == 'Ruangan' ? 'selected' : '' }}>Ruangan</option>
+                    <option value="Prasarana" {{ old('categories') == 'Prasarana' ? 'selected' : '' }}>Prasarana</option>
+                  </select>
+                  <p class="text-xs mt-2 text-[#858584]">Pilih kategori fasilitas</p>
+                </div>
+              </div> --}}
+            </div>
+            
+          </div>
+        </section>
+
+        <section>
+          <div class="bg-white rounded-lg border border-gray-200 shadow-md mb-3">
+            <div>
+              <p class="mt-8 mx-10 font-bold">Pengelolaan Fasilitas</p>
+            </div>
+            <div class="lg:col-span-2 mt-8 mb-4 mx-10 ">            
+              <div class="grid gap-4 gap-y-3 text-sm grid-cols-1 md:grid-cols-5">
+                <div class="md:col-span-2 mb-5">
+                  <label for="show" class="font-medium after:content-['*'] after:text-red-500">Tampilkan</label>
+                  <select type="text" name="show" id="show" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50">
+                    <option value="" disabled selected>Pilih tampilkan/sembunyikan konten</option>
+                    <option value="0" {{ old('show') == '0' ? 'selected' : '' }} >Sembunyikan</option>
+                    <option value="1" {{ old('show') == '1' ? 'selected' : '' }}>Tampilkan</option>
+                  </select>
+                  <p class="text-xs mt-2 text-[#858584]">Pilih kategori fasilitas</p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </section>
+
+        <div class="md:col-span-5 text-right">
+          <div class="inline-flex items-end">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+          </div>
         </div>
+
       </form>
     </div>
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const imageInputs = document.querySelectorAll('input[type="file"]');
+
+    imageInputs.forEach((input, index) => {
+        input.addEventListener('change', (event) => {
+            const selectedImage = document.getElementById(`selected-image-${index + 1}`);
+            const imageText = document.getElementById(`image-text-${index + 1}`);
+            const label = input.closest('label');
+            const svgIcon = label.querySelector('svg');
+
+            if (event.target.files.length > 0) {
+                const file = event.target.files[0];
+                const objectURL = URL.createObjectURL(file);
+                selectedImage.src = objectURL;
+                selectedImage.classList.remove('hidden');
+                imageText.classList.add('hidden');
+                svgIcon.classList.add('hidden');
+                label.style.border = '1px solid #d1d5db';
+            } else {
+                selectedImage.src = '';
+                selectedImage.classList.add('hidden');
+                imageText.classList.remove('hidden');
+                svgIcon.classList.remove('hidden');
+                label.style.border = '2px dashed #d1d5db';
+            }
+        });
+    });
+});
+</script>
+
 @endsection

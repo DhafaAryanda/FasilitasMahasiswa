@@ -15,7 +15,6 @@ class Facility extends Model
     protected $fillable = [
         'title',
         'categories',
-        'small_thumbnail',
         'about',
         'image1_detail',
         'image2_detail',

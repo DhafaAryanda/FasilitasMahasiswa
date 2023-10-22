@@ -35,7 +35,6 @@ class ManajemenKontenController extends Controller
         $request->validate([
             'title' => 'required|string',
             'categories' => 'required|string',
-            'small_thumbnail' => 'required|image|mimes:jpeg,jpg,png',
             'about' => 'required|string',
             'image1_detail' => 'required|image|mimes:jpeg,jpg,png',
             'image2_detail' => 'required|image|mimes:jpeg,jpg,png',
@@ -47,17 +46,11 @@ class ManajemenKontenController extends Controller
 
         $data['about'] = nl2br($data['about']);
 
-        $smallThumbnail = $request->file('small_thumbnail');
         $image1Detail = $request->file('image1_detail');
         $image2Detail = $request->file('image2_detail');
         $image3Detail = $request->file('image3_detail');
         $image4Detail = $request->file('image4_detail');
 
-        if ($smallThumbnail) {
-            $originalSmallThumbnailName = Str::random(10).$smallThumbnail->getClientOriginalName();
-            $smallThumbnail->storeAs('public/thumbnail', $originalSmallThumbnailName);
-            $data['small_thumbnail'] = $originalSmallThumbnailName;
-        }
 
         if ($image1Detail) {
             $originalImage1DetailName = Str::random(10).$image1Detail->getClientOriginalName();
@@ -116,7 +109,6 @@ class ManajemenKontenController extends Controller
         $request->validate([
             'title' => 'required|string',
             'categories' => 'required|string',
-            'small_thumbnail' => 'image|mimes:jpeg,jpg,png',
             'about' => 'required|string',
             'image1_detail' => 'image|mimes:jpeg,jpg,png',
             'image2_detail' => 'image|mimes:jpeg,jpg,png',
@@ -129,17 +121,6 @@ class ManajemenKontenController extends Controller
         $facility = Facility::find($id);
 
         $data['about'] = nl2br($data['about']);
-
-        if ($request->hasFile('small_thumbnail')) {
-            // save new images
-            $smallThumbnail = $request->small_thumbnail;
-            $originalSmallThumbnailName = Str::random(10).$smallThumbnail->getClientOriginalName();
-            $smallThumbnail->storeAs('public/thumbnail', $originalSmallThumbnailName);
-            $data['small_thumbnail'] = $originalSmallThumbnailName;
-
-            //delete old images
-            Storage::delete('public/thumbnail/'.$facility->small_thumbnail);
-        }
 
         if ($request->image1_detail) {
             // save new images

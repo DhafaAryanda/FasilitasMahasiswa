@@ -247,7 +247,7 @@
           <div class="relative flex flex-col text-gray-700 bg-white shadow-md w-[310px]  rounded-[20px] bg-clip-border">
             <div class="relative mx-[10px] my-[10px] overflow-hidden text-white shadow-lg rounded-[20px] bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
               <img
-                src="{{ asset('storage/thumbnail/'.$facility->small_thumbnail) }}"
+                src="{{ asset('storage/detail/'.$facility->image1_detail) }}"
                 alt="img"
                 class="w-[290px] h-[200px] object-cover"
               />

@@ -242,24 +242,35 @@
       <h2 class="font-bold text-2xl text-slate-800">{{ $facility->title }}</h2>
 
       <div class="flex flex-row gap-4 my-10">
-        <div class="w-[700px] h-[450px]">
+        <div class="w-[800px] h-[500px]">
           <img id="featured-image" class="w-full h-full object-cover rounded-lg" src="{{ asset('storage/detail/'.$facility->image1_detail) }}" alt="img">
         </div>
         <div class="flex flex-col gap-4">
-          <div class="w-36 h-24">
+          <div class="w-44 h-24">
             <img class="w-full h-full object-cover rounded-lg" src="{{ asset('storage/detail/'.$facility->image2_detail) }}" alt="img" onclick="setFeaturedImage(this)">
           </div>
           @if(isset($facility->image3_detail))
-            <div class="w-36 h-24">
+            <div class="w-44 h-28">
               <img class="w-full h-full object-cover rounded-lg" src="{{ asset('storage/detail/'.$facility->image3_detail) }}" alt="img" onclick="setFeaturedImage(this)">
             </div>
           @endif
 
           @if(isset($facility->image4_detail))
-            <div class="w-36 h-24">
+            <div class="w-44 h-24">
               <img class="w-full h-full object-cover rounded-lg" src="{{ asset('storage/detail/'.$facility->image4_detail) }}" alt="img" onclick="setFeaturedImage(this)">
             </div>
           @endif
+
+          <a href="{{ route('admin.manajemen.konten.facility.create') }}">              
+            <button class="justify-center items-center flex gap-x-2 rounded-lg bg-white h-10 w-44 border-2 border-yellow-orange">
+              <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.42359 5.66695C2.46678 5.14866 2.90004 4.75 3.42013 4.75H16.5799C17.1 4.75 17.5332 5.14866 17.5764 5.66695L18.5695 17.5839C18.6667 18.7499 17.7465 19.75 16.5764 19.75H3.4236C2.25352 19.75 1.33334 18.7499 1.43051 17.5839L2.42359 5.66695Z" stroke="#E59934" stroke-width="1.2"/>
+                <path d="M12.6783 11.2322L9.14277 14.7678L7.375 13" stroke="#E59934" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13.75 6.875V5C13.75 2.92893 12.0711 1.25 10 1.25V1.25C7.92893 1.25 6.25 2.92893 6.25 5V6.875" stroke="#E59934" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+              <span class="text-black text-sm font-semibold">Sewa Sekarang</span>
+            </button>
+          </a>
         </div>
       </div>
 

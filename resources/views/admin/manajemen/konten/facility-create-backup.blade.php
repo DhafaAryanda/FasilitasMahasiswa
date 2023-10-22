@@ -453,83 +453,111 @@
 
 @section('content')
 
-<!-- component -->
-<div class=" p-10 flex items-center justify-center font-poppins">
-  <div class="container max-w-screen-lg mx-auto">
 
-    @if(session()->has('success'))
-    <div class="mb-5 bg-blue-100 border border-blue-500 text-blue-700 px-4 py-3 rounded relative" role="alert">
-      <strong class="font-bold">Berhasil</strong>
-        {{ session('success') }}
-      <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
-        <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
-      </span>
+
+<div class=" p-10 flex items-center justify-center font-dmsans">
+  <div class="container max-w-screen-lg mx-auto">
+    @if ($errors->any())
+    <div class="mb-4" role="alert">
+      <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+        Danger
+      </div>
+      <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+        <ul>
+          @foreach($errors->all() as $errors)
+            <li>{{ $errors }}</li>
+          @endforeach
+        </ul>
+      </div>
     </div>
     @endif
-
     <div>
-      <h2 class="font-semibold text-xl text-blue-gray">Fasilitas Gelanggang</h2>
-      <p class="text-gray-500 mb-6 text-sm">Data semua fasilitas</p>
-      <a href="{{ route('admin.manajemen.konten.facility.create') }}">
-        <button class="rounded-xl bg-blue-500 text-white h-10 w-32 text-sm mx-5">
-          Tambah Fasilitas
-        </button>
-      </a>
-      
-      <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
-        <table class="table-auto w-full border-collapse bg-white text-left text-sm text-gray-500">
-          <thead class="bg-gray-50">
-            <tr>
-              <th scope="col" class="px-6 py-4 font-semibold text-gray-900">Nama Fasilitas</th>
-              <th scope="col" class="px-6 py-4 font-semibold text-gray-900">Foto Thumbnail</th>
-              <th scope="col" class="px-6 py-4 font-semibold text-gray-900">Kategori</th>
-              <th scope="col" class="px-6 py-4 font-semibold text-gray-900">Tampilkan</th>
-              <th scope="col" class="px-6 py-4 font-semibold text-gray-900">Pembaruan Terkini</th>
-              <th scope="col" class="px-6 py-4 font-semibold text-gray-900">Aksi</th>
-            </tr>
-            
-          </thead>
-          <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-            @foreach($facilities as $facility)
-            <tr class="hover:bg-gray-50">
-              <td class="px-6 py-4">{{ $facility->title }}</td>
-              <td class="px-2 py-3 h-28 w-auto">
-                <img
-                    class="h-full w-full rounded-md object-cover object-center"
-                    src="{{ asset('storage/detail/'.$facility->image1_detail) }}"
-                    alt="img"
-                  />  
-              </td>
-              <td class="px-6 py-4">{{ $facility->categories }}</td>
-              <td class="px-6 py-4">
-                @if ($facility->show == 1)
-                  Ya
-                @elseif ($facility->show == 0)
-                  Tidak
-                @endif
-              </td>
-              <td class="px-6 py-4">{{ $facility->updated_at->format('d/m/Y') }}</td>
-              <td class="px-6 py-4">
-                <a href="{{ route('admin.manajemen.konten.facility.edit', $facility->id) }}">
-                  <button class="rounded-xl bg-deep-purple text-white h-8 w-20 text-xs">
-                    Detail
-                  </button>
-                </a>
-              </td>
-            </tr>
-            @endforeach
-          </tbody>
-        </table>
-      </div>
-     
-    
+      <h2 class="font-semibold text-xl text-blue-gray">Tambah Fasilitas Gelanggang</h2>
+      <p class="text-gray-500 mb-6 text-sm">Form untuk menambahkan kontent</p>
+      <!-- Form Start -->
+      <form enctype="multipart/form-data" action="{{ route('admin.manajemen.konten.facility.store') }}" method="POST">
+        @csrf
+        <div class="bg-white rounded-lg border border-gray-200 shadow-md ">
+          <div>
+            <p class="my-3 mx-5 font-bold">Form Tambah Fasilitas</p>
+            <hr>
+          </div>
+          <div class="lg:col-span-2 m-3 p-4 px-4 md:p-8 mb-6">            
+            <div class="grid gap-4 gap-y-3 text-sm grid-cols-1 md:grid-cols-5">
+              <div class="md:col-span-5 mb-5">
+                <label for="title" class="font-medium after:content-['*'] after:text-red-500 ">Fasilitas</label>
+                <input type="text" name="title" id="title" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="{{ old('title') }}"/>
+                <p class="text-xs mt-2 text-[#858584]">Tuliskan nama fasilitas</p>
+              </div>
+              <div class="md:col-span-2 mb-5">
+                <label for="categories" class="font-medium after:content-['*'] after:text-red-500">Kategori</label>
+                <select type="text" name="categories" id="categories" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50">
+                  <option value="" disabled selected>Pilih kategori</option>
+                  <option value="Lapangan Indoor" {{ old('categories') == 'Lapangan Indoor' ? 'selected' : '' }}>Lapangan Indoor</option>
+                  <option value="Lapangan Outdoor" {{ old('categories') == 'Lapangan Outdoor' ? 'selected' : '' }}>Lapangan Outdoor</option>
+                  <option value="Ruangan" {{ old('categories') == 'Ruangan' ? 'selected' : '' }}>Ruangan</option>
+                  <option value="Prasarana" {{ old('categories') == 'Prasarana' ? 'selected' : '' }}>Prasarana</option>
+                </select>
+                <p class="text-xs mt-2 text-[#858584]">Pilih kategori fasilitas</p>
+              </div>
+  
+              <div class="md:col-span-3 mb-5">
+                <label for="small_thumbnail" class="font-medium after:content-['*'] after:text-red-500 ">Small Thumbnail</label>
+                <input type="file" name="small_thumbnail" id="small_thumbnail" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk dijadikan thumbnail fasilitas</p>
+              </div>
+  
+              <div class="md:col-span-5 mb-5">
+                <label for="about" class="font-medium after:content-['*'] after:text-red-500 ">About</label>
+                <textarea type="text" name="about" id="about" class="h-24 border mt-2 rounded px-4 w-full bg-gray-50" placeholder="" >{{ old('about')}}</textarea>
+                <p class="text-xs mt-2 text-[#858584]">Tuliskan tentang fasilitas</p>
+              </div>
+  
+              <div class="md:col-span-5 mb-5">
+                <label for="image1_detail" class="font-medium after:content-['*'] after:text-red-500 ">Image Detail 1</label>
+                <input type="file" name="image1_detail" id="image1_detail" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
+              </div>
+  
+              <div class="md:col-span-5 mb-5">
+                <label for="image2_detail" class="font-medium after:content-['*'] after:text-red-500 ">Image Detail 2</label>
+                <input type="file" name="image2_detail" id="image2-detail" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
+              </div>
+
+              <div class="md:col-span-5 mb-5">
+                <label for="image3_detail" class="font-medium ">Image Detail 3</label>
+                <input type="file" name="image3_detail" id="image3-detail" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
+              </div>
+
+              <div class="md:col-span-5 mb-5">
+                <label for="image4_detail" class="font-medium">Image Detail 4</label>
+                <input type="file" name="image4_detail" id="image4-detail" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
+              </div>
+  
+              <div class="md:col-span-2 mb-5">
+                <label for="show" class="font-medium after:content-['*'] after:text-red-500">Tampilkan</label>
+                <select type="text" name="show" id="show" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50">
+                  <option value="" disabled selected>Pilih tampilkan/sembunyikan konten</option>
+                  <option value="0" {{ old('show') == '0' ? 'selected' : '' }} >Sembunyikan</option>
+                  <option value="1" {{ old('show') == '1' ? 'selected' : '' }}>Tampilkan</option>
+                </select>
+                <p class="text-xs mt-2 text-[#858584]">Pilih kategori fasilitas</p>
+              </div>
+              <div class="md:col-span-5 text-right">
+                <div class="inline-flex items-end">
+                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+          
+        </div>
+      </form>
     </div>
   </div>
 </div>
 @endsection
-
-{{-- @section('js')
-  <script>
-  $('#exampl').DataTable();
-  </script>
-@endSection --}}

@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('facilities', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('small_thumbnail');
             $table->string('image1_detail');
             $table->string('image2_detail');
             $table->string('image3_detail')->nullable();
