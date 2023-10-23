@@ -20,6 +20,8 @@ class Facility extends Model
         'image2_detail',
         'image3_detail',
         'image4_detail',
+        'price_per_hour',
+        'price_per_day',
         'show'
     
     ];

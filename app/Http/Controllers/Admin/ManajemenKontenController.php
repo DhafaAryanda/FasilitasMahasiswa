@@ -40,6 +40,8 @@ class ManajemenKontenController extends Controller
             'image2_detail' => 'required|image|mimes:jpeg,jpg,png',
             'image3_detail' => 'sometimes|image|mimes:jpeg,jpg,png',
             'image4_detail' => 'sometimes|image|mimes:jpeg,jpg,png',
+            'price_per_hour' => 'required|string',
+            'price_per_day' => 'required|string',
             'show' => 'required|boolean'
             
         ]);
@@ -76,26 +78,6 @@ class ManajemenKontenController extends Controller
             $data['image4_detail'] = $originalImage4DetailName;
         }
 
-
-
-        // $originalSmallThumbnailName = Str::random(10).$smallThumbnail->getClientOriginalName();
-        // $originalImage1DetailName = Str::random(10).$image1Detail->getClientOriginalName();
-        // $originalImage2DetailName = Str::random(10).$image2Detail->getClientOriginalName();
-        // $originalImage3DetailName = Str::random(10).$image3Detail->getClientOriginalName();
-        // $originalImage4DetailName = Str::random(10).$image4Detail->getClientOriginalName();
-
-        // $smallThumbnail->storeAs('public/thumbnail', $originalSmallThumbnailName);
-        // $image1Detail->storeAs('public/detail', $originalImage1DetailName);
-        // $image2Detail->storeAs('public/detail', $originalImage2DetailName);
-        // $image3Detail->storeAs('public/detail', $originalImage3DetailName);
-        // $image4Detail->storeAs('public/detail', $originalImage4DetailName);
-
-        // $data['small_thumbnail'] = $originalSmallThumbnailName;
-        // $data['image1_detail'] = $originalImage1DetailName;
-        // $data['image2_detail'] = $originalImage2DetailName;
-        // $data['image3_detail'] = $originalImage3DetailName;
-        // $data['image4_detail'] = $originalImage4DetailName;
-
         Facility::create($data);
         return redirect()->route('admin.manajemen.konten.facility')->with('success', 'Fasilitas berhasil ditambahkan');
 
@@ -114,6 +96,8 @@ class ManajemenKontenController extends Controller
             'image2_detail' => 'image|mimes:jpeg,jpg,png',
             'image3_detail' => 'sometimes|image|mimes:jpeg,jpg,png',
             'image4_detail' => 'sometimes|image|mimes:jpeg,jpg,png',
+            'price_per_hour' => 'required|string',
+            'price_per_day' => 'required|string',
             'show' => 'required|boolean'
             
         ]);

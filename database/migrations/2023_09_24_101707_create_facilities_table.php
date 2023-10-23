@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('image4_detail')->nullable();
             $table->string('categories');
             $table->text('about');
-            // $table->dateTime('latest_schedule');
+            $table->decimal('price_per_hour', 10, 2);
+            $table->decimal('price_per_day', 10, 2);
             $table->boolean('show');
             $table->softDeletes();
             $table->timestamps();
