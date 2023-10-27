@@ -108,7 +108,7 @@
               <svg class="w-2.5 h-2.5" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <ellipse cx="5.456" cy="5.5" rx="4.09174" ry="4.125" fill="currentColor"/>
               </svg>
-              <a class="w-full ml-5" href="{{route('admin.manajemen.peminjaman.facility')}}">Fasilitas Gelanggang</a>
+              <a class="w-full ml-5" href="{{route('admin.manajemen.sewa.facility')}}">Fasilitas Gelanggang</a>
             </span>
           </li>
           <li

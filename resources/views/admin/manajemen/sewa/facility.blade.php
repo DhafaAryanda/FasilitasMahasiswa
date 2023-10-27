@@ -3,7 +3,7 @@
 @section('title', 'Fasilitas Gelanggang')
 
 @section('sidebar-menu-desktop')
-  <div class="py-4 text-blue-gray">
+  <div class="py-4 text-gray-500">
     <a class="flex ml-8 items-center mt-1 mb-7" href="{{ route('admin.dashboard') }}">
       <img src="https://mbkmunggul.usk.ac.id/assets/img/logo/logo_mbkm_dark.png" alt="Logo" class="w-auto max-h-14">
     </a>
@@ -39,18 +39,20 @@
           <span class="ml-4">Profile</span>
         </a>
       </li>
-      <li class="relative px-6 py-3">
+      <li class="relative px-6 py-3" x-data="{ isMenu1Open: true }">
+        <span class="absolute inset-y-0 left-0 w-1 bg-yellow-orange rounded-tr-lg rounded-br-lg" aria-hidden="true">
+        </span>
         <button
-          class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-deep-purple"
+          class="inline-flex items-center justify-between w-full text-sm font-bold transition-colors duration-150 hover:text-deep-purple"
           @click="toggleMenu(1)" aria-haspopup="true">
-          <span class="inline-flex items-center">
+          <span class="inline-flex items-center text-yellow-orange">
             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
               stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
               </path>
             </svg>
-            <span class="ml-4">Manajemen Peminjaman</span>
+            <span class="ml-4 text-deep-purple">Manajemen Peminjaman</span>
           </span>
           <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd"
@@ -63,9 +65,10 @@
             x-transition:enter-end="opacity-100 max-h-xl" x-transition:leave="transition-all ease-in-out duration-300"
             x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
             class="p-1 space-y-3 overflow-hidden text-sm font-medium text-blue-gray rounded-md" aria-label="submenu">
-            <li class="mt-2 px-2 py-1 transition-colors duration-150">
-              <span class="inline-flex items-center justify-between w-full hover:text-deep-purple">
-                <svg class="w-2.5 h-2.5" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <li class="mt-2 px-2 py-1 transition-colors duration-150 text-deep-purple">
+              <span class="inline-flex items-center font-bold justify-between w-full hover:text-deep-purple">
+                <svg class="w-2.5 h-2.5 text-yellow-orange" viewBox="0 0 11 11" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
                   <ellipse cx="5.456" cy="5.5" rx="4.09174" ry="4.125" fill="currentColor" />
                 </svg>
                 <a class="w-full ml-5" href="{{ route('admin.manajemen.sewa.facility') }}">Fasilitas Gelanggang</a>
@@ -82,20 +85,18 @@
           </ul>
         </template>
       </li>
-      <li class="relative px-6 py-3" x-data="{ isMenu2Open: true }">
-        <span class="absolute inset-y-0 left-0 w-1 bg-yellow-orange rounded-tr-lg rounded-br-lg" aria-hidden="true">
-        </span>
+      <li class="relative px-6 py-3">
         <button
-          class="inline-flex items-center justify-between w-full text-sm font-bold transition-colors duration-150 hover:text-deep-purple"
+          class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-deep-purple"
           @click="toggleMenu(2)" aria-haspopup="true">
-          <span class="inline-flex items-center text-yellow-orange">
+          <span class="inline-flex items-center">
             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
               stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
               </path>
             </svg>
-            <span class="ml-4 text-deep-purple">Manajemen Konten</span>
+            <span class="ml-4">Manajemen Konten</span>
           </span>
           <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd"
@@ -108,10 +109,9 @@
             x-transition:enter-end="opacity-100 max-h-xl" x-transition:leave="transition-all ease-in-out duration-300"
             x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
             class="p-1 space-y-3 overflow-hidden text-sm font-medium text-blue-gray rounded-md" aria-label="submenu">
-            <li class="mt-2 px-2 py-1 transition-colors duration-150 text-deep-purple">
-              <span class="inline-flex items-center font-bold justify-between w-full hover:text-deep-purple">
-                <svg class="w-2.5 h-2.5  text-yellow-orange" viewBox="0 0 11 11" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
+            <li class="mt-2 px-2 py-1 transition-colors duration-150">
+              <span class="inline-flex items-center justify-between w-full hover:text-deep-purple">
+                <svg class="w-2.5 h-2.5" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <ellipse cx="5.456" cy="5.5" rx="4.09174" ry="4.125" fill="currentColor" />
                 </svg>
                 <a class="w-full ml-5" href="{{ route('admin.manajemen.konten.facility') }}">Fasilitas Gelanggang</a>
@@ -147,7 +147,7 @@
 @endsection
 
 @section('sidebar-menu-mobile')
-  <div class="text-blue-gray">
+  <div class="text-gray-500">
     <div class="block  px-6 py-3">
       <span class="font-bold text-slate-600 ml-5 text-sm">ADMIN</span>
     </div>
@@ -183,18 +183,20 @@
           <span class="ml-4">Profile</span>
         </a>
       </li>
-      <li class="relative px-6 py-3">
+      <li class="relative px-6 py-3" x-data="{ isMenu1Open: true }">
+        <span class="absolute inset-y-0 left-0 w-1 bg-yellow-orange rounded-tr-lg rounded-br-lg"
+          aria-hidden="true"></span>
         <button
-          class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-deep-purple"
+          class="inline-flex items-center justify-between w-full text-sm font-bold transition-colors duration-150 hover:text-deep-purple"
           @click="toggleMenu(1)" aria-haspopup="true">
-          <span class="inline-flex items-center">
+          <span class="inline-flex items-center text-yellow-orange">
             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
               stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
               </path>
             </svg>
-            <span class="ml-4">Manajemen Peminjaman</span>
+            <span class="ml-4 text-deep-purple">Manajemen Peminjaman</span>
           </span>
           <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd"
@@ -207,9 +209,10 @@
             x-transition:enter-end="opacity-100 max-h-xl" x-transition:leave="transition-all ease-in-out duration-300"
             x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
             class="p-1 space-y-3 overflow-hidden text-sm font-medium text-blue-gray rounded-md" aria-label="submenu">
-            <li class="px-2 py-1 transition-colors duration-150">
-              <span class="inline-flex items-center justify-between w-full hover:text-deep-purple">
-                <svg class="w-2.5 h-2.5" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <li class="px-2 py-1 transition-colors duration-150 text-deep-purple">
+              <span class="inline-flex items-center font-bold justify-between w-full hover:text-deep-purple">
+                <svg class="w-2.5 h-2.5 text-yellow-orange" viewBox="0 0 11 11" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
                   <ellipse cx="5.456" cy="5.5" rx="4.09174" ry="4.125" fill="currentColor" />
                 </svg>
                 <a class="w-full ml-5" href="pages/login.html">Fasilitas Gelanggang</a>
@@ -226,20 +229,18 @@
           </ul>
         </template>
       </li>
-      <li class="relative px-6 py-3" x-data="{ isMenu2Open: true }">
-        <span class="absolute inset-y-0 left-0 w-1 bg-yellow-orange rounded-tr-lg rounded-br-lg"
-          aria-hidden="true"></span>
+      <li class="relative px-6 py-3">
         <button
-          class="inline-flex items-center justify-between w-full text-sm font-bold transition-colors duration-150 hover:text-deep-purple"
+          class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-deep-purple"
           @click="toggleMenu(2)" aria-haspopup="true">
-          <span class="inline-flex items-center text-yellow-orange">
+          <span class="inline-flex items-center">
             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
               stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
               </path>
             </svg>
-            <span class="ml-4 text-deep-purple">Manajemen Konten</span>
+            <span class="ml-4">Manajemen Konten</span>
           </span>
           <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd"
@@ -252,10 +253,9 @@
             x-transition:enter-end="opacity-100 max-h-xl" x-transition:leave="transition-all ease-in-out duration-300"
             x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
             class="p-1 space-y-3 overflow-hidden text-sm font-medium text-blue-gray rounded-md" aria-label="submenu">
-            <li class="px-2 py-1 transition-colors duration-150 text-deep-purple">
-              <span class="inline-flex items-center font-bold justify-between w-full hover:text-deep-purple">
-                <svg class="w-2.5 h-2.5 text-yellow-orange" viewBox="0 0 11 11" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
+            <li class="px-2 py-1 transition-colors duration-150">
+              <span class="inline-flex items-center justify-between w-full hover:text-deep-purple">
+                <svg class="w-2.5 h-2.5" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <ellipse cx="5.456" cy="5.5" rx="4.09174" ry="4.125" fill="currentColor" />
                 </svg>
                 <a class="w-full ml-5" href="pages/login.html">Fasilitas Gelanggang</a>
@@ -293,147 +293,128 @@
 
 @section('content')
 
-  <div class=" p-10 flex items-center justify-center font-dmsans">
+  <!-- component -->
+  <div class=" mt-10 mx-10 flex items-center justify-center font-poppins">
     <div class="container max-w-screen-lg mx-auto">
-      @if ($errors->any())
-        <div class="mb-4" role="alert">
-          <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
-            Danger
-          </div>
-          <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
-            <ul>
-              @foreach ($errors->all() as $errors)
-                <li>{{ $errors }}</li>
-              @endforeach
-            </ul>
-          </div>
+
+      @if (session()->has('success'))
+        <div class="mb-5 bg-blue-100 border border-blue-500 text-blue-700 px-4 py-3 rounded relative" role="alert">
+          <strong class="font-bold">Berhasil</strong>
+          {{ session('success') }}
+          <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+            <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20">
+              <title>Close</title>
+              <path
+                d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+            </svg>
+          </span>
         </div>
       @endif
+
       <div>
-        <h2 class="font-semibold text-xl text-blue-gray">Edit Fasilitas Gelanggang</h2>
-        <p class="text-gray-500 mb-6 text-sm">Form untuk menambahkan kontent</p>
-        <!-- Form Start -->
-        <form enctype="multipart/form-data"
-          action="{{ route('admin.manajemen.konten.facility.update', $facility->id) }}" method="POST"
-          id="facilityForm">
-          @csrf
-          @method('PUT')
-          <div class="bg-white rounded-lg border border-gray-200 shadow-md ">
-            <div>
-              <p class="my-3 mx-5 font-bold">Form Edit Fasilitas</p>
-              <hr>
-            </div>
-            <div class="lg:col-span-2 m-3 p-4 px-4 md:p-8 mb-6">
-              <div class="grid gap-4 gap-y-3 text-sm grid-cols-1 md:grid-cols-5">
-                <div class="md:col-span-5 mb-5">
-                  <label for="title" class="font-medium after:content-['*'] after:text-red-500 ">Fasilitas</label>
-                  <input type="text" name="title" id="title"
-                    class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="{{ $facility->title }}" />
-                  <p class="text-xs mt-2 text-[#858584]">Tuliskan nama fasilitas</p>
-                </div>
-                <div class="md:col-span-2 mb-5">
-                  <label for="categories" class="font-medium after:content-['*'] after:text-red-500">Kategori</label>
-                  <select type="text" name="categories" id="categories"
-                    class="h-10 border mt-2 rounded px-4 w-full bg-gray-50">
-                    <option value="" disabled selected>Pilih kategori</option>
-                    <option value="Lapangan Indoor" {{ $facility->categories == 'Lapangan Indoor' ? 'selected' : '' }}>
-                      Lapangan Indoor</option>
-                    <option value="Lapangan Outdoor"
-                      {{ $facility->categories == 'Lapangan Outdoor' ? 'selected' : '' }}>Lapangan Outdoor</option>
-                    <option value="Ruangan" {{ $facility->categories == 'Ruangan' ? 'selected' : '' }}>Ruangan</option>
-                    <option value="Prasarana" {{ $facility->categories == 'Prasarana' ? 'selected' : '' }}>Prasarana
-                    </option>
-                  </select>
-                  <p class="text-xs mt-2 text-[#858584]">Pilih kategori fasilitas</p>
-                </div>
+        <h2 class="font-semibold text-xl text-blue-gray">Fasilitas Gelanggang</h2>
+        <p class="text-gray-700 mt-8  mx-7 text-sm font-medium">Menunggu Diterima</p>
 
-                <div class="md:col-span-3 mb-5">
-                  <label for="small_thumbnail" class="font-medium after:content-['*'] after:text-red-500 ">Small
-                    Thumbnail</label>
-                  <input type="file" name="small_thumbnail" id="small_thumbnail"
-                    class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                  <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk dijadikan thumbnail fasilitas</p>
-                </div>
+        <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+          <table id="pending_transaction"
+            class="table-auto w-full border-collapse bg-white text-left text-sm text-gray-500">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="px-6 py-4 font-semibold text-gray-900">No.</th>
+                <th scope="col" class="px-6 py-4 font-semibold text-gray-900">ID Pemesanan</th>
+                <th scope="col" class="px-6 py-4 font-semibold text-gray-900">Nama Fasilitas</th>
+                <th scope="col" class="px-6 py-4 font-semibold text-gray-900">Nama Penyewa</th>
+                <th scope="col" class="px-6 py-4 font-semibold text-gray-900">Tgl Sewa</th>
+                <th scope="col" class="px-6 py-4 font-semibold text-gray-900">Status</th>
+                <th scope="col" class="px-6 py-4 font-semibold text-gray-900">Aksi</th>
+              </tr>
 
-                <div class="md:col-span-5 mb-5">
-                  <label for="about" class="font-medium after:content-['*'] after:text-red-500 ">About</label>
-                  <textarea type="text" name="about" id="about" class="h-24 border mt-2 rounded px-4 w-full bg-gray-50"
-                    placeholder="">{{ $facility->about }}</textarea>
-                  <p class="text-xs mt-2 text-[#858584]">Tuliskan tentang fasilitas</p>
-                </div>
+            </thead>
+            <tbody class="divide-y divide-gray-100 border-t border-gray-100">
+              @php
+                $counter = 0;
+              @endphp
+              @foreach ($transactions as $key => $transaction)
+                @if ($transaction->status === 'pending')
+                  @php
+                    $counter++;
+                  @endphp
+                  <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4">{{ $counter }}</td>
+                    <td class="px-6 py-4">{{ $transaction->transaction_code }}</td>
+                    <td class="px-6 py-4">{{ $transaction->facility->title }}</td>
+                    <td class="px-6 py-4">{{ $transaction->user->name }}</td>
+                    <td class="px-6 py-4">{{ $transaction->schedule_start }}</td>
+                    <td class="px-6 py-4">{{ $transaction->status }}</td>
+                    <td class="px-6 py-4">
+                      <a href="{{ route('admin.manajemen.sewa.facility.detail', $transaction->id) }}">
+                        <button class="rounded-xl bg-deep-purple text-white h-8 w-20 text-xs">
+                          Detail
+                        </button>
 
-                <div class="md:col-span-5 mb-5">
-                  <label for="image1_detail" class="font-medium after:content-['*'] after:text-red-500 ">Image Detail
-                    1</label>
-                  <input type="file" name="image1_detail" id="image1_detail"
-                    class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                  <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
-                </div>
+                      </a>
+                    </td>
+                  </tr>
+                @endif
+              @endforeach
+            </tbody>
+          </table>
+        </div>
 
-                <div class="md:col-span-5 mb-5">
-                  <label for="image2_detail" class="font-medium after:content-['*'] after:text-red-500 ">Image Detail
-                    2</label>
-                  <input type="file" name="image2_detail" id="image2_detail"
-                    class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                  <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
-                </div>
 
-                <div class="md:col-span-5 mb-5">
-                  <label for="image3_detail" class="font-medium ">Image Detail 3</label>
-                  <input type="file" name="image3_detail" id="image3_detail"
-                    class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                  <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
-                </div>
+      </div>
+    </div>
+  </div>
 
-                <div class="md:col-span-5 mb-5">
-                  <label for="image4_detail" class="font-medium">Image Detail 4</label>
-                  <input type="file" name="image4_detail" id="image4_detail"
-                    class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                  <p class="text-xs mt-2 text-[#858584]">Pilih foto untuk detail fasilitas</p>
-                </div>
+  <div class=" m-10 flex items-center justify-center font-poppins">
+    <div class="container max-w-screen-lg mx-auto">
+      <div>
+        <p class="text-gray-700  mx-7 text-sm font-medium">Penyewa Aktif</p>
 
-                <div class="md:col-span-2 mb-5">
-                  <label for="show" class="font-medium after:content-['*'] after:text-red-500">Tampilkan</label>
-                  <select type="text" name="show" id="show"
-                    class="h-10 border mt-2 rounded px-4 w-full bg-gray-50">
-                    <option value="" disabled selected>Pilih tampilkan/sembunyikan konten</option>
-                    <option value="0" {{ $facility->show == '0' ? 'selected' : '' }}>Sembunyikan</option>
-                    <option value="1" {{ $facility->show == '1' ? 'selected' : '' }}>Tampilkan</option>
-                  </select>
-                  <p class="text-xs mt-2 text-[#858584]">Pilih kategori fasilitas</p>
-                </div>
-                <div class="md:col-span-5 text-right">
-                  <div class="flex items-end">
-                    <button type="button" id="deleteButton"
-                      class="bg-red-500 mx-2 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Hapus
-                      Fasilitas</button>
-                    <div class="ml-auto">
-                      <a href="{{ route('admin.manajemen.konten.facility') }}"
-                        class="bg-gray-400 mx-2 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">Kembali</a>
-                      <button type="submit" name="action" value="update"
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Perbarui</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
-        <script>
-          document.getElementById('deleteButton').addEventListener('click', function() {
-            if (confirm("Apakah Anda yakin ingin menghapus fasilitas ini?")) {
-              var form = document.getElementById('facilityForm');
-              var inputMethod = document.createElement('input');
-              inputMethod.type = 'hidden';
-              inputMethod.name = '_method';
-              inputMethod.value = 'DELETE';
-              form.appendChild(inputMethod);
+        <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+          <table id="active_transaction"
+            class="table-auto w-full border-collapse bg-white text-left text-sm text-gray-500">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="px-6 py-4 font-semibold text-gray-900">No.</th>
+                <th scope="col" class="px-6 py-4 font-semibold text-gray-900">ID Pemesanan</th>
+                <th scope="col" class="px-6 py-4 font-semibold text-gray-900">Nama Fasilitas</th>
+                <th scope="col" class="px-6 py-4 font-semibold text-gray-900">Nama Penyewa</th>
+                <th scope="col" class="px-6 py-4 font-semibold text-gray-900">Tgl Sewa</th>
+                <th scope="col" class="px-6 py-4 font-semibold text-gray-900">Status</th>
+                <th scope="col" class="px-6 py-4 font-semibold text-gray-900">Aksi</th>
+              </tr>
 
-              form.action = "{{ route('admin.manajemen.konten.facility.destroy', $facility->id) }}";
-              form.submit();
-            }
-          });
-        </script>
+            </thead>
+            <tbody class="divide-y divide-gray-100 border-t border-gray-100">
+              @php
+                $counter = 0;
+              @endphp
+              @foreach ($transactions as $key => $transaction)
+                @if ($transaction->status === 'confirmed')
+                  @php
+                    $counter++;
+                  @endphp
+                  <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4">{{ $counter }}</td>
+                    <td class="px-6 py-4">{{ $transaction->transaction_code }}</td>
+                    <td class="px-6 py-4">{{ $transaction->facility->title }}</td>
+                    <td class="px-6 py-4">{{ $transaction->user->name }}</td>
+                    <td class="px-6 py-4">{{ $transaction->schedule_start }}</td>
+                    <td class="px-6 py-4">{{ $transaction->status }}</td>
+                    <td class="px-6 py-4">
+                      <button class="rounded-xl bg-deep-purple text-white h-8 w-20 text-xs">
+                        Detail
+                      </button>
+                      </a>
+                    </td>
+                  </tr>
+                @endif
+              @endforeach
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

@@ -20,7 +20,6 @@ return new class extends Migration
             $table->dateTime('schedule_start');
             $table->dateTime('schedule_end');
             $table->integer('duration_hours');
-            $table->String('request_letter');
             $table->text('description');
             $table->String('phone_number');
             $table->decimal('amount', 10, 2);

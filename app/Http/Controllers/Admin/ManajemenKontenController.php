@@ -31,7 +31,7 @@ class ManajemenKontenController extends Controller
     public function store(Request $request)
     {
         $data = $request->except('_token');
-
+        // dd($request);
         $request->validate([
             'title' => 'required|string',
             'categories' => 'required|string',

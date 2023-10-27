@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RejectedTransactions extends Model
+class RejectedTransaction extends Model
 {
     use HasFactory;
 
@@ -16,4 +16,9 @@ class RejectedTransactions extends Model
         'message',
         'refund_proof'
     ];
+
+    public function transaction() 
+    {
+        return $this->belongsTo(Transaction::class);
+    }
 }

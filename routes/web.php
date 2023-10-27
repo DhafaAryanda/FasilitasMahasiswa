@@ -49,11 +49,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function(){
             });
         });
 
-        Route::group(['prefix' => 'peminjaman'], function() {
+        Route::group(['prefix' => 'sewa'], function() {
             
             Route::group(['prefix' => 'facility'], function() {
-                Route::get('/', [TransactionController::class, 'index'])->name('admin.manajemen.peminjaman.facility');
-                
+                Route::get('/', [TransactionController::class, 'index'])->name('admin.manajemen.sewa.facility');
+                Route::get('/{id}', [TransactionController::class, 'show'])->name('admin.manajemen.sewa.facility.detail');
+                Route::put('/{id}/confirm', [TransactionController::class, 'confirm'])->name('admin.manajemen.sewa.facility.confirm');
+                Route::post('/{id}/reject', [TransactionController::class, 'reject'])->name('admin.manajemen.sewa.facility.reject');
+
             });
             
         });
