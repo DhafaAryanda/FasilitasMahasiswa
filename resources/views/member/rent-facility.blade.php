@@ -310,15 +310,15 @@
         </div>
       @endif --}}
       <div>
-        <h2 class="font-semibold text-xl text-blue-gray">Edit Fasilitas Gelanggang</h2>
-        <p class="text-gray-500 mb-6 text-sm">Form untuk mengedit kontent</p>
+        <h2 class="font-semibold text-xl text-slate-700 mb-6">Sewa Fasilitas</h2>
         <!-- Form Start -->
         <form enctype="multipart/form-data" {{-- action="{{ route('admin.manajemen.konten.facility.update', $facility->id) }}" method="POST" --}} id="facilityForm">
           @csrf
           <section>
             <div class="bg-white rounded-lg border border-gray-200 shadow-md mb-3">
-              <div>
-                <p class="mt-8 mx-10 font-bold">Informasi Fasilitas</p>
+              <div class="items-center mb-3">
+                <p class=" mx-10 mt-3 mb-2  font-bold">Form Sewa Fasilitas</p>
+                <hr>
               </div>
               <div class="flex">
 

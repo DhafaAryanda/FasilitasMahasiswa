@@ -293,7 +293,7 @@
 
 @section('content')
 
-  <div class=" m-10 flex items-center justify-center font-dmsans">
+  <div class=" m-10 flex items-center justify-center font-poppins">
     <div class="container max-w-screen-lg mx-auto">
       {{-- @if ($errors->any())
         <div class="mb-4" role="alert">
@@ -316,47 +316,40 @@
         <form enctype="multipart/form-data" {{-- action="{{ route('admin.manajemen.konten.facility.update', $facility->id) }}" method="POST" --}} id="facilityForm">
           @csrf
 
-          <div class="flex gap-6 ">
-            <section class="flex-1 bg-white rounded-lg border border-gray-200 shadow-md mb-3">
-              <div class="my-3 mx-10 font-bold">
+          <div class="flex gap-10 mx-10">
+            <section class="flex-1  bg-white rounded-lg border border-gray-200 shadow-md mb-3">
+              <div class="my-3 mx-10 font-semibold">
                 Menu Profile
               </div>
               <hr>
               <div class="flex">
-
-                <div class="mx-5">
-
-                  <div class="mt-4 mb-4 mx-5 text-sm">
-                    <div class="md:col-span-5 mb-5">
-                      <label for="title"
-                        class="font-medium after:content-['*'] after:text-red-500 ">Fasilitas</label>
-                      <input type="text" name="title" id="title"
-                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" {{-- value="{{ $facility->title }}" --}} />
-                      <p class="text-xs mt-2 text-[#858584]">Pilih Fasilitas</p>
-                    </div>
-                    <div class="md:col-span-5 mb-5">
-                      <label for="title" class="font-medium after:content-['*'] after:text-red-500 ">Nama
-                        Pemohon</label>
-                      <input type="text" name="name" id="name"
-                        class=" h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" readonly />
-                      <p class="text-xs mt-2 text-[#858584]">Nama pemohon penyewa fasilitas</p>
-                    </div>
-                    <div class="md:col-span-5 mb-5">
-                      <label for="title" class="font-medium after:content-['*'] after:text-red-500 ">Nomor
-                        Telepon</label>
-                      <input type="text" name="title" id="title"
-                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" {{-- value="{{ $facility->title }}" --}} />
-                      <p class="text-xs mt-2 text-[#858584]">Tuliskan Nomor Telepon yang menggunakan Whatsapp</p>
-                    </div>
-                    <div class="md:col-span-5 mb-5">
-                      <label for="title" class="font-medium after:content-['*'] after:text-red-500 ">Deskripsi
-                        Kegiatan</label>
-                      <textarea type="text" name="about" id="about" class="h-24 border mt-2 rounded px-4 w-full bg-gray-50"
-                        placeholder=""></textarea>
-                      <p class="text-xs mt-2 text-[#858584]">Tuliskan keperluan Nomor Telepon yang menggunakan Whatsapp
-                      </p>
-                    </div>
+                <div class=" my-5 mx-12 text-sm flex flex-col gap-6">
+                  <div class="md:col-span-5 ">
+                    <label for="title" class="font-medium">Fasilitas</label>
+                    <p class=" mt-2 text-[#858584]">Lapangan Basket</p>
                   </div>
+                  <div class="md:col-span-5">
+                    <label for="title" class="font-medium">Nama Kegiatan</label>
+                    <p class=" mt-2 text-[#858584]">Informatika Festival</p>
+                  </div>
+                  <div class="md:col-span-5">
+                    <label for="title" class="font-medium">Nama Pemohon</label>
+                    <p class=" mt-2 text-[#858584]">Dhafa Aryanda</p>
+                  </div>
+                  <div class="md:col-span-5">
+                    <label for="title" class="font-medium">Nomor Telepon</label>
+                    <p class=" mt-2 text-[#858584]">08238857222</p>
+                  </div>
+                  <div class="md:col-span-5">
+                    <label for="title" class="font-medium">Jadwal Kegiatan Berlangsung</label>
+                    <p class=" mt-2 text-[#858584]">05-09-2023, 08:00 PM</p>
+                  </div>
+                  <div class="md:col-span-5">
+                    <label for="title" class="font-medium">Durasi Kegiatan</label>
+                    <p class=" mt-2 text-[#858584]">2 Jam</p>
+                  </div>
+
+
                 </div>
 
 
@@ -369,55 +362,100 @@
 
             </section>
             <section class="flex-1 bg-white rounded-lg border border-gray-200 shadow-md mb-3">
-              <div class="my-3 mx-10 font-bold">
-                Menu Profile
+              <div class="my-3 mx-10 font-semibold">
+                Ringkasan Pesanan
               </div>
               <hr>
-              <div class="flex">
+              <div class="my-5 mx-12 text-sm flex flex-col gap-3 ">
+                <div class="flex">
+                  <label for="title" class="flex-1 font-medium">Pesanan Dibuat</label>
+                  <p class="">Sun, May 7, 2023</p>
+                </div>
+                <div class="flex">
+                  <label for="title" class="flex-1 font-medium">Subtotal</label>
+                  <p class="">Rp. 500.000.00 x 2</p>
+                </div>
+              </div>
+              <hr>
+              <div class="mt-5 mb-12 mx-12 text-sm flex flex-col gap-3 ">
+                <div class="flex">
+                  <label for="title" class="flex-1 font-medium">Total</label>
+                  <p class="">Rp. 1.000.000.00</p>
+                </div>
+              </div>
+              <div class="my-5 mx-12 text-sm flex flex-col gap-2">
+                <p class="font-semibold mb-3">Transfer sejumlah diatas ke Rekening berikut:</p>
+                <p class="text-sm">Bank Syariah Indonesia</p>
+                <div class="flex">
+                  <label for="title" class="flex-1">2008107010032</label>
+                  <p class="">a.n. Samsil Bihri</p>
+                </div>
+              </div>
+              <hr>
+              <div class=" mt-5 mb-12 mx-12 text-sm flex flex-col gap-3 ">
+                <div class="flex flex-col">
+                  <label for="title" class="flex-1 font-medium">Bank Pengirim</label>
 
-                <div class="mx-5">
-
-                  <div class="mt-4 mb-4 mx-5 text-sm">
-                    <div class="md:col-span-5 mb-5">
-                      <label for="title"
-                        class="font-medium after:content-['*'] after:text-red-500 ">Fasilitas</label>
-                      <input type="text" name="title" id="title"
-                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" {{-- value="{{ $facility->title }}" --}} />
-                      <p class="text-xs mt-2 text-[#858584]">Pilih Fasilitas</p>
-                    </div>
-                    <div class="md:col-span-5 mb-5">
-                      <label for="title" class="font-medium after:content-['*'] after:text-red-500 ">Nama
-                        Pemohon</label>
-                      <input type="text" name="name" id="name"
-                        class=" h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" readonly />
-                      <p class="text-xs mt-2 text-[#858584]">Nama pemohon penyewa fasilitas</p>
-                    </div>
-                    <div class="md:col-span-5 mb-5">
-                      <label for="title" class="font-medium after:content-['*'] after:text-red-500 ">Nomor
-                        Telepon</label>
-                      <input type="text" name="title" id="title"
-                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" {{-- value="{{ $facility->title }}" --}} />
-                      <p class="text-xs mt-2 text-[#858584]">Tuliskan Nomor Telepon yang menggunakan Whatsapp</p>
-                    </div>
-                    <div class="md:col-span-5 mb-5">
-                      <label for="title" class="font-medium after:content-['*'] after:text-red-500 ">Deskripsi
-                        Kegiatan</label>
-                      <textarea type="text" name="about" id="about" class="h-24 border mt-2 rounded px-4 w-full bg-gray-50"
-                        placeholder=""></textarea>
-                      <p class="text-xs mt-2 text-[#858584]">Tuliskan keperluan Nomor Telepon yang menggunakan Whatsapp
-                      </p>
+                  <div class="flex items-center">
+                    <div class="flex w-full">
+                      <select type="text" name="categories" id="categories"
+                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50 text-sm">
+                        <option value="" disabled selected>Pilih Bank</option>
+                        <option value="Lapangan Indoor" {{ old('categories') == 'Lapangan Indoor' ? 'selected' : '' }}>
+                          Lapangan Indoor</option>
+                        <option value="Lapangan Outdoor" {{ old('categories') == 'Lapangan Outdoor' ? 'selected' : '' }}>
+                          Lapangan Outdoor</option>
+                        <option value="Ruangan" {{ old('categories') == 'Ruangan' ? 'selected' : '' }}>Ruangan</option>
+                        <option value="Prasarana" {{ old('categories') == 'Prasarana' ? 'selected' : '' }}>Prasarana
+                        </option>
+                      </select>
                     </div>
                   </div>
+                  <p class="text-xs mt-2 text-[#858584]">Pilih Bank pengirim</p>
                 </div>
+                <div class="flex flex-col">
+                  <label for="title" class="flex-1 font-medium">Nomor Rekening Pengirim</label>
 
+                  <div class="flex items-center">
+                    <div class="flex w-full">
+                      <select type="text" name="categories" id="categories"
+                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50 text-sm">
+                        <option value="" disabled selected>Pilih Bank</option>
+                        <option value="Lapangan Indoor" {{ old('categories') == 'Lapangan Indoor' ? 'selected' : '' }}>
+                          Lapangan Indoor</option>
+                        <option value="Lapangan Outdoor"
+                          {{ old('categories') == 'Lapangan Outdoor' ? 'selected' : '' }}>
+                          Lapangan Outdoor</option>
+                        <option value="Ruangan" {{ old('categories') == 'Ruangan' ? 'selected' : '' }}>Ruangan</option>
+                        <option value="Prasarana" {{ old('categories') == 'Prasarana' ? 'selected' : '' }}>Prasarana
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <p class="text-xs mt-2 text-[#858584]">Tuliskan rekening pengirim</p>
+                </div>
+                <div class="flex flex-col">
+                  <label for="title" class="flex-1 font-medium">Bukti Transfer</label>
 
-
-
-
-
-
+                  <div class="flex items-center">
+                    <div class="flex w-full">
+                      <select type="text" name="categories" id="categories"
+                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50 text-sm">
+                        <option value="" disabled selected>Pilih Bank</option>
+                        <option value="Lapangan Indoor" {{ old('categories') == 'Lapangan Indoor' ? 'selected' : '' }}>
+                          Lapangan Indoor</option>
+                        <option value="Lapangan Outdoor"
+                          {{ old('categories') == 'Lapangan Outdoor' ? 'selected' : '' }}>
+                          Lapangan Outdoor</option>
+                        <option value="Ruangan" {{ old('categories') == 'Ruangan' ? 'selected' : '' }}>Ruangan</option>
+                        <option value="Prasarana" {{ old('categories') == 'Prasarana' ? 'selected' : '' }}>Prasarana
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <p class="text-xs mt-2 text-[#858584]">Lampirkan file bukti transfer ke rekening yang disebutkan</p>
+                </div>
               </div>
-
             </section>
 
 
