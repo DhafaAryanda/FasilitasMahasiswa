@@ -9,6 +9,10 @@ use App\Http\Controllers\Member\RegisterController;
 use App\Http\Controllers\Member\LoginController as MemberLoginController;
 use App\Http\Controllers\Member\DashboardController;
 use App\Http\Controllers\Member\FacilityController;
+use App\Http\Controllers\Member\ProfileController;
+use App\Http\Controllers\Member\RentController;
+
+
 
 
 
@@ -72,19 +76,23 @@ Route::post('/login', [MemberLoginController::class, 'auth'])->name('member.logi
 
 Route::group(['prefix' => 'member'], function() {
     Route::get('/', [DashboardController::class, 'index'])->name('member.dashboard');
-
+    Route::get('/profile', [ProfileController::class, 'index'])->name('member.profile');
     Route::group(['prefix' => 'konten'], function() {
-
-        Route::group(['prefix' => 'facility'], function() {
-            Route::get('/', [FacilityController::class, 'index'])->name('member.konten.facility');
-            Route::get('/{id}', [FacilityController::class, 'show'])->name('member.konten.facility.detail');
-        });
+      Route::group(['prefix' => 'facility'], function() {
+          Route::get('/', [FacilityController::class, 'index'])->name('member.konten.facility');
+          Route::get('/{id}', [FacilityController::class, 'show'])->name('member.konten.facility.detail');
+      });
     });
+    Route::group(['prefix' => 'sewa'], function() {
+      Route::get('/', [RentController::class, 'index'])->name('member.rent');
+      Route::get('/confirm', [RentController::class, 'confirm'])->name('member.rent.confirm');
+      // Route::get('/{id}', [FacilityController::class, 'show'])->name('member.konten.facility.detail');
+  });
 });
 
 
 Route::view('/dashboard', 'member.dashboard')->name('member.dashboard');
-Route::view('/profile', 'member.profile')->name('member.profile');
+Route::view('/profile', 'member.profile')->name('member.profile');  
 Route::view('/fasilitas-gelanggang', 'member.fasilitas-gelanggang')->name('member.fasilitas-gelanggang');
 Route::view('/kesenian-&alat-olahraga', 'member.kesenian-dan-alat-olahraga')->name('member.kesenian-dan-alat-olahraga');
 Route::view('/login', 'member.auth')->name('member.auth');

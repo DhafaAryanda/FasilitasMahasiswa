@@ -3,7 +3,7 @@
 @section('title', 'Fasilitas Gelanggang')
 
 @section('sidebar-menu-desktop')
-  <div class="py-4 text-gray-500">
+  <div class="py-4 text-blue-gray">
     <a class="flex ml-8 items-center mt-1 mb-7" href="{{ route('admin.dashboard') }}">
       <img src="https://mbkmunggul.usk.ac.id/assets/img/logo/logo_mbkm_dark.png" alt="Logo" class="w-auto max-h-14">
     </a>
@@ -39,20 +39,18 @@
           <span class="ml-4">Profile</span>
         </a>
       </li>
-      <li class="relative px-6 py-3" x-data="{ isMenu1Open: true }">
-        <span class="absolute inset-y-0 left-0 w-1 bg-yellow-orange rounded-tr-lg rounded-br-lg" aria-hidden="true">
-        </span>
+      <li class="relative px-6 py-3">
         <button
-          class="inline-flex items-center justify-between w-full text-sm font-bold transition-colors duration-150 hover:text-deep-purple"
+          class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-deep-purple"
           @click="toggleMenu(1)" aria-haspopup="true">
-          <span class="inline-flex items-center text-yellow-orange">
+          <span class="inline-flex items-center">
             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
               stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
               </path>
             </svg>
-            <span class="ml-4 text-deep-purple">Manajemen Peminjaman</span>
+            <span class="ml-4">Manajemen Peminjaman</span>
           </span>
           <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd"
@@ -65,14 +63,12 @@
             x-transition:enter-end="opacity-100 max-h-xl" x-transition:leave="transition-all ease-in-out duration-300"
             x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
             class="p-1 space-y-3 overflow-hidden text-sm font-medium text-blue-gray rounded-md" aria-label="submenu">
-            <li class="mt-2 px-2 py-1 transition-colors duration-150 text-deep-purple">
-              <span class="inline-flex items-center font-bold justify-between w-full hover:text-deep-purple">
-                <svg class="w-2.5 h-2.5 text-yellow-orange" viewBox="0 0 11 11" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
+            <li class="mt-2 px-2 py-1 transition-colors duration-150">
+              <span class="inline-flex items-center justify-between w-full hover:text-deep-purple">
+                <svg class="w-2.5 h-2.5" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <ellipse cx="5.456" cy="5.5" rx="4.09174" ry="4.125" fill="currentColor" />
                 </svg>
-                <a class="w-full ml-5" href="{{ route('admin.manajemen.sewa.facility') }}">Fasilitas
-                  Gelanggang</a>
+                <a class="w-full ml-5" href="{{ route('admin.manajemen.sewa.facility') }}">Fasilitas Gelanggang</a>
               </span>
             </li>
             <li class="mt-2 px-2 py-1 transition-colors duration-150">
@@ -86,18 +82,20 @@
           </ul>
         </template>
       </li>
-      <li class="relative px-6 py-3">
+      <li class="relative px-6 py-3" x-data="{ isMenu2Open: true }">
+        <span class="absolute inset-y-0 left-0 w-1 bg-yellow-orange rounded-tr-lg rounded-br-lg" aria-hidden="true">
+        </span>
         <button
-          class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-deep-purple"
+          class="inline-flex items-center justify-between w-full text-sm font-bold transition-colors duration-150 hover:text-deep-purple"
           @click="toggleMenu(2)" aria-haspopup="true">
-          <span class="inline-flex items-center">
+          <span class="inline-flex items-center text-yellow-orange">
             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
               stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
               </path>
             </svg>
-            <span class="ml-4">Manajemen Konten</span>
+            <span class="ml-4 text-deep-purple">Manajemen Konten</span>
           </span>
           <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd"
@@ -110,13 +108,13 @@
             x-transition:enter-end="opacity-100 max-h-xl" x-transition:leave="transition-all ease-in-out duration-300"
             x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
             class="p-1 space-y-3 overflow-hidden text-sm font-medium text-blue-gray rounded-md" aria-label="submenu">
-            <li class="mt-2 px-2 py-1 transition-colors duration-150">
-              <span class="inline-flex items-center justify-between w-full hover:text-deep-purple">
-                <svg class="w-2.5 h-2.5" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <li class="mt-2 px-2 py-1 transition-colors duration-150 text-deep-purple">
+              <span class="inline-flex items-center font-bold justify-between w-full hover:text-deep-purple">
+                <svg class="w-2.5 h-2.5  text-yellow-orange" viewBox="0 0 11 11" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
                   <ellipse cx="5.456" cy="5.5" rx="4.09174" ry="4.125" fill="currentColor" />
                 </svg>
-                <a class="w-full ml-5" href="{{ route('admin.manajemen.konten.facility') }}">Fasilitas
-                  Gelanggang</a>
+                <a class="w-full ml-5" href="{{ route('admin.manajemen.konten.facility') }}">Fasilitas Gelanggang</a>
               </span>
             </li>
             <li class="mt-2 px-2 py-1 transition-colors duration-150">
@@ -149,7 +147,7 @@
 @endsection
 
 @section('sidebar-menu-mobile')
-  <div class="text-gray-500">
+  <div class="text-blue-gray">
     <div class="block  px-6 py-3">
       <span class="font-bold text-slate-600 ml-5 text-sm">ADMIN</span>
     </div>
@@ -185,20 +183,18 @@
           <span class="ml-4">Profile</span>
         </a>
       </li>
-      <li class="relative px-6 py-3" x-data="{ isMenu1Open: true }">
-        <span class="absolute inset-y-0 left-0 w-1 bg-yellow-orange rounded-tr-lg rounded-br-lg"
-          aria-hidden="true"></span>
+      <li class="relative px-6 py-3">
         <button
-          class="inline-flex items-center justify-between w-full text-sm font-bold transition-colors duration-150 hover:text-deep-purple"
+          class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-deep-purple"
           @click="toggleMenu(1)" aria-haspopup="true">
-          <span class="inline-flex items-center text-yellow-orange">
+          <span class="inline-flex items-center">
             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
               stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
               </path>
             </svg>
-            <span class="ml-4 text-deep-purple">Manajemen Peminjaman</span>
+            <span class="ml-4">Manajemen Peminjaman</span>
           </span>
           <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd"
@@ -211,10 +207,9 @@
             x-transition:enter-end="opacity-100 max-h-xl" x-transition:leave="transition-all ease-in-out duration-300"
             x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
             class="p-1 space-y-3 overflow-hidden text-sm font-medium text-blue-gray rounded-md" aria-label="submenu">
-            <li class="px-2 py-1 transition-colors duration-150 text-deep-purple">
-              <span class="inline-flex items-center font-bold justify-between w-full hover:text-deep-purple">
-                <svg class="w-2.5 h-2.5 text-yellow-orange" viewBox="0 0 11 11" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
+            <li class="px-2 py-1 transition-colors duration-150">
+              <span class="inline-flex items-center justify-between w-full hover:text-deep-purple">
+                <svg class="w-2.5 h-2.5" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <ellipse cx="5.456" cy="5.5" rx="4.09174" ry="4.125" fill="currentColor" />
                 </svg>
                 <a class="w-full ml-5" href="pages/login.html">Fasilitas Gelanggang</a>
@@ -231,18 +226,20 @@
           </ul>
         </template>
       </li>
-      <li class="relative px-6 py-3">
+      <li class="relative px-6 py-3" x-data="{ isMenu2Open: true }">
+        <span class="absolute inset-y-0 left-0 w-1 bg-yellow-orange rounded-tr-lg rounded-br-lg"
+          aria-hidden="true"></span>
         <button
-          class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-deep-purple"
+          class="inline-flex items-center justify-between w-full text-sm font-bold transition-colors duration-150 hover:text-deep-purple"
           @click="toggleMenu(2)" aria-haspopup="true">
-          <span class="inline-flex items-center">
+          <span class="inline-flex items-center text-yellow-orange">
             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
               stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
               </path>
             </svg>
-            <span class="ml-4">Manajemen Konten</span>
+            <span class="ml-4 text-deep-purple">Manajemen Konten</span>
           </span>
           <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd"
@@ -255,9 +252,10 @@
             x-transition:enter-end="opacity-100 max-h-xl" x-transition:leave="transition-all ease-in-out duration-300"
             x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
             class="p-1 space-y-3 overflow-hidden text-sm font-medium text-blue-gray rounded-md" aria-label="submenu">
-            <li class="px-2 py-1 transition-colors duration-150">
-              <span class="inline-flex items-center justify-between w-full hover:text-deep-purple">
-                <svg class="w-2.5 h-2.5" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <li class="px-2 py-1 transition-colors duration-150 text-deep-purple">
+              <span class="inline-flex items-center font-bold justify-between w-full hover:text-deep-purple">
+                <svg class="w-2.5 h-2.5 text-yellow-orange" viewBox="0 0 11 11" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
                   <ellipse cx="5.456" cy="5.5" rx="4.09174" ry="4.125" fill="currentColor" />
                 </svg>
                 <a class="w-full ml-5" href="pages/login.html">Fasilitas Gelanggang</a>
@@ -294,178 +292,142 @@
 @endsection
 
 @section('content')
-  <div class=" m-10 items-center justify-center font-dmsans">
+
+  <div class=" m-10 flex items-center justify-center font-dmsans">
     <div class="container max-w-screen-lg mx-auto">
-      <h2 class="font-semibold text-xl text-blue-gray">Detail Transaksi</h2>
-      <div class="flex flex-row mt-5 mb-10">
-        <div class="flex-1 flex-col">
-          <ul class="mt-5">
-            <li class="text-base font-medium">ID Pemesanan</li>
-            <p class="text-sm text-gray-500">{{ $transaction->transaction_code }}</p>
-          </ul>
-          <ul class="mt-5">
-            <li class="text-base font-medium">Nama Fasilitas</li>
-            <p class="text-sm text-gray-500">{{ $transaction->facility->title }}</p>
-          </ul>
-          <ul class="mt-5">
-            <li class="text-base font-medium">Nama Kegiatan</li>
-            <p class="text-sm text-gray-500">{{ $transaction->activity_name }}</p>
-          </ul>
-          <ul class="mt-5">
-            <li class="text-base font-medium">Nama Penyewa</li>
-            <p class="text-sm text-gray-500">{{ $transaction->user->name }}</p>
-          </ul>
-          <ul class="mt-5">
-            <li class="text-base font-medium">Nomor Telepon</li>
-            <p class="text-sm text-gray-500">{{ $transaction->phone_number }}</p>
-          </ul>
-
-        </div>
-
-        <div class="flex-1 flex-col">
-          <ul class="mt-5">
-            <li class="text-base font-medium">Durasi Kegiatan</li>
-            <p class="text-sm text-gray-500">{{ $transaction->duration_hours }} Jam</p>
-          </ul>
-          <ul class="mt-5">
-            <li class="text-base font-medium">Jadwal Kegiatan Berlangsung</li>
-            <p class="text-sm text-gray-500">{{ $transaction->schedule_start }}</p>
-          </ul>
-          <ul class="mt-5">
-            <li class="text-base font-medium">Jadwal Kegiatan Selesai</li>
-            <p class="text-sm text-gray-500">{{ $transaction->schedule_end }}</p>
-          </ul>
-          <ul class="mt-5">
-            <li class="text-base font-medium">Total Biaya</li>
-            <p class="text-sm text-gray-500">Rp. {{ $transaction->amount }}</p>
-          </ul>
-          <ul class="mt-5">
-            <li class="text-base font-medium">Pesanan Dibuat</li>
-            <p class="text-sm text-gray-500">{{ $transaction->created_at }}</p>
-          </ul>
-          <ul class="mt-5">
-            <li class="text-base font-medium">Bukti Transfer</li>
-            <a href="#" class="text-sm font-medium text-blue-500 underline" id="showImage">Lihat Bukti
-              Transfer</a>
-          </ul>
-
-          <!-- Create a hidden div for the pop-up image -->
-          <div id="imagePopup"
-            class="hidden fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 bg-black bg-opacity-50">
-            <div class="relative bg-white p-4 rounded shadow-lg">
-              <a href="#" id="closeImagePopup"
-                class="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-lg">×</a>
-              <img class="w-[750px] h-auto" src="https://mbkmunggul.usk.ac.id/assets/img/logo/logo_mbkm_dark.png"
-                alt="Bukti Transfer" />
-            </div>
+      {{-- @if ($errors->any())
+        <div class="mb-4" role="alert">
+          <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+            Danger
           </div>
-
-        </div>
-
-        <div class="flex-1 flex-col">
-          <ul class="mt-5">
-            <li class="text-base font-medium">Bank Pengirim</li>
-            <p class="text-sm text-gray-500">{{ $transaction->bank_name }}</p>
-          </ul>
-          <ul class="mt-5">
-            <li class="text-base font-medium">Nomor Rekening Pengirim</li>
-            <p class="text-sm text-gray-500">{{ $transaction->bank_account_number }}</p>
-          </ul>
-          <form class="confirmation-form"
-            action="{{ route('admin.manajemen.sewa.facility.reject', $transaction->id) }}" method="POST"
-            enctype="multipart/form-data">
-            @csrf
-            <input type="hidden" name="transaction_id" value="{{ $transaction->id }}">
-            <ul class="mt-5">
-              <li class="text-base font-medium">Bukti Pengembalian Dana Jika Menolak Sewa</li>
-              <input type="file" name="refund_proof" id="refund_proof"
-                class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-              <p class="text-xs text-gray-500">
-                Lampirkan file bukti transfer ke rekening pengirim jika menolak tawaran peminjaman
-              </p>
-
+          <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+            <ul>
+              @foreach ($errors->all() as $errors)
+                <li>{{ $errors }}</li>
+              @endforeach
             </ul>
-            <ul class="mt-5">
-              <li class="text-base font-medium">Alasan Menolak Sewa</li>
-              <textarea type="text" name="message" id="message"
-                class="text-sm h-28 w-full border  mt-2 rounded-md  bg-gray-50 " placeholder=""></textarea>
-            </ul>
-            <div class="block m-5 text-sm">
-              <button type="submit" name="action" value="reject"
-                class="w-full h-auto bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded">Tolak
-                Sewa</button>
-            </div>
-          </form>
-          <div class="block m-5 text-sm">
-            <form action="{{ route('admin.manajemen.sewa.facility.confirm', $transaction->id) }}" method="POST">
-              @csrf
-              @method('PUT')
-              <button type="submit" name="action" value="confirm"
-                class="w-full h-auto bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">Terima Sewa
-              </button>
-            </form>
           </div>
         </div>
+      @endif --}}
+      <div>
+        <h2 class="font-semibold text-xl text-blue-gray">Edit Fasilitas Gelanggang</h2>
+        <p class="text-gray-500 mb-6 text-sm">Form untuk mengedit kontent</p>
+        <!-- Form Start -->
+        <form enctype="multipart/form-data" {{-- action="{{ route('admin.manajemen.konten.facility.update', $facility->id) }}" method="POST" --}} id="facilityForm">
+          @csrf
+
+          <div class="flex gap-6 ">
+            <section class="flex-1 bg-white rounded-lg border border-gray-200 shadow-md mb-3">
+              <div class="my-3 mx-10 font-bold">
+                Menu Profile
+              </div>
+              <hr>
+              <div class="flex">
+
+                <div class="mx-5">
+
+                  <div class="mt-4 mb-4 mx-5 text-sm">
+                    <div class="md:col-span-5 mb-5">
+                      <label for="title"
+                        class="font-medium after:content-['*'] after:text-red-500 ">Fasilitas</label>
+                      <input type="text" name="title" id="title"
+                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" {{-- value="{{ $facility->title }}" --}} />
+                      <p class="text-xs mt-2 text-[#858584]">Pilih Fasilitas</p>
+                    </div>
+                    <div class="md:col-span-5 mb-5">
+                      <label for="title" class="font-medium after:content-['*'] after:text-red-500 ">Nama
+                        Pemohon</label>
+                      <input type="text" name="name" id="name"
+                        class=" h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" readonly />
+                      <p class="text-xs mt-2 text-[#858584]">Nama pemohon penyewa fasilitas</p>
+                    </div>
+                    <div class="md:col-span-5 mb-5">
+                      <label for="title" class="font-medium after:content-['*'] after:text-red-500 ">Nomor
+                        Telepon</label>
+                      <input type="text" name="title" id="title"
+                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" {{-- value="{{ $facility->title }}" --}} />
+                      <p class="text-xs mt-2 text-[#858584]">Tuliskan Nomor Telepon yang menggunakan Whatsapp</p>
+                    </div>
+                    <div class="md:col-span-5 mb-5">
+                      <label for="title" class="font-medium after:content-['*'] after:text-red-500 ">Deskripsi
+                        Kegiatan</label>
+                      <textarea type="text" name="about" id="about" class="h-24 border mt-2 rounded px-4 w-full bg-gray-50"
+                        placeholder=""></textarea>
+                      <p class="text-xs mt-2 text-[#858584]">Tuliskan keperluan Nomor Telepon yang menggunakan Whatsapp
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
 
+
+
+
+
+
+              </div>
+
+            </section>
+            <section class="flex-1 bg-white rounded-lg border border-gray-200 shadow-md mb-3">
+              <div class="my-3 mx-10 font-bold">
+                Menu Profile
+              </div>
+              <hr>
+              <div class="flex">
+
+                <div class="mx-5">
+
+                  <div class="mt-4 mb-4 mx-5 text-sm">
+                    <div class="md:col-span-5 mb-5">
+                      <label for="title"
+                        class="font-medium after:content-['*'] after:text-red-500 ">Fasilitas</label>
+                      <input type="text" name="title" id="title"
+                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" {{-- value="{{ $facility->title }}" --}} />
+                      <p class="text-xs mt-2 text-[#858584]">Pilih Fasilitas</p>
+                    </div>
+                    <div class="md:col-span-5 mb-5">
+                      <label for="title" class="font-medium after:content-['*'] after:text-red-500 ">Nama
+                        Pemohon</label>
+                      <input type="text" name="name" id="name"
+                        class=" h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" readonly />
+                      <p class="text-xs mt-2 text-[#858584]">Nama pemohon penyewa fasilitas</p>
+                    </div>
+                    <div class="md:col-span-5 mb-5">
+                      <label for="title" class="font-medium after:content-['*'] after:text-red-500 ">Nomor
+                        Telepon</label>
+                      <input type="text" name="title" id="title"
+                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" {{-- value="{{ $facility->title }}" --}} />
+                      <p class="text-xs mt-2 text-[#858584]">Tuliskan Nomor Telepon yang menggunakan Whatsapp</p>
+                    </div>
+                    <div class="md:col-span-5 mb-5">
+                      <label for="title" class="font-medium after:content-['*'] after:text-red-500 ">Deskripsi
+                        Kegiatan</label>
+                      <textarea type="text" name="about" id="about" class="h-24 border mt-2 rounded px-4 w-full bg-gray-50"
+                        placeholder=""></textarea>
+                      <p class="text-xs mt-2 text-[#858584]">Tuliskan keperluan Nomor Telepon yang menggunakan Whatsapp
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+              </div>
+
+            </section>
+
+
+          </div>
+
+
+
+        </form>
       </div>
-
-
-
     </div>
   </div>
 
-  <script>
-    function confirmReject() {
-      return confirm('Apakah Anda yakin ingin menolak?');
-    }
-
-    // Ambil semua elemen form dengan class "confirmation-form"
-    const confirmationForms = document.querySelectorAll('.confirmation-form');
-
-    // Loop melalui setiap form dan tambahkan event listener untuk menampilkan konfirmasi
-    confirmationForms.forEach(form => {
-      form.addEventListener('submit', function(event) {
-        if (!confirmReject()) {
-          event.preventDefault(); // Mencegah pengiriman form jika pengguna memilih "Batal"
-        }
-      });
-    });
-  </script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const confirmationForm = document.querySelector(".confirmation-form");
-      const refundProofInput = document.querySelector("#refund_proof");
-      const messageInput = document.querySelector("#message");
-
-      confirmationForm.addEventListener("submit", function(e) {
-        if (refundProofInput.value === "" || messageInput.value === "") {
-          e.preventDefault(); // Mencegah pengiriman formulir jika ada bidang yang kosong
-          alert("Pastikan untuk mengisi kedua bidang yang diperlukan sebelum menolak.");
-        }
-      });
-    });
-  </script>
-
-  <script>
-    // Function to show the image pop-up
-    function showImagePopup() {
-      const imagePopup = document.getElementById('imagePopup');
-      imagePopup.classList.remove('hidden');
-    }
-
-    // Function to close the image pop-up
-    function closeImagePopup() {
-      const imagePopup = document.getElementById('imagePopup');
-      imagePopup.classList.add('hidden');
-    }
-
-    // Add event listeners to show and close the pop-up
-    const showImageLink = document.getElementById('showImage');
-    showImageLink.addEventListener('click', showImagePopup);
-
-    const closeImageLink = document.getElementById('closeImagePopup');
-    closeImageLink.addEventListener('click', closeImagePopup);
-  </script>
 @endsection

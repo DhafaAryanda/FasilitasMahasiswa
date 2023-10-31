@@ -17,6 +17,8 @@
         "@material-tailwind/html": "^2.0.0",
         "alpinejs": "^3.13.1",
         "datatables.net-dt": "^1.13.6",
-        "jquery": "^3.7.1"
+        "glightbox": "^3.2.0",
+        "jquery": "^3.7.1",
+        "lightbox2": "^2.11.4"
     }
 }
