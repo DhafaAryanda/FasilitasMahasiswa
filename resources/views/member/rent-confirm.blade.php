@@ -295,35 +295,21 @@
 
   <div class=" m-10 flex items-center justify-center font-poppins">
     <div class="container max-w-screen-lg mx-auto">
-      {{-- @if ($errors->any())
-        <div class="mb-4" role="alert">
-          <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
-            Danger
-          </div>
-          <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
-            <ul>
-              @foreach ($errors->all() as $errors)
-                <li>{{ $errors }}</li>
-              @endforeach
-            </ul>
-          </div>
-        </div>
-      @endif --}}
       <div>
         <h2 class="font-semibold text-xl text-blue-gray">Edit Fasilitas Gelanggang</h2>
         <p class="text-gray-500 mb-6 text-sm">Form untuk mengedit kontent</p>
         <!-- Form Start -->
-        <form enctype="multipart/form-data" {{-- action="{{ route('admin.manajemen.konten.facility.update', $facility->id) }}" method="POST" --}} id="facilityForm">
+        <form class="mb-20" enctype="multipart/form-data" {{-- action="{{ route('admin.manajemen.konten.facility.update', $facility->id) }}" method="POST" --}} id="facilityForm">
           @csrf
 
-          <div class="flex gap-10 mx-10">
-            <section class="flex-1  bg-white rounded-lg border border-gray-200 shadow-md mb-3">
+          <div class="flex gap-10 mx-10 my-5">
+            <section class="flex-1 h-fit bg-white rounded-lg border border-gray-200 shadow-md mb-3">
               <div class="my-3 mx-10 font-semibold">
                 Menu Profile
               </div>
               <hr>
               <div class="flex">
-                <div class=" my-5 mx-12 text-sm flex flex-col gap-6">
+                <div class=" mt-8 mb-10 mx-12 text-sm flex flex-col gap-6">
                   <div class="md:col-span-5 ">
                     <label for="title" class="font-medium">Fasilitas</label>
                     <p class=" mt-2 text-[#858584]">Lapangan Basket</p>
@@ -416,49 +402,29 @@
                 <div class="flex flex-col">
                   <label for="title" class="flex-1 font-medium">Nomor Rekening Pengirim</label>
 
-                  <div class="flex items-center">
-                    <div class="flex w-full">
-                      <select type="text" name="categories" id="categories"
-                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50 text-sm">
-                        <option value="" disabled selected>Pilih Bank</option>
-                        <option value="Lapangan Indoor" {{ old('categories') == 'Lapangan Indoor' ? 'selected' : '' }}>
-                          Lapangan Indoor</option>
-                        <option value="Lapangan Outdoor"
-                          {{ old('categories') == 'Lapangan Outdoor' ? 'selected' : '' }}>
-                          Lapangan Outdoor</option>
-                        <option value="Ruangan" {{ old('categories') == 'Ruangan' ? 'selected' : '' }}>Ruangan</option>
-                        <option value="Prasarana" {{ old('categories') == 'Prasarana' ? 'selected' : '' }}>Prasarana
-                        </option>
-                      </select>
-                    </div>
-                  </div>
+                  <input type="text" name="title" id="title"
+                    class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" />
                   <p class="text-xs mt-2 text-[#858584]">Tuliskan rekening pengirim</p>
                 </div>
                 <div class="flex flex-col">
                   <label for="title" class="flex-1 font-medium">Bukti Transfer</label>
 
-                  <div class="flex items-center">
-                    <div class="flex w-full">
-                      <select type="text" name="categories" id="categories"
-                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50 text-sm">
-                        <option value="" disabled selected>Pilih Bank</option>
-                        <option value="Lapangan Indoor" {{ old('categories') == 'Lapangan Indoor' ? 'selected' : '' }}>
-                          Lapangan Indoor</option>
-                        <option value="Lapangan Outdoor"
-                          {{ old('categories') == 'Lapangan Outdoor' ? 'selected' : '' }}>
-                          Lapangan Outdoor</option>
-                        <option value="Ruangan" {{ old('categories') == 'Ruangan' ? 'selected' : '' }}>Ruangan</option>
-                        <option value="Prasarana" {{ old('categories') == 'Prasarana' ? 'selected' : '' }}>Prasarana
-                        </option>
-                      </select>
-                    </div>
-                  </div>
+                  <input type="file" name="image_proof" id="image_proof"
+                    class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                   <p class="text-xs mt-2 text-[#858584]">Lampirkan file bukti transfer ke rekening yang disebutkan</p>
                 </div>
               </div>
+              <hr>
+              <p class="text-xs text-[#858584] my-4 mx-6">
+                Catatan: Uang akan dikembalikan jika permintaan sewa ditolak
+              </p>
             </section>
-
-
+          </div>
+          <div class="flex justify-end mx-10">
+            <a href="{{ route('admin.manajemen.konten.facility') }}"
+              class="bg-gray-400 mx-2 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg">Kembali</a>
+            <button type="submit" name="action" value="update"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg">Submit</button>
           </div>
 
 
