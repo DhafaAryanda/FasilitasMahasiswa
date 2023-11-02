@@ -177,12 +177,80 @@
           </h2>
         </div>
 
-        <div class="bg-white rounded-lg  h-72 w-full relative">
+        <div class="bg-white rounded-lg  h-full w-full relative">
           <h3 class="mx-10 mt-3 mb-2  font-medium">Prosedur Pengajuan Peminjaman Fasilitas USK Tahun 2023</h3>
           <hr>
+
+          <div class="mx-10 mt-10 flex justify-center">
+            <svg class="" width="42" height="153" viewBox="0 0 42 153" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <circle cx="21" cy="21" r="20" fill="white" stroke="#EDEDED" stroke-width="2" />
+              <path d="M21.3394 18.1399H26.1519" stroke="#F58282" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M15.8481 18.1399L16.5356 18.8274L18.5981 16.7649" stroke="#F58282" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M21.3394 24.5566H26.1519" stroke="#F58282" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M15.8481 24.5566L16.5356 25.2441L18.5981 23.1816" stroke="#F58282" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M18.2502 30.1666H23.7502C28.3335 30.1666 30.1668 28.3333 30.1668 23.7499V18.2499C30.1668 13.6666 28.3335 11.8333 23.7502 11.8333H18.2502C13.6668 11.8333 11.8335 13.6666 11.8335 18.2499V23.7499C11.8335 28.3333 13.6668 30.1666 18.2502 30.1666Z"
+                stroke="#F58282" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <line x1="20" y1="42" x2="20" y2="153" stroke="#EDEDED" stroke-width="2" />
+            </svg>
+
+            <div class="text-sm bg-[#F4F3F3] rounded-lg w-[850px] h-28 ml-10">
+              <div class="font-medium mx-5 my-3 flex items-center">
+                Logbook
+                <span class="ml-3 bg-red-500 text-white text-[11px] font-normal px-3  rounded-md">27 July
+                  2023
+                  s/d
+                  15 November
+                  2023</span>
+              </div>
+              <div class="flex mx-5 my-3 items-center">
+                <p class=" bg-red-100 px-3 rounded-md text-red-500 font-medium text-[11px]">wajib</p>
+              </div>
+              <div class="flex mx-5 my-3 items-center">Mahasiswa mengisi Log Book Harian
+              </div>
+            </div>
+          </div>
+          <div class="mx-10 flex justify-center">
+            <svg class="" width="42" height="153" viewBox="0 0 42 153" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <circle cx="21" cy="21" r="20" fill="white" stroke="#EDEDED" stroke-width="2" />
+              <path d="M21.3394 18.1399H26.1519" stroke="#F58282" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M15.8481 18.1399L16.5356 18.8274L18.5981 16.7649" stroke="#F58282" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M21.3394 24.5566H26.1519" stroke="#F58282" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M15.8481 24.5566L16.5356 25.2441L18.5981 23.1816" stroke="#F58282" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M18.2502 30.1666H23.7502C28.3335 30.1666 30.1668 28.3333 30.1668 23.7499V18.2499C30.1668 13.6666 28.3335 11.8333 23.7502 11.8333H18.2502C13.6668 11.8333 11.8335 13.6666 11.8335 18.2499V23.7499C11.8335 28.3333 13.6668 30.1666 18.2502 30.1666Z"
+                stroke="#F58282" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <line x1="20" y1="42" x2="20" y2="153" stroke="#EDEDED" stroke-width="2" />
+            </svg>
+
+            <div class="text-sm bg-[#F4F3F3] rounded-lg w-[850px] h-28 ml-10">
+              <div class="font-medium mx-5 my-3 flex items-center">
+                Logbook
+                <span class="ml-3 bg-red-500 text-white text-[11px] font-normal px-3  rounded-md">27 July
+                  2023
+                  s/d
+                  15 November
+                  2023</span>
+              </div>
+              <div class="flex mx-5 my-3 items-center">
+                <p class=" bg-red-100 px-3 rounded-md text-red-500 font-medium text-[11px]">wajib</p>
+              </div>
+              <div class="flex mx-5 my-3 items-center">Mahasiswa mengisi Log Book Harian
+              </div>
+            </div>
+          </div>
+
         </div>
-
-
       </div>
     </div>
   </div>
