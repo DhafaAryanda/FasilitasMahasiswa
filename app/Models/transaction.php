@@ -19,7 +19,6 @@ class Transaction extends Model
         'schedule_start',
         'schedule_end',
         'duration_hours',
-        'request_letter',
         'description',
         'phone_number',
         'amount',

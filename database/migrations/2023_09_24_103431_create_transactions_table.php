@@ -17,8 +17,8 @@ return new class extends Migration
             $table->foreignId('facility_id')->constrained('facilities');
             $table->String('activity_name');
             $table->String('transaction_code');
-            $table->dateTime('schedule_start');
-            $table->dateTime('schedule_end');
+            $table->datetime('schedule_start');
+            $table->datetime('schedule_end');
             $table->integer('duration_hours');
             $table->text('description');
             $table->String('phone_number');

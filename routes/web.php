@@ -10,7 +10,7 @@ use App\Http\Controllers\Member\LoginController as MemberLoginController;
 use App\Http\Controllers\Member\DashboardController;
 use App\Http\Controllers\Member\FacilityController;
 use App\Http\Controllers\Member\ProfileController;
-use App\Http\Controllers\Member\RentController;
+use App\Http\Controllers\Member\TransactionController as MemberTransactionController;
 
 
 
@@ -84,9 +84,11 @@ Route::group(['prefix' => 'member'], function() {
       });
     });
     Route::group(['prefix' => 'sewa'], function() {
-      Route::get('/', [RentController::class, 'index'])->name('member.rent');
-      Route::get('/confirm', [RentController::class, 'confirm'])->name('member.rent.confirm');
-      // Route::get('/{id}', [FacilityController::class, 'show'])->name('member.konten.facility.detail');
+      Route::get('/{id}', [MemberTransactionController::class, 'index'])->name('member.transaction');
+      Route::post('/{id}', [MemberTransactionController::class, 'store'])->name('member.transaction.store');
+      Route::get('/transaction-confirm/{id}', [MemberTransactionController::class, 'confirm'])->name('member.transaction.confirm');
+      Route::post('/transaction-confirm/{id}', [MemberTransactionController::class, 'storeConfirmData'])->name('member.transaction.confirm.store');
+
   });
 });
 

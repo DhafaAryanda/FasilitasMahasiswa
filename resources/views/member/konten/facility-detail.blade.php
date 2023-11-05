@@ -196,7 +196,7 @@
               </div>
             @endif
 
-            <a href="{{ route('member.rent') }}">
+            <a href="{{ route('member.transaction', ['id' => $facility->id]) }}">
               <button
                 class="justify-center items-center flex gap-x-2 rounded-lg bg-white h-10 w-44 border-2 border-yellow-orange">
                 <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
