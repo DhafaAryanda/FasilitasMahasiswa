@@ -45,11 +45,7 @@ class TransactionController extends Controller
         $data['description'] = nl2br($data['description']);
         $data['schedule_end'] = $scheduleEnd;
 
-        // $transactionCode = 'TRX-' . Str::random(6) . '-' . time(); // Contoh format kode transaksi: TRX-RANDOM-UNIXTIME
-        $nextTransactionNumber = Transaction::max('transaction_code') + 1; // Misalnya, Anda menyimpan nomor transaksi dalam tabel 'transactions'
-        $data['transaction_code'] = 'TRX' . str_pad($nextTransactionNumber, 5, '0', STR_PAD_LEFT); // Contoh format kode transaksi: TRX00001
-        
-        
+       
 
         $facility = Facility::find($id);
         $data['facility'] = $facility;
@@ -92,6 +88,13 @@ class TransactionController extends Controller
         $transactionFacilityData = session('transaction-facility-data');
     
         $facility = Facility::find($transactionFacilityData['facility']->id);
+
+         // Generate a unique transaction code
+        $latestTransaction = Transaction::latest('id')->first();
+        $latestTransactionId = $latestTransaction ? $latestTransaction->id : 0;
+        $transactionCode = 'TRX' . str_pad($latestTransactionId + 1, 5, '0', STR_PAD_LEFT);
+            
+         
     
         $pricePerHour = $facility->price_per_hour;
         $durationHours = $transactionFacilityData['duration_hours'];
@@ -107,7 +110,7 @@ class TransactionController extends Controller
             'user_id' => Auth::id(),
             'facility_id' => $transactionFacilityData['facility']->id,
             'activity_name' => $transactionFacilityData['activity_name'],
-            'transaction_code' => $transactionFacilityData['transaction_code'],
+            'transaction_code' => $transactionCode,
             'schedule_start' => $transactionFacilityData['schedule_start'],
             'schedule_end' => $transactionFacilityData['schedule_end'],
             'duration_hours' => $transactionFacilityData['duration_hours'],
