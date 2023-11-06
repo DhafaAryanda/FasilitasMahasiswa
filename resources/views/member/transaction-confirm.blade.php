@@ -295,6 +295,20 @@
 
   <div class=" m-10 flex items-center justify-center font-poppins">
     <div class="container max-w-screen-lg mx-auto">
+      @if ($errors->any())
+        <div class="mb-4" role="alert">
+          <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+            Danger
+          </div>
+          <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+            <ul>
+              @foreach ($errors->all() as $errors)
+                <li>{{ $errors }}</li>
+              @endforeach
+            </ul>
+          </div>
+        </div>
+      @endif
       <div>
         <h2 class="font-semibold text-xl text-blue-gray">Edit Fasilitas Gelanggang</h2>
         <p class="text-gray-500 mb-6 text-sm">Form untuk mengedit kontent</p>
@@ -321,7 +335,8 @@
                   </div>
                   <div class="md:col-span-5">
                     <label for="title" class="font-medium">Nama Pemohon</label>
-                    <p class=" mt-2 text-[#858584]">{{ session('transaction-facility-data.name') }}</p>
+                    <p class=" mt-2 text-[#858584]">{{ $user->name }}
+                    </p>
                   </div>
                   <div class="md:col-span-5">
                     <label for="title" class="font-medium">Nomor Telepon</label>
@@ -333,7 +348,7 @@
                   </div>
                   <div class="md:col-span-5">
                     <label for="title" class="font-medium">Durasi Kegiatan</label>
-                    <p class=" mt-2 text-[#858584]">{{ session('transaction-facility-data.duration_hours') }}</p>
+                    <p class=" mt-2 text-[#858584]">{{ session('transaction-facility-data.duration_hours') }} Jam</p>
                   </div>
                   <div class="md:col-span-5">
                     <label for="title" class="font-medium">Jadwal Kegiatan Selesai</label>
@@ -351,18 +366,22 @@
               <div class="my-5 mx-12 text-sm flex flex-col gap-3 ">
                 <div class="flex">
                   <label for="title" class="flex-1 font-medium">Pesanan Dibuat</label>
-                  <p class=""></p>
+                  <p class="">
+                    {{-- <p class="">{{ session('transaction-facility-data.created_at')->format('l, d F Y') }}</p> --}}
+
+                  </p>
                 </div>
                 <div class="flex">
                   <label for="title" class="flex-1 font-medium">Subtotal</label>
-                  <p class=""></p>
+                  <p class="">Rp. {{ number_format($facility->price_per_hour, 2, ',', '.') }} x
+                    {{ session('transaction-facility-data.duration_hours') }}</p>
                 </div>
               </div>
               <hr>
               <div class="mt-5 mb-12 mx-12 text-sm flex flex-col gap-3 ">
-                <div class="flex">
-                  <label for="title" class="flex-1 font-medium">Total</label>
-                  <p class=""></p>
+                <div class="flex font-medium">
+                  <label for="title" class="flex-1">Total</label>
+                  <p class="">Rp. {{ number_format($transaction['amount'], 2, ',', '.') }}</p>
                 </div>
               </div>
               <div class="my-5 mx-12 text-sm flex flex-col gap-2">
@@ -383,13 +402,20 @@
                       <select type="text" name="bank_name" id="bank_name"
                         class="h-10 border mt-2 rounded px-4 w-full bg-gray-50 text-sm">
                         <option value="" disabled selected>Pilih Bank</option>
-                        <option value="Lapangan Indoor" {{ old('bank_name') == 'Lapangan Indoor' ? 'selected' : '' }}>
-                          Lapangan Indoor</option>
-                        <option value="Lapangan Outdoor"
-                          {{ old('categories') == 'Lapangan Outdoor' ? 'selected' : '' }}>
-                          Lapangan Outdoor</option>
-                        <option value="Ruangan" {{ old('bank_name') == 'Ruangan' ? 'selected' : '' }}>Ruangan</option>
-                        <option value="Prasarana" {{ old('bank_name') == 'Prasarana' ? 'selected' : '' }}>Prasarana
+                        <option value="Bank Aceh" {{ old('bank_name') == 'Bank Aceh' ? 'selected' : '' }}>Bank Aceh
+                        </option>
+                        <option value="Bank Syariah Indonesia (BSI)"
+                          {{ old('bank_name') == 'Bank Syariah Indonesia (BSI)' ? 'selected' : '' }}>
+                          Bank Syariah Indonesia (BSI)</option>
+                        <option value="Bank Central Asia (BCA)"
+                          {{ old('bank_name') == 'Bank Central Asia (BCA)' ? 'selected' : '' }}>
+                          Bank Central Asia (BCA)</option>
+                        <option value="Bank Rakyat Indonesia (BRI)"
+                          {{ old('bank_name') == 'Bank Rakyat Indonesia (BRI)' ? 'selected' : '' }}>Bank Rakyat Indonesia
+                          (BRI)</option>
+                        <option value="Bank Negara Indonesia (BNI)"
+                          {{ old('bank_name') == 'Bank Negara Indonesia (BNI)' ? 'selected' : '' }}>Bank Negara Indonesia
+                          (BNI)
                         </option>
                       </select>
                     </div>

@@ -352,10 +352,10 @@
                       </h4>
                     </div>
                     <div class="md:col-span-5 mb-5">
-                      <label for="name" class="font-medium after:content-['*'] after:text-red-500 ">Nama
-                        Pemohon</label>
-                      <input type="text" name="name" id="name"
-                        class=" h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="{{ $user->name }}" readonly />
+                      <h4 for="title" class="font-medium ">Nama Pemohon</h4>
+                      <h4 class="flex items-center font-medium bg-gray-50 h-10 border mt-2 rounded px-4 w-full">
+                        {{ $user->name }}
+                      </h4>
                       <p class="text-xs mt-2 text-[#858584]">Nama pemohon penyewa fasilitas</p>
                     </div>
                     <div class="md:col-span-5 mb-5">

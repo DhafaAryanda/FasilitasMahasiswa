@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Facility;
 use App\Models\Transaction;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 
 
@@ -48,13 +49,7 @@ class TransactionController extends Controller
         $nextTransactionNumber = Transaction::max('transaction_code') + 1; // Misalnya, Anda menyimpan nomor transaksi dalam tabel 'transactions'
         $data['transaction_code'] = 'TRX' . str_pad($nextTransactionNumber, 5, '0', STR_PAD_LEFT); // Contoh format kode transaksi: TRX00001
         
-        $proofOfPayment = $request->file('proof_of_payment');
-
-        if ($proofOfPayment) {
-            $originalproofOfPaymentName = Str::random(10).$proofOfPayment->getClientOriginalName();
-            $proofOfPayment->storeAs('public/proof_of_payment', $originalproofOfPaymentName);
-            $data['proof_of_payment'] = $originalproofOfPaymentName;
-        }
+        
 
         $facility = Facility::find($id);
         $data['facility'] = $facility;
@@ -65,13 +60,69 @@ class TransactionController extends Controller
     }
 
     public function confirm($id)
-{
-    $transactionFacilityData = session('transaction-facility-data', []);
+    {
         $facility = Facility::find($id);
+        $transactionFacilityData = session('transaction-facility-data', []);
 
+        $user = Auth::user();
+        
+        $pricePerHour = $facility->price_per_hour;
+        $durationHours = $transactionFacilityData['duration_hours'];
+        $amount = $pricePerHour * $durationHours;
+        
+        $transactionFacilityData['amount'] = $amount;
+        
         return view('member.transaction-confirm', [
             'transaction' => $transactionFacilityData,
             'facility' => $facility,
+            'user' => $user,
         ]);
-}
+
+    }
+
+    public function confirmStore(Request $request)
+    {
+        $validatedData = $request->validate([
+            'bank_name' => 'required|string',
+            'bank_account_number' => 'required|string',
+            'proof_of_payment' => 'required|image|mimes:jpeg,jpg,png',
+        ]);
+    
+        // Get the data from the session
+        $transactionFacilityData = session('transaction-facility-data');
+    
+        $facility = Facility::find($transactionFacilityData['facility']->id);
+    
+        $pricePerHour = $facility->price_per_hour;
+        $durationHours = $transactionFacilityData['duration_hours'];
+        $amount = $pricePerHour * $durationHours;
+    
+        // Mengunggah bukti transfer
+        $proofOfPayment = $request->file('proof_of_payment');
+        $originalproofOfPaymentName = Str::random(10) . $proofOfPayment->getClientOriginalName();
+        $proofOfPayment->storeAs('public/proof_of_payment', $originalproofOfPaymentName);
+    
+        // Buat dan simpan transaksi ke database
+        Transaction::create([
+            'user_id' => Auth::id(),
+            'facility_id' => $transactionFacilityData['facility']->id,
+            'activity_name' => $transactionFacilityData['activity_name'],
+            'transaction_code' => $transactionFacilityData['transaction_code'],
+            'schedule_start' => $transactionFacilityData['schedule_start'],
+            'schedule_end' => $transactionFacilityData['schedule_end'],
+            'duration_hours' => $transactionFacilityData['duration_hours'],
+            'description' => $transactionFacilityData['description'],
+            'phone_number' => $transactionFacilityData['phone_number'],
+            'amount' => $amount,
+            'bank_name' => $request->input('bank_name'),
+            'bank_account_number' => $request->input('bank_account_number'),
+            'status' => 'pending', // Anda dapat mengatur status awal di sini
+            'proof_of_payment' => $originalproofOfPaymentName,
+        ]);
+        
+        return redirect()->route('member.dashboard')->with('success', 'Fasilitas Berhasil Dipesan');
+
+    }
+    
+
 }

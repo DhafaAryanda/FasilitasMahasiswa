@@ -87,7 +87,7 @@ Route::group(['prefix' => 'member'], function() {
       Route::get('/{id}', [MemberTransactionController::class, 'index'])->name('member.transaction');
       Route::post('/{id}', [MemberTransactionController::class, 'store'])->name('member.transaction.store');
       Route::get('/transaction-confirm/{id}', [MemberTransactionController::class, 'confirm'])->name('member.transaction.confirm');
-      Route::post('/transaction-confirm/{id}', [MemberTransactionController::class, 'storeConfirmData'])->name('member.transaction.confirm.store');
+      Route::post('/transaction-confirm/{id}', [MemberTransactionController::class, 'confirmStore'])->name('member.transaction.confirm.store');
 
   });
 });
