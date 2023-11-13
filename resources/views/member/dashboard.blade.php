@@ -17,7 +17,7 @@
       <li class="relative px-6 py-3">
         <span class="absolute inset-y-0 left-0 w-1 bg-yellow-orange rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>
         <a class="inline-flex items-center w-full text-sm font-bold text-deep-purple transition-colors duration-150 hover:text-deep-purple"
-          href="index.html">
+          href="{{ route('member.dashboard') }}">
           <svg class="w-5 h-5 text-yellow-orange" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
             viewBox="0 0 24 24" stroke="none">
             <path
@@ -31,7 +31,7 @@
       </li>
       <li class="relative px-6 py-3 duration-150">
         <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-blue-gray hover:text-deep-purple"
-          href="forms.html">
+          href="{{ route('member.profile') }}">
           <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none">
             <path path path
               d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
@@ -69,7 +69,7 @@
       </li>
       <li class="relative px-6 py-3">
         <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-blue-gray hover:text-red-800"
-          href="forms.html">
+          href="{{ route('member.logout') }}">
           <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"
             fill-rule="evenodd">
             <polygon fill-rule="nonzero" opacity="0.3" points="7 4.89473684 7 21 5 21 5 3 11 3 11 4.89473684"></polygon>
@@ -201,7 +201,7 @@
 
             <div class="text-sm bg-[#F4F3F3] rounded-lg w-[850px] h-28 ml-10">
               <div class="font-medium mx-5 my-3 flex items-center">
-                Logbook
+                Pengumuman Penyewaan
                 <span class="ml-3 bg-red-500 text-white text-[11px] font-normal px-3  rounded-md">27 July
                   2023
                   s/d
@@ -211,7 +211,7 @@
               <div class="flex mx-5 my-3 items-center">
                 <p class=" bg-red-100 px-3 rounded-md text-red-500 font-medium text-[11px]">wajib</p>
               </div>
-              <div class="flex mx-5 my-3 items-center">Mahasiswa mengisi Log Book Harian
+              <div class="flex mx-5 my-3 items-center">Prosedur keduaa
               </div>
             </div>
           </div>
@@ -235,7 +235,7 @@
 
             <div class="text-sm bg-[#F4F3F3] rounded-lg w-[850px] h-28 ml-10">
               <div class="font-medium mx-5 my-3 flex items-center">
-                Logbook
+                Pengumuman
                 <span class="ml-3 bg-red-500 text-white text-[11px] font-normal px-3  rounded-md">27 July
                   2023
                   s/d
@@ -245,7 +245,7 @@
               <div class="flex mx-5 my-3 items-center">
                 <p class=" bg-red-100 px-3 rounded-md text-red-500 font-medium text-[11px]">wajib</p>
               </div>
-              <div class="flex mx-5 my-3 items-center">Mahasiswa mengisi Log Book Harian
+              <div class="flex mx-5 my-3 items-center">Prosedur pertamaaa
               </div>
             </div>
           </div>

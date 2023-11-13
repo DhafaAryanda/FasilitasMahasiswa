@@ -33,7 +33,7 @@ class LoginController extends Controller
         return back()->withErrors([
             'error' => 'The provided credentials do not match our records'
         ])->withInput();
-        dd($credentials);
+        // dd($credentials);
     }
 
     public function logout(Request $request): RedirectResponse

@@ -80,7 +80,7 @@
                 <svg class="w-2.5 h-2.5" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <ellipse cx="5.456" cy="5.5" rx="4.09174" ry="4.125" fill="currentColor" />
                 </svg>
-                <a class="w-full ml-5" href="pages/login.html">Kesenian & Alat Olahraga</a>
+                <a class="w-full ml-5" href="#">Kesenian & Alat Olahraga</a>
               </span>
             </li>
           </ul>
@@ -124,7 +124,7 @@
                 <svg class="w-2.5 h-2.5" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <ellipse cx="5.456" cy="5.5" rx="4.09174" ry="4.125" fill="currentColor" />
                 </svg>
-                <a class="w-full ml-5" href="pages/login.html">Kesenian & Alat Olahraga</a>
+                <a class="w-full ml-5" href="#">Kesenian & Alat Olahraga</a>
               </span>
             </li>
           </ul>
@@ -345,20 +345,13 @@
           </ul>
           <ul class="mt-5">
             <li class="text-base font-medium">Bukti Transfer</li>
-            <a href="#" class="text-sm font-medium text-blue-500 underline" id="showImage">Lihat Bukti
-              Transfer</a>
+            <a href="{{ asset('storage/proof_of_payment/' . $transaction->proof_of_payment) }}" data-lightbox="image"
+              class="text-sm font-medium text-blue-500 underline" id="showImage">Lihat Bukti Transfer</a>
+
+
           </ul>
 
-          <!-- Create a hidden div for the pop-up image -->
-          <div id="imagePopup"
-            class="hidden fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 bg-black bg-opacity-50">
-            <div class="relative bg-white p-4 rounded shadow-lg">
-              <a href="#" id="closeImagePopup"
-                class="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-lg">×</a>
-              <img class="w-[750px] h-auto" src="https://mbkmunggul.usk.ac.id/assets/img/logo/logo_mbkm_dark.png"
-                alt="Bukti Transfer" />
-            </div>
-          </div>
+
 
         </div>
 
@@ -448,24 +441,5 @@
     });
   </script>
 
-  <script>
-    // Function to show the image pop-up
-    function showImagePopup() {
-      const imagePopup = document.getElementById('imagePopup');
-      imagePopup.classList.remove('hidden');
-    }
 
-    // Function to close the image pop-up
-    function closeImagePopup() {
-      const imagePopup = document.getElementById('imagePopup');
-      imagePopup.classList.add('hidden');
-    }
-
-    // Add event listeners to show and close the pop-up
-    const showImageLink = document.getElementById('showImage');
-    showImageLink.addEventListener('click', showImagePopup);
-
-    const closeImageLink = document.getElementById('closeImagePopup');
-    closeImageLink.addEventListener('click', closeImagePopup);
-  </script>
 @endsection

@@ -43,10 +43,7 @@ class TransactionController extends Controller
     }        
 
     public function reject(Request $request, $id)
-    {
-        
-     
-        
+    { 
         $request->validate([ 
             'message' => 'required|string',
             'refund_proof' => 'required|image|mimes:jpeg,jpg,png'
@@ -71,14 +68,7 @@ class TransactionController extends Controller
 
         RejectedTransaction::create($data);
 
-
-        
-
-
-
         return redirect()->route('admin.manajemen.sewa.facility')->with('success', 'Fasilitas berhasil ditolak');
 
     }
-
-
 }

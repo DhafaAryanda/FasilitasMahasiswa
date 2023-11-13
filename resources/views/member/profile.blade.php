@@ -16,7 +16,7 @@
     <ul>
       <li class="relative px-6 py-3">
         <a class="inline-flex items-center w-full text-sm font-semibold text-blue-gray transition-colors duration-150 hover:text-deep-purple"
-          href="index.html">
+          href="{{ route('member.dashboard') }}">
           <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke="none">
             <path
               d="M12.9336061,16.072447 L19.36,10.9564761 L19.5181585,10.8312381 C20.1676248,10.3169571 20.2772143,9.3735535 19.7629333,8.72408713 C19.6917232,8.63415859 19.6104327,8.55269514 19.5206557,8.48129411 L12.9336854,3.24257445 C12.3871201,2.80788259 11.6128799,2.80788259 11.0663146,3.24257445 L4.47482784,8.48488609 C3.82645598,9.00054628 3.71887192,9.94418071 4.23453211,10.5925526 C4.30500305,10.6811601 4.38527899,10.7615046 4.47382636,10.8320511 L4.63,10.9564761 L11.0659024,16.0730648 C11.6126744,16.5077525 12.3871218,16.5074963 12.9336061,16.072447 Z" />
@@ -31,7 +31,7 @@
         <span class="absolute inset-y-0 left-0 w-1 bg-yellow-orange rounded-tr-lg rounded-br-lg" aria-hidden="true">
         </span>
         <a class="inline-flex items-center w-full text-sm font-bold transition-colors duration-150 text-deep-purple hover:text-deep-purple"
-          href="forms.html">
+          href="{{ route('member.profile') }}">
           <svg class="w-5 h-5 text-yellow-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
             fill="currentColor" stroke="none">
             <path path path
@@ -46,7 +46,7 @@
       </li>
       <li class="relative px-6 py-3 duration-150">
         <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-blue-gray hover:text-deep-purple"
-          href="forms.html">
+          href="{{ route('member.konten.facility') }}">
           <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
             stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
             <path
@@ -70,7 +70,7 @@
       </li>
       <li class="relative px-6 py-3">
         <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-blue-gray hover:text-red-800"
-          href="forms.html">
+          href="{{ route('member.logout') }}">
           <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"
             fill-rule="evenodd">
             <polygon fill-rule="nonzero" opacity="0.3" points="7 4.89473684 7 21 5 21 5 3 11 3 11 4.89473684"></polygon>
@@ -165,8 +165,11 @@
 @endsection
 
 @section('content')
-  <div class=" m-10 flex items-center justify-center font-dmsans">
+  <div x-data="{ showDetail: false }" class="m-10 flex items-center justify-center font-dmsans relative">
     <div class="container max-w-screen-lg mx-auto">
+
+      {{-- saya ingin membuat modal disini agar berada ditengah --}}
+
       <div class="flex gap-3">
         <section>
           <div class="w-64 h-full bg-white rounded-lg border border-gray-200 shadow-md mb-3">
@@ -267,30 +270,75 @@
 
                     </thead>
                     <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-                      @php
-                        $counter = 0;
-                      @endphp
-                      {{-- @foreach ($transactions as $key => $transaction)
-                        @if ($transaction->status === 'pending') --}}
-                      @php
-                        $counter++;
-                      @endphp
-                      <tr class="hover:bg-gray-50">
-                        <td class="px-6 py-4">{{ $counter }}</td>
-                        <td class="px-6 py-4">Fasilitasssss</td>
-                        <td class="px-6 py-4">13/05/2022 </td>
-                        <td class="px-6 py-4">13/05/2022</td>
-                        <td class="px-6 py-4">Selesai</td>
-                        {{-- <td class="px-6 py-4">{{ $transaction->status }}</td> --}}
-                        <td class="px-6 py-4">
-                          <a href="">
-                            <button class="rounded-xl bg-deep-purple text-white h-8 w-20 text-xs">
-                              Detail
-                            </button>
+                      @foreach ($transactions as $index => $transaction)
+                        <tr class="hover:bg-gray-50">
+                          <td class="px-6 py-4">{{ $index + 1 }}</td>
+                          <td class="px-6 py-4">{{ $transaction->facility->title }}</td>
+                          <td class="px-6 py-4">{{ $transaction->created_at }} </td>
+                          <td class="px-6 py-4">{{ $transaction->schedule_start }}</td>
+                          <td class="px-6 py-4">{{ $transaction->status }}</td>
+                          <td class="px-6 py-4">
+                            <button @click="showDetail = {{ $transaction->id }}"
+                              class="rounded-xl bg-deep-purple text-white h-8 w-20 text-xs">Detail</button>
+                          </td>
+                        </tr>
 
-                          </a>
-                        </td>
-                      </tr>
+                        <div x-show="showDetail === {{ $transaction->id }}" @click="showDetail = false"
+                          class="fixed flex justify-center items-center top-0 left-0 w-full h-full bg-black/20 backdrop-filter backdrop-blur-sm z-40">
+                          <div
+                            class="r container py-10 px-12 w-7/12 h-auto bg-white rounded-lg border border-gray-200 shadow-md relative z-50">
+                            <h2 class="text-xl font-semibold mb-3">Detail Transaksi</h2>
+                            <div class="flex mx-5 my-5">
+                              <div class="text-sm flex flex-col gap-6 flex-1">
+                                <div class="">
+                                  <label for="title" class="font-medium">Fasilitas</label>
+                                  <p class=" mt-2 text-[#858584]">{{ $transaction->facility->title }}</p>
+                                </div>
+                                <div class="">
+                                  <label for="title" class="font-medium">Nama Kegiatan</label>
+                                  <p class=" mt-2 text-[#858584]">{{ $transaction->activity_name }}</p>
+                                </div>
+                                <div class="">
+                                  <label for="title" class="font-medium">Nama Pemohon</label>
+                                  <p class=" mt-2 text-[#858584]">{{ $transaction->user->name }}</p>
+                                </div>
+                                <div class="">
+                                  <label for="title" class="font-medium">Nomor Telepon</label>
+                                  <p class=" mt-2 text-[#858584]">{{ $transaction->phone_number }}</p>
+                                </div>
+                                <div class="">
+                                  <label for="title" class="font-medium">Jadwal Kegiatan Berlangsung</label>
+                                  <p class=" mt-2 text-[#858584]">{{ $transaction->schedule_start }}</p>
+                                </div>
+                              </div>
+                              <div class="text-sm flex flex-col gap-6 flex-1">
+                                <div class="md:col-span-5 ">
+                                  <label for="title" class="font-medium">Durasi Sewa</label>
+                                  <p class=" mt-2 text-[#858584]">{{ $transaction->duration_hours }}</p>
+                                </div>
+                                <div class="md:col-span-5">
+                                  <label for="title" class="font-medium">Jadwal Kegiatan Selesai</label>
+                                  <p class=" mt-2 text-[#858584]">{{ $transaction->schedule_end }}</p>
+                                </div>
+                                <div class="md:col-span-5">
+                                  <label for="title" class="font-medium">Total Biaya</label>
+                                  <p class=" mt-2 text-[#858584]">{{ $transaction->amount }}</p>
+                                </div>
+                                <div class="md:col-span-5">
+                                  <label for="title" class="font-medium">Pesanan Dibuat</label>
+                                  <p class=" mt-2 text-[#858584]">{{ $transaction->created_at }}</p>
+                                </div>
+                                <div class="md:col-span-5">
+                                  <label for="title" class="font-medium">Bukti Transfer</label>
+                                  <p class=" mt-2 text-[#858584]">{{ $transaction->proof_of_payment }}</p>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+
+                        </div>
+                      @endforeach
                       {{-- @endif
                       @endforeach --}}
                     </tbody>
@@ -331,6 +379,8 @@
       toggleSections('riwayatSection', 'biodataSection', 'riwayatLink', 'biodataLink');
     });
   </script>
+
+
 
 
 

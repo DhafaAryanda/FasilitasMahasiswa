@@ -1,59 +1,47 @@
 <!DOCTYPE html>
 <html x-data="data()" lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard Page</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-      @vite('resources/css/app.css')
-      
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet">
+    @vite('resources/css/app.css')
+
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="{{asset('fasilitasmahasiswa/assets/js/init-alpine.js')}}"></script>
+    <script src="{{ asset('fasilitasmahasiswa/assets/js/init-alpine.js') }}"></script>
 
   </head>
+
   <body>
-    <div
-      class="flex h-screen bg-[#EEF0F8]"
-      :class="{ 'overflow-hidden': isSideMenuOpen }"
-    >
+    <div class="flex h-screen bg-[#EEF0F8]" :class="{ 'overflow-hidden': isSideMenuOpen }">
       <!-- sidebar -->
       <!-- Desktop sidebar -->
-      <aside
-      class="z-20 hidden w-[274px] overflow-y-auto bg-white md:block flex-shrink-0 font-dmsans"
-      >
+      <aside class="z-20 hidden w-[274px] overflow-y-auto bg-white md:block flex-shrink-0 font-dmsans">
 
-      @yield('sidebar-menu-desktop')
-      
+        @yield('sidebar-menu-desktop')
+
       </aside>
-<!-- Mobile sidebar -->
-<!-- Backdrop -->
-    <div
-      x-show="isSideMenuOpen"
-      x-transition:enter="transition ease-in-out duration-150"
-      x-transition:enter-start="opacity-0"
-      x-transition:enter-end="opacity-100"
-      x-transition:leave="transition ease-in-out duration-150"
-      x-transition:leave-start="opacity-100"
-      x-transition:leave-end="opacity-0"
-      class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"
-    ></div>
-      <aside
-      class="fixed inset-y-0 z-20 flex-shrink-0 w-[274px] mt-16 overflow-y-auto bg-white md:hidden font-dmsans"
-      x-show="isSideMenuOpen"
-      x-transition:enter="transition ease-in-out duration-150"
-      x-transition:enter-start="opacity-0 transform -translate-x-20"
-      x-transition:enter-end="opacity-100"
-      x-transition:leave="transition ease-in-out duration-150"
-      x-transition:leave-start="opacity-100"
-      x-transition:leave-end="opacity-0 transform -translate-x-20"
-      @click.away="closeSideMenu"
-      @keydown.escape="closeSideMenu"
-      >
-      
-      @yield('sidebar-menu-mobile')
-      {{-- <div class="text-gray-500">
+      <!-- Mobile sidebar -->
+      <!-- Backdrop -->
+      <div x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
+        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"></div>
+      <aside class="fixed inset-y-0 z-20 flex-shrink-0 w-[274px] mt-16 overflow-y-auto bg-white md:hidden font-dmsans"
+        x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
+        x-transition:enter-start="opacity-0 transform -translate-x-20" x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0 transform -translate-x-20" @click.away="closeSideMenu"
+        @keydown.escape="closeSideMenu">
+
+        @yield('sidebar-menu-mobile')
+        {{-- <div class="text-gray-500">
         <div class="block  px-6 py-3">
           <span class="font-bold text-slate-600 ml-5 text-sm">ADMIN</span>
         </div>
@@ -265,9 +253,11 @@
       <div class="flex flex-col flex-1 w-full">
         <!-- navbar -->
         @include('admin.layouts.navbar')
-        
+
         @yield('content')
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
   </body>
+
 </html>

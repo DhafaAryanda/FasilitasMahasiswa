@@ -25,4 +25,9 @@ class Facility extends Model
         'show'
     
     ];
+
+    public function transaction() 
+    {
+        return $this->belongsTo(Transaction::class);
+    }
 }

@@ -68,14 +68,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function(){
     });
 });
 
-Route::get('/register', [RegisterController::class, 'index'])->name('member.register');
-Route::post('/register', [RegisterController::class, 'store'])->name('member.register.store');
-
-Route::get('/login', [MemberLoginController::class, 'index'])->name('member.login');
-Route::post('/login', [MemberLoginController::class, 'auth'])->name('member.login.auth');
-
-Route::group(['prefix' => 'member'], function() {
+Route::group(['prefix' => 'member', 'middleware' => ['member.auth']],  function(){
     Route::get('/', [DashboardController::class, 'index'])->name('member.dashboard');
+    Route::get('logout', [MemberLoginController::class, 'logout'])->name('member.logout');
     Route::get('/profile', [ProfileController::class, 'index'])->name('member.profile');
     Route::group(['prefix' => 'konten'], function() {
       Route::group(['prefix' => 'facility'], function() {
@@ -89,15 +84,26 @@ Route::group(['prefix' => 'member'], function() {
       Route::get('/transaction-confirm/{id}', [MemberTransactionController::class, 'confirm'])->name('member.transaction.confirm');
       Route::post('/transaction-confirm/{id}', [MemberTransactionController::class, 'confirmStore'])->name('member.transaction.confirm.store');
 
-  });
+    });    
 });
 
 
-Route::view('/dashboard', 'member.dashboard')->name('member.dashboard');
-Route::view('/profile', 'member.profile')->name('member.profile');  
-Route::view('/fasilitas-gelanggang', 'member.fasilitas-gelanggang')->name('member.fasilitas-gelanggang');
-Route::view('/kesenian-&alat-olahraga', 'member.kesenian-dan-alat-olahraga')->name('member.kesenian-dan-alat-olahraga');
-Route::view('/login', 'member.auth')->name('member.auth');
+Route::get('/register', [RegisterController::class, 'index'])->name('member.register');
+Route::post('/register', [RegisterController::class, 'store'])->name('member.register.store');
+
+Route::get('/login', [MemberLoginController::class, 'index'])->name('member.login');
+Route::post('/login', [MemberLoginController::class, 'auth'])->name('member.login.auth');
+
+// Route::group(['prefix' => 'member'], function() {
+    
+// });
+
+
+// Route::view('/dashboard', 'member.dashboard')->name('member.dashboard');
+// Route::view('/profile', 'member.profile')->name('member.profile');  
+// Route::view('/fasilitas-gelanggang', 'member.fasilitas-gelanggang')->name('member.fasilitas-gelanggang');
+// Route::view('/kesenian-&alat-olahraga', 'member.kesenian-dan-alat-olahraga')->name('member.kesenian-dan-alat-olahraga');
+// Route::view('/login', 'member.auth')->name('member.auth');
 
 
 
