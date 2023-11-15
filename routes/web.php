@@ -11,6 +11,7 @@ use App\Http\Controllers\Member\DashboardController;
 use App\Http\Controllers\Member\FacilityController;
 use App\Http\Controllers\Member\ProfileController;
 use App\Http\Controllers\Member\TransactionController as MemberTransactionController;
+use App\Http\Controllers\Member\InvoiceController;
 
 
 
@@ -93,6 +94,9 @@ Route::post('/register', [RegisterController::class, 'store'])->name('member.reg
 
 Route::get('/login', [MemberLoginController::class, 'index'])->name('member.login');
 Route::post('/login', [MemberLoginController::class, 'auth'])->name('member.login.auth');
+
+Route::get('/invoice', [InvoiceController::class, 'generatePDF'])->name('member.invoice');
+
 
 // Route::group(['prefix' => 'member'], function() {
     
