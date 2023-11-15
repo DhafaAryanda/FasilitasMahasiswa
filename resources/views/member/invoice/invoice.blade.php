@@ -31,10 +31,10 @@
             <div class="hr" style="clear: both;"></div>
             <div class="invoice-head-middle">
               <div class="invoice-head-middle-left" style="float: left; text-align: left;">
-                <p><span class="text-bold">Tanggal</span>: 05/12/2020</p>
+                <p><span class="text-bold">Tanggal</span>: {{ $date }}</p>
               </div>
               <div class="invoice-head-middle-right" style="float: right; text-align: right;">
-                <p><span class="text-bold">No Transaksi: </span>16789</p>
+                <p><span class="text-bold">No Transaksi: </span> {{ $transaction_code }} </p>
               </div>
             </div>
             <div class="hr" style="clear: both;"></div>
@@ -43,10 +43,10 @@
             <div class="invoice-head-bottom">
               <div class="invoice-head-bottom-left" style="float: left; width: 50%;">
                 <ul class="text-start">
-                  <li>Dhafa Aryanda</li>
-                  <li>Mahasiswa</li>
-                  <li>0823885170232</li>
-                  <li>dhafa@gmail.com</li>
+                  <li>{{ $name }}</li>
+                  <li>{{ $role }}</li>
+                  <li>{{ $phone_number }}</li>
+                  <li>{{ $email }}</li>
                 </ul>
               </div>
               <div class="invoice-head-bottom-right" style="float: right; width: 50%;">
@@ -73,11 +73,11 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Ruang Seminar Gelannggang</td>
-                    <td>Sidang Seminar Proposal</td>
-                    <td>2023-11-07 23:00:00</td>
-                    <td>3 Jam</td>
-                    <td class = "text-end">2023-11-08 02:00:00</td>
+                    <td>{{ $facility }}</td>
+                    <td>{{ $activity_name }}</td>
+                    <td>{{ $schedule_start }}</td>
+                    <td>{{ $duration_hour }}</td>
+                    <td class = "text-end">{{ $schedule_end }}</td>
                   </tr>
 
                 </tbody>
@@ -89,7 +89,7 @@
                 </div>
                 <div class = "invoice-body-info-item">
                   <div class = "info-item-td text-end text-bold">Total:</div>
-                  <div class = "info-item-td text-end">900.000</div>
+                  <div class = "info-item-td text-end">{{ $amount }}</div>
                 </div>
               </div>
             </div>

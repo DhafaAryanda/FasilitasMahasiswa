@@ -73,6 +73,9 @@ Route::group(['prefix' => 'member', 'middleware' => ['member.auth']],  function(
     Route::get('/', [DashboardController::class, 'index'])->name('member.dashboard');
     Route::get('logout', [MemberLoginController::class, 'logout'])->name('member.logout');
     Route::get('/profile', [ProfileController::class, 'index'])->name('member.profile');
+    Route::get('/profile/unduh-pdf', [ProfileController::class, 'generatePDF'])->name('member.profile.generate.pdf');
+   
+
     Route::group(['prefix' => 'konten'], function() {
       Route::group(['prefix' => 'facility'], function() {
           Route::get('/', [FacilityController::class, 'index'])->name('member.konten.facility');

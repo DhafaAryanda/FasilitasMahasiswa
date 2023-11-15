@@ -167,9 +167,6 @@
 @section('content')
   <div x-data="{ showDetail: false }" class="m-10 flex items-center justify-center font-dmsans relative">
     <div class="container max-w-screen-lg mx-auto">
-
-      {{-- saya ingin membuat modal disini agar berada ditengah --}}
-
       <div class="flex gap-3">
         <section>
           <div class="w-64 h-full bg-white rounded-lg border border-gray-200 shadow-md mb-3">
@@ -283,10 +280,16 @@
                           </td>
                         </tr>
 
-                        <div x-show="showDetail === {{ $transaction->id }}" @click="showDetail = false"
-                          class="fixed flex justify-center items-center top-0 left-0 w-full h-full bg-black/20 backdrop-filter backdrop-blur-sm z-40">
+
+
+                        <div x-show="showDetail === {{ $transaction->id }}" x-transition:enter="ease-out duration-300"
+                          x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
+                          x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100 scale-100"
+                          x-transition:leave-end="opacity-0 scale-90"
+                          class="fixed flex justify-center items-center top-0 left-0 w-full h-full z-50"
+                          style="background-color: rgba(0,0,0,0.5)">
                           <div
-                            class="r container py-10 px-12 w-7/12 h-auto bg-white rounded-lg border border-gray-200 shadow-md relative z-50">
+                            class="container py-10 px-12 w-7/12 h-auto bg-white rounded-lg border border-gray-200 shadow-md relative z-50">
                             <h2 class="text-xl font-semibold mb-3">Detail Transaksi</h2>
                             <div class="flex mx-5 my-5">
                               <div class="text-sm flex flex-col gap-6 flex-1">
@@ -334,13 +337,20 @@
                                 </div>
                               </div>
                             </div>
+                            <div class="flex justify-end pt-2">
+                              <a href="{{ route('member.profile.generate.pdf') }}">
+                                <button
+                                  class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2" ">Unduh</button>
+                                </a>
+                                    <button
+                                      class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400"
+                                      @click="showDetail = false">Close</button>
+                                  </div>
 
-                          </div>
+                                </div>
 
-                        </div>
-                      @endforeach
-                      {{-- @endif
-                      @endforeach --}}
+                              </div>
+   @endforeach
                     </tbody>
                   </table>
                 </div>
@@ -380,7 +390,31 @@
     });
   </script>
 
+  <style>
+    [x-cloak] {
+      display: none;
+    }
 
+    .duration-300 {
+      transition-duration: 300ms;
+    }
+
+    .ease-in {
+      transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+    }
+
+    .ease-out {
+      transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+
+    .scale-90 {
+      transform: scale(.9);
+    }
+
+    .scale-100 {
+      transform: scale(1);
+    }
+  </style>
 
 
 
