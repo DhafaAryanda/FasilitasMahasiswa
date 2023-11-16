@@ -85,7 +85,7 @@
               <div class = "invoice-body-bottom">
                 <div class = "invoice-body-info-item border-bottom">
                   <div class = "info-item-td text-end text-bold">Sub Total:</div>
-                  <div class = "info-item-td text-end">300.000 x 3</div>
+                  <div class = "info-item-td text-end">{{ $price_per_day }} x {{ $duration_hour }}</div>
                 </div>
                 <div class = "invoice-body-info-item">
                   <div class = "info-item-td text-end text-bold">Total:</div>
