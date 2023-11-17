@@ -389,8 +389,8 @@
                       <label for="schedule_start" class="font-medium after:content-['*'] after:text-red-500 ">Jadwal
                         Kegiatan
                         Berlangsung</label>
-                      <input type="text" name="schedule_start" id="schedule_start"
-                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" />
+                      <input id="datetimepicker" type="text" name="schedule_start" id="schedule_start"
+                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" readonly />
                       <p class="text-xs mt-2 text-[#858584]">Tuliskan nama fasilitas</p>
                     </div>
                     <div class="md:col-span-5 mb-5">
@@ -400,7 +400,8 @@
                         class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" />
                       <p class="text-xs mt-2 text-[#858584]">Tuliskan durasi kegiatan dalam jam</p>
                     </div>
-                    <div x-data="datetimepicker()" x-init="[initDate(), getNoOfDays()]" x-cloak class="md:col-span-5 mb-5 ">
+
+                    {{-- <div x-data="datetimepicker()" x-init="[initDate(), getNoOfDays()]" x-cloak class="md:col-span-5 mb-5 ">
                       <label for="duration_hours" class="font-medium after:content-['*'] after:text-red-500 ">Durasi
                         Kegiatan</label>
                       <div class="relative">
@@ -418,8 +419,8 @@
                         </div>
 
                         <!-- <div x-text="no_of_days.length"></div>
-                                                                                                                                                                                                    <div x-text="32 - new Date(year, month, 32).getDate()"></div>
-                                                                                                                                                                                                    <div x-text="new Date(year, month).getDay()"></div> -->
+                                                                                                                                                                                                                                    <div x-text="32 - new Date(year, month, 32).getDate()"></div>
+                                                                                                                                                                                                                                    <div x-text="new Date(year, month).getDay()"></div> -->
 
                         <div class="flex flex-col gap-5 bg-white mt-12 rounded-lg shadow p-4 absolute top-0 left-0"
                           style="width: 17rem" x-show.transition="showDatepicker" @click.away="showDatepicker = false">
@@ -492,10 +493,8 @@
                             <label for="datepicker" class="font-bold mx-3 my-3 text-gray-700 block">Pilih Jam</label>
                             <div class="grid grid-cols-3 gap-2 p-2">
                               <div
-                                class="rounded-md bg-white border hover:border-red-200 hover:bg-red-200 text-black font-bold px-3 py-2">
-                                <button>
-                                  07:00
-                                </button>
+                                class="rounded-md bg-white border hover:border-red-200 hover:bg-red-200 text-black font-bold px-3 py-2"
+                                @click="getTimeValue('07:00')">07:00
                               </div>
                               <div
                                 class="rounded-md bg-white border hover:border-red-200 hover:bg-red-200 text-black font-bold px-3 py-2">
@@ -568,7 +567,7 @@
                         </div>
                       </div>
                       <p class="text-xs mt-2 text-[#858584]">Tuliskan durasi kegiatan dalam jam</p>
-                    </div>
+                    </div> --}}
                   </div>
                 </div>
               </div>
@@ -623,7 +622,6 @@
   function datetimepicker() {
     return {
       showDatepicker: false,
-      datepickerValue: "",
       selectedDate: "2023-11-16",
       dateFormat: "DD-MM-YYYY",
       month: "",
@@ -693,6 +691,24 @@
         // this.$refs.date.value = selectedDate.getFullYear() + "-" + ('0' + formattedMonthInNumber).slice(-2) + "-" + ('0' + selectedDate.getDate()).slice(-2);
         this.isSelectedDate(date);
         this.showDatepicker = false;
+      },
+      getTimeValue(selectedTime) {
+        // Mendapatkan tanggal yang telah dipilih
+        let selectedDate = new Date(this.year, this.month, this.datepickerValue.split('-')[0]);
+
+        // Mendapatkan jam yang dipilih
+        let selectedHours = parseInt(selectedTime.split(':')[0]);
+        let selectedMinutes = parseInt(selectedTime.split(':')[1]);
+
+        // Mengatur waktu pada tanggal yang telah dipilih
+        selectedDate.setHours(selectedHours);
+        selectedDate.setMinutes(selectedMinutes);
+
+        // Menyimpan nilai datetime yang telah dibuat
+        let formattedDateTime = this.formatDateForDisplay(selectedDate);
+
+        // Menampilkan nilai datetime yang telah dibuat
+        console.log("Selected Datetime:", formattedDateTime);
       },
       getNoOfDays() {
         let daysInMonth = new Date(
