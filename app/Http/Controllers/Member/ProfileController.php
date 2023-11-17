@@ -30,29 +30,26 @@ class ProfileController extends Controller
         $type = pathinfo($path, PATHINFO_EXTENSION);
         $data = file_get_contents($path);
         $image = 'data:image/'.$type.';base64,'.base64_encode($data);
-        
-       // Assuming $transactions is an array of transactions
-    // $firstTransaction = $transactions->first();
 
-    $pdf = Pdf::loadView('member.invoice.invoice', [
-        'image' => $image,
-        'date' => now(), 
-        'transaction_code' => $transaction->code,
-        'name' => $user->name,
-        'role' => $user->role,
-        'phone_number' => $user->phone_number,
-        'email' => $user->email,
-        'facility' => $transaction->facility->title,
-        'activity_name' => $transaction->activity_name,
-        'schedule_start' => $transaction->schedule_start,
-        'price_per_day' => $transaction->facility->price_per_day,
-        'duration_hour' => $transaction->duration_hours,
-        'schedule_end' => $transaction->schedule_end,
-        'amount' => $transaction->amount,
-        'user' => $user,
-        'transactions' => [$transaction],  // Pass the specific transaction as an array
-    ]);
-        $pdf->setPaper('A4', 'potrait');
-        return $pdf->download('invoice.pdf');
-    }
+        $pdf = Pdf::loadView('member.invoice.invoice', [
+            'image' => $image,
+            'date' => now(), 
+            'transaction_code' => $transaction->code,
+            'name' => $user->name,
+            'role' => $user->role,
+            'phone_number' => $user->phone_number,
+            'email' => $user->email,
+            'facility' => $transaction->facility->title,
+            'activity_name' => $transaction->activity_name,
+            'schedule_start' => $transaction->schedule_start,
+            'price_per_day' => $transaction->facility->price_per_day,
+            'duration_hour' => $transaction->duration_hours,
+            'schedule_end' => $transaction->schedule_end,
+            'amount' => $transaction->amount,
+            'user' => $user,
+            'transactions' => [$transaction],  // Pass the specific transaction as an array
+        ]);
+            $pdf->setPaper('A4', 'potrait');
+            return $pdf->download('invoice.pdf');
+        }
 }

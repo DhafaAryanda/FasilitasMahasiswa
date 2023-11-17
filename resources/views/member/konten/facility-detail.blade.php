@@ -164,7 +164,7 @@
 
 @section('content')
 
-  <div class=" p-10 flex items-center justify-center font-dmsans">
+  <div x-data="{ showSchedule: false }" class="p-10 flex items-center justify-center font-dmsans">
     <div class="container max-w-screen-lg mx-auto">
       <div>
         <h2 class="font-bold text-2xl text-slate-800">{{ $facility->title }}</h2>
@@ -212,7 +212,52 @@
                 <span class="text-black text-sm font-semibold">Sewa Sekarang</span>
               </button>
             </a>
+            <button @click="showSchedule = {{ $facility->id }}"
+              class="justify-center items-center flex gap-x-2 rounded-lg bg-white h-10 w-44 border-2 border-blue-400">
+              <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M2.42359 5.66695C2.46678 5.14866 2.90004 4.75 3.42013 4.75H16.5799C17.1 4.75 17.5332 5.14866 17.5764 5.66695L18.5695 17.5839C18.6667 18.7499 17.7465 19.75 16.5764 19.75H3.4236C2.25352 19.75 1.33334 18.7499 1.43051 17.5839L2.42359 5.66695Z"
+                  stroke="#858584" stroke-width="1.2" />
+              </svg>
+              <span class="text-black text-sm font-semibold">Lihat Jadwal</span>
+            </button>
           </div>
+        </div>
+
+        <div x-show="showSchedule === {{ $facility->id }}" x-transition:enter="ease-out duration-300"
+          x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
+          x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100 scale-100"
+          x-transition:leave-end="opacity-0 scale-90"
+          class="fixed flex justify-center items-center top-0 left-0 w-full h-full z-50"
+          style="background-color: rgba(0,0,0,0.5)">
+          <div
+            class="container py-10 px-12 w-7/12 h-auto bg-white rounded-lg border border-gray-200 shadow-md relative z-50">
+            <h2 class="text-xl font-semibold mb-3">Jadwal Tersedia</h2>
+            <div class="flex mx-5 my-5">
+
+              <input id="datetimepicker" type="text" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50"
+                readonly />
+              @foreach ($transactions as $transaction)
+                <div>
+                  nama aktivitas: {{ $transaction->activity_name }}
+                  Jadwal: {{ $transaction->schedule_start }}
+                </div>
+              @endforeach
+
+
+
+            </div>
+            <div class="flex justify-end pt-2">
+              <a class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">
+                action
+              </a>
+              <button class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400"
+                @click="showSchedule = false">Close</button>
+            </div>
+
+          </div>
+
         </div>
 
         <h4 class="font-semibold text-xl text-slate-800 my-3">About</h4>
