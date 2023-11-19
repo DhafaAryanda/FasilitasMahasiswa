@@ -16,10 +16,13 @@ class FacilityController extends Controller
     {
         $facilities = Facility::where('show', true)
         ->orderBy('created_at', 'DESC')
-        ->get();
+        ->paginate(10);
+
 
         return view('member.konten.facility', ['facilities' => $facilities]);
     }
+
+    
 
     public function show($id)
     {

@@ -85,6 +85,7 @@ Route::group(['prefix' => 'member', 'middleware' => ['member.auth']],  function(
     Route::group(['prefix' => 'sewa'], function() {
       Route::get('/{id}', [MemberTransactionController::class, 'index'])->name('member.transaction');
       Route::post('/{id}', [MemberTransactionController::class, 'store'])->name('member.transaction.store');
+    //   Route::get('/{id}/{targetDateTime}', [MemberTransactionController::class, 'show'])->name('member.transaction.show.schedule');
       Route::get('/transaction-confirm/{id}', [MemberTransactionController::class, 'confirm'])->name('member.transaction.confirm');
       Route::post('/transaction-confirm/{id}', [MemberTransactionController::class, 'confirmStore'])->name('member.transaction.confirm.store');
 

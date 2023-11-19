@@ -166,7 +166,7 @@
 
   <div class=" p-10 flex items-center justify-center font-dmsans">
     <div class="container max-w-screen-lg mx-auto">
-      <div>
+      <div x-data="alpineInit()" x-init="init()">
         <h2 class="font-semibold text-xl text-blue-gray">Tambah Fasilitas Gelanggang</h2>
         <p class="text-gray-500 mb-6 text-sm">Form untuk menambahkan kontent</p>
 
@@ -203,11 +203,12 @@
               </div>
             </div>
           @endforeach
-
         </div>
-
-
+        <div class="mt-4">
+          {{ $facilities->links() }}
+        </div>
       </div>
     </div>
+  </div>
   </div>
 @endsection
