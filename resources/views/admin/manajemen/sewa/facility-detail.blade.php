@@ -345,10 +345,9 @@
           </ul>
           <ul class="mt-5">
             <li class="text-base font-medium">Bukti Transfer</li>
-            <a href="{{ asset('storage/proof_of_payment/' . $transaction->proof_of_payment) }}" data-lightbox="image"
-              class="text-sm font-medium text-blue-500 underline" id="showImage">Lihat Bukti Transfer</a>
-
-
+            <a href="{{ asset('storage/proof_of_payment/' . $transaction->proof_of_payment) }}" data-lightbox="image-1"
+              data-title="Bukti Transfer" class="text-sm font-medium text-blue-500 underline">Lihat
+              Bukti Transfer</a>
           </ul>
 
 
@@ -440,6 +439,4 @@
       });
     });
   </script>
-
-
 @endsection

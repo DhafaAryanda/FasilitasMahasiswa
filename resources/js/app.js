@@ -12,6 +12,11 @@ $(document).ready(function () {
     });
 });
 
+import lightbox from "lightbox2";
+import 'lightbox2/dist/css/lightbox.min.css';
+
+import GLightbox from 'glightbox';
+
 
 // $(document).ready(function () {
 //     $('#datetimepicker').val(''); // Membersihkan nilai input
