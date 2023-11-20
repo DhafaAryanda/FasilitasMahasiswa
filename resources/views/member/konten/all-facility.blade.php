@@ -222,9 +222,6 @@
             </div>
           @endforeach
         </div>
-        <div class="mt-4">
-          {{ $facilities->links() }}
-        </div>
       </div>
     </div>
   </div>

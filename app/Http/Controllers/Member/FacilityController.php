@@ -22,6 +22,16 @@ class FacilityController extends Controller
         return view('member.konten.facility', ['facilities' => $facilities]);
     }
 
+    public function showAll()
+    {
+        $facilities = Facility::where('show', true)
+        ->orderBy('created_at', 'DESC')
+        ->get();
+
+
+        return view('member.konten.all-facility', ['facilities' => $facilities]);
+    }
+
     
 
     public function show($id)
