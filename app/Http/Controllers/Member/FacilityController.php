@@ -45,9 +45,9 @@ class FacilityController extends Controller
         ->with('facility') // Optional: Jika ingin mendapatkan data fasilitas bersamaan dengan transaksi
         ->get();
 
-        if ($transactions->isEmpty()) {
-            dd("Tidak ada transaksi pada tanggal dan waktu yang ditentukan.");
-        }
+        // if ($transactions->isEmpty()) {
+        //     dd("Tidak ada transaksi pada tanggal dan waktu yang ditentukan.");
+        // }
         return view('member.konten.facility-detail', ['facility' => $facility, 'transactions' => $transactions]);
     }
 }
