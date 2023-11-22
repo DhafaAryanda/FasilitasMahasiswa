@@ -235,9 +235,9 @@
       display: none;
     }
 
-    .duration-300 {
-      transition-duration: 300ms;
-    }
+    /* .duration-300 {
+          transition-duration: 300ms;
+        } */
 
     .ease-in {
       transition-timing-function: cubic-bezier(0.4, 0, 1, 1);

@@ -1,6 +1,6 @@
 @extends('member.layouts.base')
 
-@section('title', 'Fasilitas Gelanggang')
+@section('title', 'Prasarana')
 
 @section('content')
 
@@ -21,23 +21,23 @@
         </div>
       @endif
       <div>
-        <h2 class="font-semibold text-xl text-blue-gray">Edit Fasilitas Gelanggang</h2>
+        <h2 class="font-semibold md:text-lg xl:text-xl text-blue-gray">Edit Fasilitas Gelanggang</h2>
         <p class="text-gray-500 mb-6 text-sm">Form untuk mengedit kontent</p>
         <!-- Form Start -->
         <form class="mb-20" enctype="multipart/form-data"
           action="{{ route('member.transaction.confirm.store', $facility->id) }}" method="POST" id="facilityForm">
           @csrf
 
-          <div class="flex gap-10 mx-10 my-5">
-            <section class="flex-1 h-fit bg-white rounded-lg border border-gray-200 shadow-md mb-3">
-              <div class="my-3 mx-10 font-semibold">
+          <div class="flex flex-col lg:flex-row md:gap-5 xl:gap-10 lg:mx-5 xl:mx-10 my-5">
+            <section class="xl:flex-1 h-fit bg-white rounded-lg border border-gray-200 shadow-md mb-3">
+              <div class="my-3 text-sm xl:text-base mx-10 font-semibold">
                 Menu Profile
               </div>
               <hr>
               <div class="flex">
-                <div class=" mt-8 mb-10 mx-12 text-sm flex flex-col gap-6">
+                <div class="my-5 mx-6 sm:mx-12 lg:mx-10 xl:mx-12 text-sm flex flex-col gap-6">
                   <div class="md:col-span-5 ">
-                    <label for="title" class="font-medium">Fasilitas</label>
+                    <label for="title" class="font-medium">Prasarana</label>
                     <p class=" mt-2 text-[#858584]">{{ $facility->title }}</p>
                   </div>
                   <div class="md:col-span-5">
@@ -70,11 +70,11 @@
 
             </section>
             <section class="flex-1 bg-white rounded-lg border border-gray-200 shadow-md mb-3">
-              <div class="my-3 mx-10 font-semibold">
+              <div class="my-3 mx-10 text-sm font-semibold">
                 Ringkasan Pesanan
               </div>
               <hr>
-              <div class="my-5 mx-12 text-sm flex flex-col gap-3 ">
+              <div class="my-5 mx-6 sm:mx-12 lg:mx-6 xl:mx-12 text-sm flex flex-col gap-3 ">
                 <div class="flex">
                   <label for="title" class="flex-1 font-medium">Pesanan Dibuat</label>
                   <p class="">
@@ -89,13 +89,13 @@
                 </div>
               </div>
               <hr>
-              <div class="mt-5 mb-12 mx-12 text-sm flex flex-col gap-3 ">
+              <div class="mt-5 mb-12 mx-6 sm:mx-12 lg:mx-6 xl:mx-12 text-sm flex flex-col gap-3 ">
                 <div class="flex font-medium">
                   <label for="title" class="flex-1">Total</label>
                   <p class="">Rp. {{ number_format($transaction['amount'], 2, ',', '.') }}</p>
                 </div>
               </div>
-              <div class="my-5 mx-12 text-sm flex flex-col gap-2">
+              <div class="my-5 mx-6 sm:mx-12 lg:mx-6 xl:mx-12 text-sm flex flex-col gap-2">
                 <p class="font-semibold mb-3">Transfer sejumlah diatas ke Rekening berikut:</p>
                 <p class="text-sm">Bank Syariah Indonesia</p>
                 <div class="flex">
@@ -104,7 +104,7 @@
                 </div>
               </div>
               <hr>
-              <div class=" mt-5 mb-12 mx-12 text-sm flex flex-col gap-3 ">
+              <div class=" mt-5 mb-12 mx-6 sm:mx-12 lg:mx-6 xl:mx-12 text-sm flex flex-col gap-3 ">
                 <div class="flex flex-col">
                   <label for="title" class="flex-1 font-medium">Bank Pengirim</label>
 
