@@ -4,7 +4,6 @@
 
 @section('title', 'Fasilitas Gelanggang')
 
-
 @section('content')
 
   <div class=" py-10 px-5 flex items-center justify-center font-dmsans">

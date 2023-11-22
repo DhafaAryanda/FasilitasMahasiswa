@@ -5,11 +5,11 @@
 @section('title', 'Dashboard')
 
 @section('content')
-  <div class="m-10 flex items-center justify-center font-poppins">
+  <div class="mx-10 mt-10 flex items-center justify-center font-poppins">
     <div class="container mx-auto">
       <div class="flex flex-col">
 
-        <div class="bg-white rounded-lg h-28 sm:h-48 md:h-60 lg:h-72 w-full relative mb-8">
+        <div class="h-28 sm:h-48 md:h-60 lg:h-72 w-full relative mb-8">
           <img class="object-cover h-full w-full rounded-lg border border-gray-100 shadow-sm"
             src="/fasilitasmahasiswa/assets/images/welcome.jpg" alt="images">
 
@@ -19,14 +19,14 @@
           </h2>
         </div>
 
-        <div class="flex flex-col py-2 gap-4 lg:gap-0 bg-white rounded-lg  h-full w-full relative">
+        <div class="flex flex-col pt-2 pb-5 gap-4 lg:gap-0 bg-white rounded-t-lg  h-full w-full relative">
           <h3 class="mx-10 mt-3 mb-2 text-xs sm:text-sm lg:text-base font-medium">Prosedur Pengajuan Peminjaman Fasilitas
             USK Tahun
             2023
           </h3>
           <hr>
 
-          <div class="mx-10 lg:mt-10 flex justify-center">
+          <div class="mx-5 sm:mx-10 lg:mt-10 flex justify-center">
             <svg class="hidden lg:block" width="42" height="108" viewBox="0 0 42 108" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <circle cx="21" cy="21" r="20" fill="white" stroke="#EDEDED" stroke-width="2" />
@@ -53,7 +53,7 @@
               </div>
             </div>
           </div>
-          <div class="mx-10 flex justify-center">
+          <div class="mx-5 sm:mx-10 flex justify-center">
             <svg class="hidden lg:block" width="42" height="108" viewBox="0 0 42 108" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <circle cx="21" cy="21" r="20" fill="white" stroke="#EDEDED" stroke-width="2" />
@@ -81,7 +81,7 @@
               </div>
             </div>
           </div>
-          <div class="mx-10 flex justify-center">
+          <div class="mx-5 sm:mx-10 flex justify-center">
             <svg class="hidden lg:block" width="42" height="108" viewBox="0 0 42 108" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <circle cx="21" cy="21" r="20" fill="white" stroke="#EDEDED" stroke-width="2" />
@@ -109,7 +109,7 @@
               </div>
             </div>
           </div>
-          <div class="mx-10 flex justify-center">
+          <div class="mx-5 sm:mx-10 flex justify-center">
             <svg class="hidden lg:block" width="42" height="108" viewBox="0 0 42 108" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <circle cx="21" cy="21" r="20" fill="white" stroke="#EDEDED" stroke-width="2" />
@@ -137,7 +137,7 @@
               </div>
             </div>
           </div>
-          <div class="mx-10 flex justify-center">
+          <div class="mx-5 sm:mx-10 flex justify-center">
             <svg class="hidden lg:block" width="42" height="108" viewBox="0 0 42 108" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <circle cx="21" cy="21" r="20" fill="white" stroke="#EDEDED" stroke-width="2" />
