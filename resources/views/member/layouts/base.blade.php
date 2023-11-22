@@ -20,7 +20,7 @@
 
   </head>
 
-  <body class="bg-[#EEF0F8]  ">
+  <body class="bg-[#EEF0F8]">
 
     <div class="flex" :class="{ 'overflow-hidden': isSideMenuOpen }">
       <!-- sidebar -->
@@ -32,11 +32,12 @@
 
       <div class="flex flex-col flex-1 w-full">
         <!-- navbar -->
-        @include('admin.layouts.navbar')
+        @include('member.layouts.navbar')
 
         @yield('content')
       </div>
     </div>
+    @yield('js')
   </body>
 
 </html>

@@ -1,4 +1,5 @@
-<aside class="fixed z-20 hidden w-[268px] h-screen overflow-y-auto bg-white md:block flex-shrink-0 font-dmsans">
+<aside
+  class="shadow-lg fixed z-20 hidden w-[268px] h-screen overflow-y-auto bg-white md:block flex-shrink-0 font-dmsans">
 
   <div class="py-4 text-gray-500">
     <a class="flex ml-8 items-center mt-1 mb-7" href="#">
@@ -55,7 +56,7 @@
                 d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
               </path>
             </svg>
-            <span class="ml-4">Fasilitas Gelanggang</span>
+            <span class="ml-4">Prasarana</span>
           </a>
         </div>
       </li>
@@ -101,7 +102,8 @@
   x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100"
   x-transition:leave-end="opacity-0"
   class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"></div>
-<aside class="fixed inset-y-0 z-20 flex-shrink-0 w-[274px] mt-16 overflow-y-auto bg-white md:hidden font-dmsans"
+<aside
+  class="shadow-lg fixed inset-y-0 z-20 flex-shrink-0 w-[274px] mt-16 overflow-y-auto bg-white md:hidden font-dmsans"
   x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
   x-transition:enter-start="opacity-0 transform -translate-x-20" x-transition:enter-end="opacity-100"
   x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100"
@@ -159,7 +161,7 @@
                 d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
               </path>
             </svg>
-            <span class="ml-4">Fasilitas Gelanggang</span>
+            <span class="ml-4">Prasarana</span>
           </a>
         </div>
       </li>

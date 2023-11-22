@@ -1,8 +1,8 @@
-@extends('admin.layouts.base')
+@extends('member.layouts.base')
 
 @section('role', 'MAHASISWA')
 
-@section('title', 'Fasilitas Gelanggang')
+@section('title', 'Prasarana')
 
 @section('content')
 

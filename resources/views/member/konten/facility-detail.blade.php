@@ -2,7 +2,7 @@
 
 @section('role', 'MAHASISWA')
 
-@section('title', 'Fasilitas Gelanggang')
+@section('title', 'Prasarana')
 
 @section('content')
 
