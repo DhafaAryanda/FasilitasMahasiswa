@@ -46,7 +46,7 @@
             </a>
           </div>
         </li>
-        <li
+        {{-- <li
           class="relative transition-colors duration-150 active:text-blue-500 active:bg-blue-sky-1 hover:text-blue-500 hover:bg-blue-sky-1 mx-4 my-1 rounded-md">
           <div class="flex items-center">
             <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold" href="#">
@@ -57,6 +57,36 @@
                 </path>
               </svg>
               <span class="ml-4">Sarana </span>
+            </a>
+          </div>
+        </li> --}}
+        <li
+          class="relative transition-colors duration-150 active:text-blue-500 active:bg-blue-sky-1 hover:text-blue-500 hover:bg-blue-sky-1 mx-4 my-1 rounded-md">
+          <div class="flex items-center">
+            <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold"
+              href="{{ route('admin.manajemen.history') }}">
+              <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path
+                  d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
+                </path>
+              </svg>
+              <span class="ml-4">Riwayat Transaksi</span>
+            </a>
+          </div>
+        </li>
+        <li
+          class="relative transition-colors duration-150 active:text-blue-500 active:bg-blue-sky-1 hover:text-blue-500 hover:bg-blue-sky-1 mx-4 my-1 rounded-md">
+          <div class="flex items-center">
+            <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold"
+              href="{{ route('admin.manajemen.create.transaction') }}">
+              <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path
+                  d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
+                </path>
+              </svg>
+              <span class="ml-4">Buat Transaksi</span>
             </a>
           </div>
         </li>
@@ -78,7 +108,7 @@
             </a>
           </div>
         </li>
-        <li
+        {{-- <li
           class="relative transition-colors duration-150 active:text-blue-500 active:bg-blue-sky-1 hover:text-blue-500 hover:bg-blue-sky-1 mx-4 my-1 rounded-md">
           <div class="flex items-center">
             <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold" href="#">
@@ -91,7 +121,7 @@
               <span class="ml-4">Sarana </span>
             </a>
           </div>
-        </li>
+        </li> --}}
         <div class="block mx-6 my-1 mt-3">
           <span class="font-semibold text-gray-400 ml-2 text-sm">Akun</span>
         </div>
@@ -144,8 +174,7 @@
   x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100"
   x-transition:leave-end="opacity-0"
   class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"></div>
-<aside
-  class="shadow-lg fixed inset-y-0 z-20 flex-shrink-0 w-[274px] mt-16 overflow-y-auto bg-white md:hidden font-dmsans"
+<aside class="shadow-lg fixed inset-y-0 z-20 flex-shrink-0 h-screen w-[274px] mt-16  bg-white md:hidden font-dmsans"
   x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
   x-transition:enter-start="opacity-0 transform -translate-x-20" x-transition:enter-end="opacity-100"
   x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100"
@@ -153,7 +182,7 @@
   @keydown.escape="closeSideMenu">
 
   <div class="text-gray-500">
-    <div class="block  px-6 py-4">
+    <div class="px-6 py-4">
       <span class="font-bold text-slate-600 ml-5 text-sm">ADMIN</span>
     </div>
     <ul>
@@ -161,7 +190,7 @@
         class="relative transition-colors duration-150 active:text-blue-500 active:bg-blue-sky-1 hover:text-blue-500 hover:bg-blue-sky-1 mx-4 my-1 rounded-md active">
         <div class="flex items-center">
           <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold"
-            href="{{ route('member.dashboard') }}">
+            href="{{ route('admin.dashboard') }}">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
               stroke="none">
               <path
@@ -174,29 +203,14 @@
           </a>
         </div>
       </li>
+      <div class="block mx-6 my-1 mt-3">
+        <span class="font-semibold text-gray-400 ml-2 text-sm">Manajemen Peminjaman</span>
+      </div>
       <li
         class="relative transition-colors duration-150 active:text-blue-500 active:bg-blue-sky-1 hover:text-blue-500 hover:bg-blue-sky-1 mx-4 my-1 rounded-md">
         <div class="flex items-center">
           <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold"
-            href="{{ route('member.profile') }}">
-            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-              stroke="none">
-              <path path path
-                d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
-                opacity="0.3"></path>
-              <path path
-                d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z">
-              </path>
-            </svg>
-            <span class="ml-4">Profile</span>
-          </a>
-        </div>
-      </li>
-      <li
-        class="relative transition-colors duration-150 active:text-blue-500 active:bg-blue-sky-1 hover:text-blue-500 hover:bg-blue-sky-1 mx-4 my-1 rounded-md">
-        <div class="flex items-center">
-          <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold"
-            href="{{ route('member.konten.facility') }}">
+            href="{{ route('admin.manajemen.sewa.facility') }}">
             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
               stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
               <path
@@ -207,7 +221,7 @@
           </a>
         </div>
       </li>
-      <li
+      {{-- <li
         class="relative transition-colors duration-150 active:text-blue-500 active:bg-blue-sky-1 hover:text-blue-500 hover:bg-blue-sky-1 mx-4 my-1 rounded-md">
         <div class="flex items-center">
           <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold" href="#">
@@ -217,7 +231,105 @@
                 d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
               </path>
             </svg>
-            <span class="ml-4">Kesenian </span>
+            <span class="ml-4">Sarana </span>
+          </a>
+        </div>
+      </li> --}}
+      <li
+        class="relative transition-colors duration-150 active:text-blue-500 active:bg-blue-sky-1 hover:text-blue-500 hover:bg-blue-sky-1 mx-4 my-1 rounded-md">
+        <div class="flex items-center">
+          <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold"
+            href="{{ route('admin.manajemen.history') }}">
+            <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
+              </path>
+            </svg>
+            <span class="ml-4">Riwayat Transaksi</span>
+          </a>
+        </div>
+      </li>
+      <li
+        class="relative transition-colors duration-150 active:text-blue-500 active:bg-blue-sky-1 hover:text-blue-500 hover:bg-blue-sky-1 mx-4 my-1 rounded-md">
+        <div class="flex items-center">
+          <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold"
+            href="{{ route('admin.manajemen.create.transaction') }}">
+            <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
+              </path>
+            </svg>
+            <span class="ml-4">Buat Transaksi</span>
+          </a>
+        </div>
+      </li>
+      <div class="block mx-6 my-1 mt-3">
+        <span class="font-semibold text-gray-400 ml-2 text-sm">Manajemen Konten</span>
+      </div>
+      <li
+        class="relative transition-colors duration-150 active:text-blue-500 active:bg-blue-sky-1 hover:text-blue-500 hover:bg-blue-sky-1 mx-4 my-1 rounded-md">
+        <div class="flex items-center">
+          <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold"
+            href="{{ route('admin.manajemen.konten.facility') }}">
+            <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
+              </path>
+            </svg>
+            <span class="ml-4">Prasarana</span>
+          </a>
+        </div>
+      </li>
+      {{-- <li
+        class="relative transition-colors duration-150 active:text-blue-500 active:bg-blue-sky-1 hover:text-blue-500 hover:bg-blue-sky-1 mx-4 my-1 rounded-md">
+        <div class="flex items-center">
+          <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold" href="#">
+            <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
+              </path>
+            </svg>
+            <span class="ml-4">Sarana </span>
+          </a>
+        </div>
+      </li> --}}
+      <li
+        class="relative transition-colors duration-150 active:text-blue-500 active:bg-blue-sky-1 hover:text-blue-500 hover:bg-blue-sky-1 mx-4 my-1 rounded-md">
+        <div class="flex items-center">
+          <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold"
+            href="{{ route('admin.manajemen.create.transaction') }}">
+            <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
+              </path>
+            </svg>
+            <span class="ml-4">Buat Transaksi</span>
+          </a>
+        </div>
+      </li>
+      <div class="block mx-6 my-1 mt-3">
+        <span class="font-semibold text-gray-400 ml-2 text-sm">Akun</span>
+      </div>
+      <li
+        class="relative transition-colors duration-150 active:text-blue-500 active:bg-blue-sky-1 hover:text-blue-500 hover:bg-blue-sky-1 mx-4 my-1 rounded-md">
+        <div class="flex items-center">
+          <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold"
+            href="{{ route('admin.profile') }}">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+              stroke="none">
+              <path path path
+                d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
+                opacity="0.3"></path>
+              <path path
+                d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z">
+              </path>
+            </svg>
+            <span class="ml-4">Profile</span>
           </a>
         </div>
       </li>

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ManajemenKontenController;
 use App\Http\Controllers\Admin\ManajemenPeminjamanController;
 use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\Admin\TransactionHistoryController;
+use App\Http\Controllers\Admin\CreateTransactionController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Member\RegisterController;
 use App\Http\Controllers\Member\LoginController as MemberLoginController;
@@ -12,6 +14,7 @@ use App\Http\Controllers\Member\FacilityController;
 use App\Http\Controllers\Member\ProfileController;
 use App\Http\Controllers\Member\TransactionController as MemberTransactionController;
 use App\Http\Controllers\Member\InvoiceController;
+
 
 
 
@@ -65,6 +68,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function(){
             });
             
         });
+
+        Route::group(['prefix' => 'riwayat-transaksi'], function() {
+            Route::get('/', [TransactionHistoryController::class, 'index'])->name('admin.manajemen.history');
+        });
+
+        Route::group(['prefix' => 'buat-transaksi'], function() {
+            Route::get('/', [CreateTransactionController::class, 'index'])->name('admin.manajemen.create.transaction');
+        });
+
+        Route::get('/transaction-confirm/{id}', [MemberTransactionController::class, 'confirm'])->name('member.transaction.confirm');
+
 
     });
 });
