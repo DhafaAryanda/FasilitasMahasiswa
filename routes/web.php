@@ -71,6 +71,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function(){
 
         Route::group(['prefix' => 'riwayat-transaksi'], function() {
             Route::get('/', [TransactionHistoryController::class, 'index'])->name('admin.manajemen.history');
+            Route::get('/generate-pdf/{transactionId}', [TransactionHistoryController::class, 'generatePDF'])->name('admin.manajemen.history.generate.pdf');
+            Route::get('/generate-pdf/{guestTransactionId}', [TransactionHistoryController::class, 'generateGuestTransactionPDF'])->name('admin.manajemen.history.generate.guest.pdf');
+            
+
+
         });
 
         Route::group(['prefix' => 'buat-transaksi'], function() {
@@ -79,6 +84,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function(){
             Route::get('/transaction-confirm', [CreateTransactionController::class, 'confirm'])->name('admin.manajemen.create.transaction.confirm');
             Route::post('/transaction-confirm', [CreateTransactionController::class, 'confirmStore'])->name('admin.manajemen.create.transaction.confirm.store');
         });
+
+
 
         Route::get('/transaction-confirm/{id}', [MemberTransactionController::class, 'confirm'])->name('member.transaction.confirm');
 

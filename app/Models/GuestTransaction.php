@@ -29,4 +29,9 @@ class GuestTransaction extends Model
         'proof_of_payment',
         'status'
     ];
+
+    public function facility() 
+    {
+        return $this->belongsTo(Facility::class);
+    }
 }
