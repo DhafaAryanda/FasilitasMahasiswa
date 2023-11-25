@@ -3,9 +3,6 @@
 @section('title', 'Transaksi Tanpa Akun')
 
 @section('content')
-
-@section('content')
-
   {{-- transaction-facility --}}
 
   <div class="p-5 lg:p-10 flex items-center justify-center font-dmsans">
@@ -27,7 +24,8 @@
       <div>
         <h2 class="font-semibold text-xl text-slate-700 mb-6">Sewa Fasilitas</h2>
         <!-- Form Start -->
-        <form class="mb-20" action="#" method="POST" enctype="multipart/form-data">
+        <form class="mb-20" action="{{ route('admin.manajemen.create.transaction.store') }}" method="POST"
+          enctype="multipart/form-data">
           @csrf
           <section>
             <div class="bg-white rounded-lg border border-gray-200 shadow-md mb-5">
@@ -41,18 +39,35 @@
 
                   <div class="mt-4 mb-4 md:mx-1 lg:mx-5 text-sm">
                     <div class="sm:col-span-3 md:col-span-5 mb-5">
-                      <label for="phone_number" class="font-medium after:content-['*'] after:text-red-500 ">Nama
+                      <label for="facility_id" class="font-medium after:content-['*'] after:text-red-500 ">Nama
                         Prasarana</label>
-                      <input type="text" name="phone_number" id="phone_number"
-                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" />
-                      <p class="text-xs mt-2 text-[#858584]">Nama prasarana yang dipilih</p>
+                      <select name="facility_id" id="facility_id" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50">
+                        <option value="" disabled selected>Select a Facility</option>
+                        @foreach ($facilities as $facility)
+                          <option value="{{ $facility->id }}">{{ $facility->title }}</option>
+                        @endforeach
+                      </select>
+                      <p class="text-xs mt-2 text-[#858584]">Nama prasarana yang disewa</p>
                     </div>
                     <div class="sm:col-span-3 md:col-span-5 mb-5">
-                      <label for="phone_number" class="font-medium after:content-['*'] after:text-red-500 ">Nama
+                      <label for="guest_name" class="font-medium after:content-['*'] after:text-red-500 ">Nama
                         Penyewa</label>
-                      <input type="text" name="phone_number" id="phone_number"
+                      <input type="text" name="guest_name" id="guest_name"
                         class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" />
                       <p class="text-xs mt-2 text-[#858584]">Nama penyewa prasarana</p>
+                    </div>
+                    <div class="sm:col-span-3 md:col-span-5 mb-5">
+                      <label for="guest_email" class="font-medium after:content-['*'] after:text-red-500 ">Email
+                        Penyewa</label>
+                      <input type="text" name="guest_email" id="guest_email"
+                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" />
+                      <p class="text-xs mt-2 text-[#858584]">Email penyewa prasarana</p>
+                    </div>
+                    <div class="sm:col-span-3 md:col-span-5 mb-5">
+                      <label for="nim" class="font-medium">NIM/NIP</label>
+                      <input type="text" name="nim" id="nim"
+                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" />
+                      <p class="text-xs mt-2 text-[#858584]">Masukkan jika hanya penyewa pegawai atau mahasiswa USK</p>
                     </div>
                     <div class="sm:col-span-3 md:col-span-5 mb-5">
                       <label for="phone_number" class="font-medium after:content-['*'] after:text-red-500 ">Nomor
@@ -60,14 +75,6 @@
                       <input type="text" name="phone_number" id="phone_number"
                         class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" />
                       <p class="text-xs mt-2 text-[#858584]">Tuliskan Nomor Telepon yang menggunakan Whatsapp</p>
-                    </div>
-                    <div class="sm:col-span-3 md:col-span-5 mb-5">
-                      <label for="description" class="font-medium after:content-['*'] after:text-red-500 ">Deskripsi
-                        Kegiatan</label>
-                      <textarea type="text" name="description" id="description" class="h-24 border mt-2 rounded px-4 w-full bg-gray-50"
-                        placeholder=""></textarea>
-                      <p class="text-xs mt-2 text-[#858584]">Tuliskan keperluan Nomor Telepon yang menggunakan Whatsapp
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -95,12 +102,19 @@
                         class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" />
                       <p class="text-xs mt-2 text-[#858584]">Tuliskan durasi kegiatan dalam jam</p>
                     </div>
+                    <div class="sm:col-span-3 md:col-span-5 mb-5">
+                      <label for="description" class="font-medium after:content-['*'] after:text-red-500 ">Deskripsi
+                        Kegiatan</label>
+                      <textarea type="text" name="description" id="description" class="h-24 border mt-2 rounded px-4 w-full bg-gray-50"
+                        placeholder=""></textarea>
+                      <p class="text-xs mt-2 text-[#858584]">Tuliskan keperluan meminjam prasarana
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </section>
-
 
           <div class="flex justify-end mx-10">
             <a href="{{ route('member.dashboard') }}"
@@ -114,8 +128,4 @@
       </div>
     </div>
   </div>
-
-
-@endsection
-
 @endsection
