@@ -92,7 +92,7 @@
                       <label for="dateandtimepicker1" class="font-medium after:content-['*'] after:text-red-500 ">Jadwal
                         Kegiatan Berlangsung</label>
                       <input id="dateandtimepicker1" type="text" name="schedule_start" id="schedule_start"
-                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" />
+                        class="h-10 border mt-2 rounded px-4 w-full bg-gray-50 " readonly />
                       <p class="text-xs mt-2 text-[#858584]">Pilih jadwal kegiatan berlangsung</p>
                     </div>
                     <div class="sm:col-span-3 md:col-span-5 mb-5">

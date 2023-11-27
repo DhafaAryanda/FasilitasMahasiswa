@@ -7,9 +7,10 @@ use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\TransactionHistoryController;
 use App\Http\Controllers\Admin\CreateTransactionController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Member\RegisterController;
 use App\Http\Controllers\Member\LoginController as MemberLoginController;
-use App\Http\Controllers\Member\DashboardController;
+use App\Http\Controllers\Member\DashboardController as MemberDashboardController;
 use App\Http\Controllers\Member\FacilityController;
 use App\Http\Controllers\Member\ProfileController;
 use App\Http\Controllers\Member\TransactionController as MemberTransactionController;
@@ -37,7 +38,12 @@ Route::get('admin/login', [LoginController::class, 'index'])->name('admin.login'
 Route::post('admin/login', [LoginController::class, 'authenticate'])->name('admin.login.auth');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function(){
-    Route::view('/', 'admin.dashboard')->name('admin.dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/monthly-income', [TransactionController::class, 'monthlyIncome'])->name('admin.monthly.income');
+
+
+
+
 
     Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');
     Route::view('/profile', 'admin.profile')->name('admin.profile');
@@ -72,7 +78,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function(){
         Route::group(['prefix' => 'riwayat-transaksi'], function() {
             Route::get('/', [TransactionHistoryController::class, 'index'])->name('admin.manajemen.history');
             Route::get('/generate-pdf/{transactionId}', [TransactionHistoryController::class, 'generatePDF'])->name('admin.manajemen.history.generate.pdf');
-            Route::get('/generate-pdf/{guestTransactionId}', [TransactionHistoryController::class, 'generateGuestTransactionPDF'])->name('admin.manajemen.history.generate.guest.pdf');
+            Route::get('/generate-pdf-guest/{guestTransactionId}', [TransactionHistoryController::class, 'generateGuestTransactionPDF'])->name('admin.manajemen.history.generate.guest.pdf');
             
 
 
@@ -94,7 +100,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function(){
 });
 
 Route::group(['prefix' => 'member', 'middleware' => ['member.auth']],  function(){
-    Route::get('/', [DashboardController::class, 'index'])->name('member.dashboard');
+    Route::get('/', [MemberDashboardController::class, 'index'])->name('member.dashboard');
     Route::get('logout', [MemberLoginController::class, 'logout'])->name('member.logout');
     Route::get('/profile', [ProfileController::class, 'index'])->name('member.profile');
     Route::get('/profile/generate-pdf/{transactionId}', [ProfileController::class, 'generatePDF'])->name('member.profile.generate.pdf');
@@ -105,6 +111,9 @@ Route::group(['prefix' => 'member', 'middleware' => ['member.auth']],  function(
           Route::get('/', [FacilityController::class, 'index'])->name('member.konten.facility');
           Route::get('/semua', [FacilityController::class, 'showAll'])->name('member.konten.facility.all');
           Route::get('/{id}', [FacilityController::class, 'show'])->name('member.konten.facility.detail');
+          Route::post('/{id}/check-availability', [FacilityController::class, 'checkAvailability'])
+    ->name('member.konten.facility.check-availability');
+
       });
     });
     Route::group(['prefix' => 'sewa'], function() {

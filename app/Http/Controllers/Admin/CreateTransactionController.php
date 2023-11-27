@@ -40,16 +40,38 @@ class CreateTransactionController extends Controller
         $durationHours = $request->input('duration_hours');
 
         // Calculate the 'schedule_end' based on 'schedule_start' and 'duration_hours'
-        $scheduleEnd = $scheduleStart->addHours($durationHours);
+        // $scheduleEnd = $scheduleStart->addHours($durationHours);
+        $scheduleEnd = Carbon::parse($request->input('schedule_start'))->addHours($durationHours);
+
+
+        $overlapTransaction = GuestTransaction::where('facility_id', $request->input('facility_id'))
+    ->where(function ($query) use ($scheduleStart, $scheduleEnd) {
+        $query->where(function ($query) use ($scheduleStart, $scheduleEnd) {
+            $query->where('schedule_start', '<', $scheduleEnd)
+                ->where('schedule_end', '>', $scheduleStart);
+        })
+        ->orWhere(function ($query) use ($scheduleStart, $scheduleEnd) {
+            $query->where('schedule_start', '>=', $scheduleStart)
+                ->where('schedule_start', '<', $scheduleEnd);
+        })
+        ->orWhere(function ($query) use ($scheduleStart, $scheduleEnd) {
+            $query->where('schedule_end', '>', $scheduleStart)
+                ->where('schedule_end', '<=', $scheduleEnd);
+        });
+    })
+    ->first();
+
+
+if ($overlapTransaction) {
+    return back()->withErrors([
+      'error' => 'Waktu yang dipilih bertabrakan dengan transaksi yang sudah ada.'
+  ])->withInput();
+}
 
         $data = $request->all();
         $data['description'] = nl2br($data['description']);
         $data['schedule_end'] = $scheduleEnd;
 
-       
-
-        // $facility = Facility::find($id);
-        // $data['facility'] = $facility;
 
         $request->session()->put('transaction-facility-data', $data);
 

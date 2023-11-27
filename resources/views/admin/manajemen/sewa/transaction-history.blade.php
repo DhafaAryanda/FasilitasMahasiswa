@@ -113,7 +113,7 @@
 
 
       </div>
-      {{-- <div>
+      <div class="my-8">
         <h2 class="font-semibold text-xl text-blue-gray">Riwayat Transaksi Tanpa Akun</h2>
         <div class="overflow-x-scroll  rounded border border-white w-full">
           <table class="table-auto w-full border-collapse bg-white text-left text-sm text-gray-500">
@@ -217,7 +217,7 @@
         </div>
 
 
-      </div> --}}
+      </div>
     </div>
   </div>
 

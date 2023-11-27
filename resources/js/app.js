@@ -3,6 +3,8 @@ import DataTable from "datatables.net-dt";
 import $ from "jquery";
 import datetimepicker from "jquery-datetimepicker";
 import "jquery-datetimepicker/jquery.datetimepicker.css";
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css";
 
 $(document).ready(function () {
     $('#dateandtimepicker1').val(''); // Membersihkan nilai input
@@ -12,6 +14,13 @@ $(document).ready(function () {
     });
 });
 
+
+document.addEventListener('DOMContentLoaded', function () {
+    flatpickr("#datepicker", {
+        dateFormat: "Y-m-d",
+        // tambahkan opsi lain sesuai kebutuhan
+    });
+});
 
 
 import lightbox from "lightbox2";

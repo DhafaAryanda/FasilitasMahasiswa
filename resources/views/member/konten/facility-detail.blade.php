@@ -111,16 +111,8 @@
             <h2 class="text-xl font-semibold mb-3">Jadwal Tersedia</h2>
             <div class="flex mx-5 my-5">
 
-              {{-- <input id="datetimepicker" type="text" class="h-10 border mt-2 rounded px-4 w-full bg-gray-50"
-                readonly />
-                 --}}
+              <input id="datepicker" class="" type="text" placeholder="Select Date.." readonly="readonly">
 
-              {{-- <form action="{{ route('member.transaction.show.schedule', $transaction->id) }}" method="get">
-
-                <label for="targetDateTime">Target Date and Time:</label>
-                <input type="datetime-local" id="targetDateTime" name="targetDateTime" required>
-                <button type="submit">Show Transactions</button>
-              </form> --}}
               @foreach ($transactions as $transaction)
                 <div>
                   nama aktivitas: {{ $transaction->activity_name }}

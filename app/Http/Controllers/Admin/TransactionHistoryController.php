@@ -71,7 +71,7 @@ class TransactionHistoryController extends Controller
             'role' => 'Sewa Tanpa Akun',
             'phone_number' => $guestTransaction->phone_number,
             'email' => $guestTransaction->guest_email,
-            'facility' => $transaction->facility->title,
+            'facility' => $guestTransaction->facility->title,
             'activity_name' => $guestTransaction->activity_name,
             'schedule_start' => $guestTransaction->schedule_start,
             'price_per_day' => $guestTransaction->facility->price_per_day,

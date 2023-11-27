@@ -8,6 +8,8 @@ use App\Models\Transaction;
 use App\Models\RejectedTransaction;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+
 
 
 
@@ -70,5 +72,14 @@ class TransactionController extends Controller
 
         return redirect()->route('admin.manajemen.sewa.facility')->with('success', 'Fasilitas berhasil ditolak');
 
+    }
+
+    public function monthlyIncome()
+    {
+        $monthlyIncome = Transaction::select(DB::raw('YEAR(created_at) as year, MONTH(created_at) as month, SUM(amount) as total_income'))
+            ->groupBy('year', 'month')
+            ->get();
+
+        return view('admin.monthly-income', ['monthlyIncome' => $monthlyIncome]);
     }
 }
