@@ -9,6 +9,7 @@ use App\Models\RejectedTransaction;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 
 
@@ -17,12 +18,23 @@ class TransactionController extends Controller
 {
     public function index()
     {
-        $transactions = Transaction::with([
-            'user',
-            'facility'
-        ])->get();
+        $now = Carbon::now();
+        // $transactions = Transaction::with(['user', 'facility'])->get();
         // dd($transactions);
-        return view('admin.manajemen.sewa.facility', ['transactions' => $transactions]);
+
+        $now = Carbon::now();
+    $pendingTransactions = Transaction::with(['user', 'facility'])
+        ->where('status', 'pending')
+        ->get();
+
+    $activeTransactions = Transaction::with(['user', 'facility'])
+        ->where('status', 'confirmed')
+        ->where('schedule_end', '>', $now)
+        ->get();
+
+    return view('admin.manajemen.sewa.facility', [
+        'pendingTransactions' => $pendingTransactions,
+        'activeTransactions' => $activeTransactions,]);
     }
 
     public function show($id)
@@ -74,12 +86,12 @@ class TransactionController extends Controller
 
     }
 
-    public function monthlyIncome()
-    {
-        $monthlyIncome = Transaction::select(DB::raw('YEAR(created_at) as year, MONTH(created_at) as month, SUM(amount) as total_income'))
-            ->groupBy('year', 'month')
-            ->get();
+    // public function monthlyIncome()
+    // {
+    //     $monthlyIncome = Transaction::select(DB::raw('YEAR(created_at) as year, MONTH(created_at) as month, SUM(amount) as total_income'))
+    //         ->groupBy('year', 'month')
+    //         ->get();
 
-        return view('admin.monthly-income', ['monthlyIncome' => $monthlyIncome]);
-    }
+    //     return view('admin.monthly-income', ['monthlyIncome' => $monthlyIncome]);
+    // }
 }

@@ -8,6 +8,7 @@ use App\Models\Transaction;
 use App\Models\GuestTransaction;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 
 
 
@@ -15,10 +16,11 @@ class TransactionHistoryController extends Controller
 {
     public function index()
     {
-        $transactions = Transaction::all();
-        $guestTransaction = GuestTransaction::all();
+        $now = Carbon::now();
 
-        return view('admin.manajemen.sewa.transaction-history', ['transactions' => $transactions, 'guestTransaction' => $guestTransaction]);
+        $transactions = Transaction::where('schedule_end', '<', $now)->get();
+
+        return view('admin.manajemen.sewa.transaction-history', ['transactions' => $transactions]);
     }
 
     public function generatePDF($transactionId)

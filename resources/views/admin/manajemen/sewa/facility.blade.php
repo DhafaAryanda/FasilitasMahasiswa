@@ -46,28 +46,26 @@
               @php
                 $counter = 0;
               @endphp
-              @foreach ($transactions as $key => $transaction)
-                @if ($transaction->status === 'pending')
-                  @php
-                    $counter++;
-                  @endphp
-                  <tr class="hover:bg-gray-50">
-                    <td class="px-6 py-4">{{ $counter }}</td>
-                    <td class="px-6 py-4">{{ $transaction->transaction_code }}</td>
-                    <td class="px-6 py-4">{{ $transaction->facility->title }}</td>
-                    <td class="px-6 py-4">{{ $transaction->user->name }}</td>
-                    <td class="px-6 py-4">{{ $transaction->schedule_start }}</td>
-                    <td class="px-6 py-4">{{ $transaction->status }}</td>
-                    <td class="px-6 py-4">
-                      <a href="{{ route('admin.manajemen.sewa.facility.detail', $transaction->id) }}">
-                        <button class="rounded-xl bg-deep-purple text-white h-8 w-20 text-xs">
-                          Detail
-                        </button>
+              @foreach ($pendingTransactions as $key => $transaction)
+                @php
+                  $counter++;
+                @endphp
+                <tr class="hover:bg-gray-50">
+                  <td class="px-6 py-4">{{ $counter }}</td>
+                  <td class="px-6 py-4">{{ $transaction->transaction_code }}</td>
+                  <td class="px-6 py-4">{{ $transaction->facility->title }}</td>
+                  <td class="px-6 py-4">{{ $transaction->user->name }}</td>
+                  <td class="px-6 py-4">{{ $transaction->schedule_start }}</td>
+                  <td class="px-6 py-4">{{ $transaction->status }}</td>
+                  <td class="px-6 py-4">
+                    <a href="{{ route('admin.manajemen.sewa.facility.detail', $transaction->id) }}">
+                      <button class="rounded-xl bg-deep-purple text-white h-8 w-20 text-xs">
+                        Detail
+                      </button>
 
-                      </a>
-                    </td>
-                  </tr>
-                @endif
+                    </a>
+                  </td>
+                </tr>
               @endforeach
             </tbody>
           </table>
@@ -102,26 +100,30 @@
               @php
                 $counter = 0;
               @endphp
-              @foreach ($transactions as $key => $transaction)
-                @if ($transaction->status === 'confirmed')
-                  @php
-                    $counter++;
-                  @endphp
-                  <tr class="hover:bg-gray-50">
-                    <td class="px-6 py-4">{{ $counter }}</td>
-                    <td class="px-6 py-4">{{ $transaction->transaction_code }}</td>
-                    <td class="px-6 py-4">{{ $transaction->facility->title }}</td>
-                    <td class="px-6 py-4">{{ $transaction->user->name }}</td>
-                    <td class="px-6 py-4">{{ $transaction->schedule_start }}</td>
-                    <td class="px-6 py-4">{{ $transaction->status }}</td>
-                    <td class="px-6 py-4">
-                      <button class="rounded-xl bg-deep-purple text-white h-8 w-20 text-xs">
-                        Detail
-                      </button>
-                      </a>
-                    </td>
-                  </tr>
-                @endif
+              @foreach ($activeTransactions as $key => $transaction)
+                @php
+                  $counter++;
+                @endphp
+                <tr class="hover:bg-gray-50">
+                  <td class="px-6 py-4">{{ $counter }}</td>
+                  <td class="px-6 py-4">{{ $transaction->transaction_code }}</td>
+                  <td class="px-6 py-4">{{ $transaction->facility->title }}</td>
+                  <td class="px-6 py-4">
+                    @if ($transaction->user_id)
+                      {{ $transaction->user->name }}
+                    @else
+                      {{ $transaction->guest_name }}
+                    @endif
+                  </td>
+                  <td class="px-6 py-4">{{ $transaction->schedule_start }}</td>
+                  <td class="px-6 py-4">{{ $transaction->status }}</td>
+                  <td class="px-6 py-4">
+                    <button class="rounded-xl bg-deep-purple text-white h-8 w-20 text-xs">
+                      Detail
+                    </button>
+                    </a>
+                  </td>
+                </tr>
               @endforeach
             </tbody>
           </table>

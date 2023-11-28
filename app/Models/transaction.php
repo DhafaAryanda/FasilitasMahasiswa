@@ -13,6 +13,9 @@ class Transaction extends Model
 
     protected $fillable = [
         'user_id',
+        'guest_name',
+        'guest_email',
+        'nim',
         'facility_id',
         'activity_name',
         'transaction_code',

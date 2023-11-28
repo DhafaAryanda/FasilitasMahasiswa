@@ -60,7 +60,7 @@
           </a>
         </div>
       </li>
-      <li
+      {{-- <li
         class="relative transition-colors duration-150 active:text-blue-500 active:bg-blue-sky-1 hover:text-blue-500 hover:bg-blue-sky-1 mx-4 my-1 rounded-md">
         <div class="flex items-center">
           <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold" href="#">
@@ -73,7 +73,7 @@
             <span class="ml-4">Kesenian </span>
           </a>
         </div>
-      </li>
+      </li> --}}
       <li
         class="relative transition-colors duration-150 active:text-red-800 active:bg-red-100 hover:text-red-800 hover:bg-red-100 mx-4 my-1 rounded-md">
         <div class="flex items-center">
@@ -165,7 +165,7 @@
           </a>
         </div>
       </li>
-      <li
+      {{-- <li
         class="relative transition-colors duration-150 active:text-blue-500 active:bg-blue-sky-1 hover:text-blue-500 hover:bg-blue-sky-1 mx-4 my-1 rounded-md">
         <div class="flex items-center">
           <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold" href="#">
@@ -178,7 +178,7 @@
             <span class="ml-4">Kesenian </span>
           </a>
         </div>
-      </li>
+      </li> --}}
       <li
         class="relative transition-colors duration-150 active:text-red-800 active:bg-red-100 hover:text-red-800 hover:bg-red-100 mx-4 my-1 rounded-md">
         <div class="flex items-center">

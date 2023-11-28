@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Facility;
-use App\Models\GuestTransaction;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
+use App\Models\Transaction;
+
 
 
 
@@ -44,7 +45,7 @@ class CreateTransactionController extends Controller
         $scheduleEnd = Carbon::parse($request->input('schedule_start'))->addHours($durationHours);
 
 
-        $overlapTransaction = GuestTransaction::where('facility_id', $request->input('facility_id'))
+        $overlapTransaction = Transaction::where('facility_id', $request->input('facility_id'))
     ->where(function ($query) use ($scheduleStart, $scheduleEnd) {
         $query->where(function ($query) use ($scheduleStart, $scheduleEnd) {
             $query->where('schedule_start', '<', $scheduleEnd)
@@ -116,7 +117,7 @@ if ($overlapTransaction) {
         $facility = Facility::find($facilityId);
 
          // Generate a unique transaction code
-        $latestTransaction = GuestTransaction::latest('id')->first();
+        $latestTransaction = Transaction::latest('id')->first();
         $latestTransactionId = $latestTransaction ? $latestTransaction->id : 0;
         $transactionCode = 'TRX' . str_pad($latestTransactionId + 1, 5, '0', STR_PAD_LEFT);
             
@@ -134,7 +135,7 @@ if ($overlapTransaction) {
         $proofOfPayment->storeAs('public/proof_of_payment', $originalproofOfPaymentName);
     
         // Buat dan simpan transaksi ke database
-        GuestTransaction::create([
+        Transaction::create([
             // 'user_id' => Auth::id(),
             'guest_name' => $transactionFacilityData['guest_name'],
             'guest_email' => $transactionFacilityData['guest_email'],
