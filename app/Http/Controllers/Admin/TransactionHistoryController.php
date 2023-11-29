@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Transaction;
-use App\Models\GuestTransaction;
+use App\Exports\TransactionExport;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
+use Maatwebsite\Excel\Facades\Excel;
+
+
 
 
 
@@ -84,5 +87,10 @@ class TransactionHistoryController extends Controller
         ]);
             $pdf->setPaper('A4', 'potrait');
             return $pdf->download('invoice.pdf');
+        }
+
+        public function export()
+        {
+            return Excel::download(new TransactionExport, 'transaction-'.Carbon::now()->timestamp.'.xlsx');
         }
 }

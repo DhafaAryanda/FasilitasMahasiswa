@@ -118,6 +118,9 @@
         </div>
 
 
+        <div>
+          <a href="{{ route('admin.manajemen.history.export') }}">Export</a>
+        </div>
       </div>
 
     </div>
