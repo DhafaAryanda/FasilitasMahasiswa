@@ -5,6 +5,9 @@ import datetimepicker from "jquery-datetimepicker";
 import "jquery-datetimepicker/jquery.datetimepicker.css";
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import toast, { Toaster } from 'solid-toast';
+
+
 
 $(document).ready(function () {
     $('#dateandtimepicker1').val(''); // Membersihkan nilai input

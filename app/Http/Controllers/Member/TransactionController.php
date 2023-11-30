@@ -123,7 +123,7 @@ class TransactionController extends Controller
             'proof_of_payment' => $originalproofOfPaymentName,
         ]);
         
-        return redirect()->route('member.dashboard')->with('success', 'Fasilitas Berhasil Dipesan');
+        // return redirect()->route('member.dashboard')->with('success', 'Fasilitas Berhasil Dipesan');
 
     }
     

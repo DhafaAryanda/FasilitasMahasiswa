@@ -136,11 +136,21 @@
                           {{ old('bank_name') == 'Bank Negara Indonesia (BNI)' ? 'selected' : '' }}>Bank Negara Indonesia
                           (BNI)
                         </option>
+                        <option value="Lainnya" {{ old('bank_name') == 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
+
+
                       </select>
                     </div>
                   </div>
                   <p class="text-xs mt-2 text-[#858584]">Pilih Bank pengirim</p>
                 </div>
+                <div id="lainnyaInput" class="flex flex-col hidden">
+                  <label for="other_bank" class="flex-1 font-medium">Bank Lainnya</label>
+                  <input type="text" name="other_bank" id="other_bank"
+                    class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="{{ old('other_bank') }}" />
+                  <p class="text-xs mt-2 text-[#858584]">Tuliskan nama bank jika memilih "Lainnya"</p>
+                </div>
+
                 <div class="flex flex-col">
                   <label for="bank_account_number" class="flex-1 font-medium">Nomor Rekening Pengirim</label>
                   <input type="text" name="bank_account_number" id="bank_account_number"
@@ -170,5 +180,21 @@
       </div>
     </div>
   </div>
+
+  <script>
+    document.getElementById('bank_name').addEventListener('change', function() {
+      var lainnyaInput = document.getElementById('lainnyaInput');
+      var otherBankInput = document.getElementById('other_bank');
+
+      if (this.value === 'Lainnya') {
+        lainnyaInput.classList.remove('hidden');
+      } else {
+        lainnyaInput.classList.add('hidden');
+      }
+
+      // Update the value of the "Lainnya" option based on the input value
+      document.querySelector('select[name="bank_name"] option[value="Lainnya"]').value = otherBankInput.value;
+    });
+  </script>
 
 @endsection

@@ -4,7 +4,7 @@
 
 @section('content')
 
-  <div class=" m-10 flex items-center justify-center font-poppins">
+  <div x-data="{ showmodal: false }" class=" m-10 flex items-center justify-center font-poppins">
     <div class="container max-w-screen-lg mx-auto">
       @if ($errors->any())
         <div class="mb-4" role="alert">
@@ -128,10 +128,18 @@
                           {{ old('bank_name') == 'Bank Negara Indonesia (BNI)' ? 'selected' : '' }}>Bank Negara Indonesia
                           (BNI)
                         </option>
+                        <option value="Lainnya" {{ old('bank_name') == 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
                       </select>
                     </div>
                   </div>
                   <p class="text-xs mt-2 text-[#858584]">Pilih Bank pengirim</p>
+                </div>
+
+                <div id="lainnyaInput" class="flex flex-col hidden">
+                  <label for="other_bank" class="flex-1 font-medium">Bank Lainnya</label>
+                  <input type="text" name="other_bank" id="other_bank"
+                    class="h-10 border mt-2 rounded px-4 w-full bg-gray-50" value="{{ old('other_bank') }}" />
+                  <p class="text-xs mt-2 text-[#858584]">Tuliskan nama bank jika memilih "Lainnya"</p>
                 </div>
                 <div class="flex flex-col">
                   <label for="bank_account_number" class="flex-1 font-medium">Nomor Rekening Pengirim</label>
@@ -155,12 +163,56 @@
           <div class="flex justify-end mx-10">
             <a href="{{ route('admin.manajemen.konten.facility') }}"
               class="bg-gray-400 mx-2 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg">Kembali</a>
-            <button type="submit" name="action" value="update"
+            <button @click="showModal = true" type="submit" name="action" value="update"
               class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg">Submit</button>
+
           </div>
         </form>
       </div>
     </div>
   </div>
+  <div x-show="showModal" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
+    x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-300"
+    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
+    class="fixed flex justify-center items-center top-0 left-0 w-full h-full z-50"
+    style="background-color: rgba(0,0,0,0.5)">
+    <div class=" flex min-h-screen items-center justify-center z-50">
+      <div class="rounded-lg bg-gray-50 px-16 py-14">
+        <div class="flex justify-center">
+          <div class="rounded-full bg-green-200 p-6">
+            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-green-500 p-4">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="h-8 w-8 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <h3 class="my-4 text-center text-3xl font-semibold text-gray-700">Congratuation!!!</h3>
+        <p class="w-[230px] text-center font-normal text-gray-600">Your order have been taken and is being attended to
+        </p>
+        <button
+          class="mx-auto mt-10 block rounded-xl border-4 border-transparent bg-orange-400 px-6 py-3 text-center text-base font-medium text-orange-100 outline-8 hover:outline hover:duration-300">Track
+          Order</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('bank_name').addEventListener('change', function() {
+      var lainnyaInput = document.getElementById('lainnyaInput');
+      var otherBankInput = document.getElementById('other_bank');
+
+      if (this.value === 'Lainnya') {
+        lainnyaInput.classList.remove('hidden');
+      } else {
+        lainnyaInput.classList.add('hidden');
+      }
+
+      // Update the value of the "Lainnya" option based on the input value
+      document.querySelector('select[name="bank_name"] option[value="Lainnya"]').value = otherBankInput.value;
+    });
+  </script>
+
 
 @endsection
