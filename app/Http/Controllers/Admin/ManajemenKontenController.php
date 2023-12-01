@@ -24,7 +24,13 @@ class ManajemenKontenController extends Controller
 
     public function edit($id)
     {
+
         $facility = Facility::find($id);
+
+        $title = 'Delete Data!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
+
         return view('admin.manajemen.konten.facility-edit', ['facility' => $facility]);
     }
 
@@ -44,6 +50,15 @@ class ManajemenKontenController extends Controller
             'price_per_day' => 'required|string',
             'show' => 'required|boolean'
             
+        ], [
+            'title.required' => 'Nama Prasarana belum diisi',
+            'categories.required' => 'Kategori prasarana belum diisi',
+            'about.required' => 'Deskripsi Prasarana belum diisi',
+            'image1_detail.required' => 'Foto utama wajib diunggah',
+            'image2_detail.required' => 'Foto 2 wajib diunggah',
+            'price_per_hour.required' => 'Harga per jam belum diisi',
+            'price_per_day.required' => 'Harga per hari belum diisi',
+            'show.required' => 'Status tampil belum dipilih'
         ]);
 
         $data['about'] = nl2br($data['about']);
@@ -78,7 +93,10 @@ class ManajemenKontenController extends Controller
             $data['image4_detail'] = $originalImage4DetailName;
         }
 
+
         Facility::create($data);
+        // Alert::success('Hore!', 'Post Created Successfully');
+
         return redirect()->route('admin.manajemen.konten.facility')->with('success', 'Fasilitas berhasil ditambahkan');
 
     }
@@ -158,6 +176,7 @@ class ManajemenKontenController extends Controller
     public function destroy($id)
     {
         Facility::find($id)->delete();
+
 
         return redirect()->route('admin.manajemen.konten.facility')->with('success', 'Fasilitas berhasil dihapus');
     }

@@ -5,7 +5,7 @@ import datetimepicker from "jquery-datetimepicker";
 import "jquery-datetimepicker/jquery.datetimepicker.css";
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
-import toast, { Toaster } from 'solid-toast';
+import Swal from 'sweetalert2'
 
 
 
@@ -25,6 +25,28 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+
+// $(document).on('click', '#deleteButton', function(e) {
+//     e.preventDefault();
+//     var link = $(this).attr("href");
+//     Swal.fire({
+//       title: "Are you sure?",
+//       text: "You won't be able to revert this!",
+//       icon: "warning",
+//       showCancelButton: true,
+//       confirmButtonColor: "#3085d6",
+//       cancelButtonColor: "#d33",
+//       confirmButtonText: "Yes, delete it!"
+//     }).then((result) => {
+//       if (result.isConfirmed) {
+//         Swal.fire({
+//           title: "Deleted!",
+//           text: "Your file has been deleted.",
+//           icon: "success"
+//         });
+//       }
+//     });
+//   })
 
 import lightbox from "lightbox2";
 import 'lightbox2/dist/css/lightbox.min.css';

@@ -35,6 +35,16 @@ class CreateTransactionController extends Controller
             'duration_hours' => 'required|integer',
             'description' => 'required|string',
             'phone_number' => 'required|string',
+        ], [
+            'facility_id.required' => 'Nama Prasarana belum dipilih.',
+            'guest_name.required' => 'Nama penyewa belum diisi.',
+            'guest_email.email' => 'Format email tidak valid.',
+            'nim.required' => 'NIM/NIP belum diisi',
+            'activity_name.required' => 'Nama Kegiatan belum diisi',
+            'schedule_start.required' => 'Jadwal Kegiatan Berlangsung belum diisi',
+            'duration_hours.required' => 'Durasi Kegiatan belum diisi',
+            'description.required' => 'Deskripsi Kegiatan belum diisi',
+            'phone_number.required' => 'Nomor Telepon belum diisi',
         ]);
 
         $scheduleStart = Carbon::parse($request->input('schedule_start'));
@@ -63,13 +73,21 @@ class CreateTransactionController extends Controller
     ->first();
 
 
-if ($overlapTransaction) {
-    return back()->withErrors([
-      'error' => 'Waktu yang dipilih bertabrakan dengan transaksi yang sudah ada.'
-  ])->withInput();
-}
+        if ($overlapTransaction) {
+            return back()->withErrors([
+            'error' => 'Waktu yang dipilih bertabrakan dengan transaksi yang sudah ada.'
+        ])->withInput();
+        }
+        
+        // if ($overlapTransaction) {
+        //     return back()->withErrors([
+        //     'error' => 'Waktu yang dipilih bertabrakan dengan transaksi yang sudah ada.'
+        // ])->withInput();
+        // }
+        
 
         $data = $request->all();
+
         $data['description'] = nl2br($data['description']);
         $data['schedule_end'] = $scheduleEnd;
 
@@ -108,6 +126,10 @@ if ($overlapTransaction) {
             'bank_name' => 'required|string',
             'bank_account_number' => 'required|string',
             'proof_of_payment' => 'required|image|mimes:jpeg,jpg,png',
+        ], [
+            'bank_name.required' => 'Nama Bank belum diisi',
+            'bank_account_number.required' => 'Nomor rekening belum diisi',
+            'proof_of_payment.required' => 'Bukti transfer belum diisi',
         ]);
     
         // Get the data from the session
@@ -153,8 +175,11 @@ if ($overlapTransaction) {
             'status' => 'success', // Anda dapat mengatur status awal di sini
             'proof_of_payment' => $originalproofOfPaymentName,
         ]);
+
+        // Alert::success('Hore!', 'Post Created Successfully');
+
         
-        return redirect()->route('admin.dashboard')->with('success', 'Prasarana Berhasil Dibuat');
+        return redirect()->route('admin.dashboard')->with('success', 'Prasarana Berhasil Dibuat')->with('toast_success', 'Task Created Successfully!');;
 
     }
 
