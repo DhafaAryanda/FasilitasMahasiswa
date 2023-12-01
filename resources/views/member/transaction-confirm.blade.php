@@ -171,7 +171,7 @@
       </div>
     </div>
   </div>
-  <div x-show="showModal" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
+  {{-- <div x-show="showModal" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
     x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-300"
     x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
     class="fixed flex justify-center items-center top-0 left-0 w-full h-full z-50"
@@ -196,7 +196,7 @@
           Order</button>
       </div>
     </div>
-  </div>
+  </div> --}}
 
   <script>
     document.getElementById('bank_name').addEventListener('change', function() {

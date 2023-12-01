@@ -33,6 +33,12 @@ class TransactionController extends Controller
             'duration_hours' => 'required|integer',
             'description' => 'required|string',
             'phone_number' => 'required|string',
+        ], [
+            'activity_name.required' => 'Nama kegiatan wajib diisi',
+            'schedule_start.required' => 'Jadwal Kegiatan berlangsung wajib diisi',
+            'duration_hours.required' => 'Durasi Kegiatan wajib diisi',
+            'description.required' => 'Deskripsi Kegiatan wajib diisi',
+            'phone_number.required' => 'Nomor Telepon wajib diisi',
         ]);
 
         $scheduleStart = Carbon::parse($request->input('schedule_start'));
@@ -82,6 +88,10 @@ class TransactionController extends Controller
             'bank_name' => 'required|string',
             'bank_account_number' => 'required|string',
             'proof_of_payment' => 'required|image|mimes:jpeg,jpg,png',
+        ], [
+            'bank_name.required' => 'Nama Bank wajib diisi',
+            'bank_account_number.required' => 'Nomor Rekening wajib diisi',
+            'proof_of_payment.required' => 'Bukti Pembayaran wajib diunggah',
         ]);
     
         // Get the data from the session
@@ -123,7 +133,7 @@ class TransactionController extends Controller
             'proof_of_payment' => $originalproofOfPaymentName,
         ]);
         
-        // return redirect()->route('member.dashboard')->with('success', 'Fasilitas Berhasil Dipesan');
+        return redirect()->route('member.dashboard')->with('success', 'Fasilitas Berhasil Dipesan');
 
     }
     
