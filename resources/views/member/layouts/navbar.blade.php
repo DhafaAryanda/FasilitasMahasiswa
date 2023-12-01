@@ -17,7 +17,7 @@
     </div>
     <div class="items-center">
       <span class="relative px-2 mx-2 font-poppins font-medium text-sm text-gray-500">
-        Hi, namaUser
+        Hi, Nama User
       </span>
     </div>
   </div>

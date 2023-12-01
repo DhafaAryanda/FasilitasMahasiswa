@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Facility;
 use App\Models\Transaction;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -34,20 +35,19 @@ class FacilityController extends Controller
 
     
 
-    public function show($id)
+    public function show($id, Request $request)
     {
         $facility = Facility::find($id);
 
-        $targetDateTime = '2023-11-07 09:00:00';
+        $selectedDate = $request->input('selected_date');
 
+         // Retrieve transactions based on the selected date
         $transactions = Transaction::where('facility_id', $id)
-        ->where('schedule_start', $targetDateTime)
-        ->with('facility') // Optional: Jika ingin mendapatkan data fasilitas bersamaan dengan transaksi
+        ->whereDate('schedule_start', '=', $selectedDate)
         ->get();
 
-        // if ($transactions->isEmpty()) {
-        //     dd("Tidak ada transaksi pada tanggal dan waktu yang ditentukan.");
-        // }
-        return view('member.konten.facility-detail', ['facility' => $facility, 'transactions' => $transactions]);
+        
+        return view('member.konten.facility-detail', ['facility' => $facility,  'transactions' => $transactions,  'selectedDate' => $selectedDate,]);
     }
+
 }

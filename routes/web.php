@@ -111,8 +111,6 @@ Route::group(['prefix' => 'member', 'middleware' => ['member.auth']],  function(
           Route::get('/', [FacilityController::class, 'index'])->name('member.konten.facility');
           Route::get('/semua', [FacilityController::class, 'showAll'])->name('member.konten.facility.all');
           Route::get('/{id}', [FacilityController::class, 'show'])->name('member.konten.facility.detail');
-          Route::post('/{id}/check-availability', [FacilityController::class, 'checkAvailability'])
-    ->name('member.konten.facility.check-availability');
 
       });
     });

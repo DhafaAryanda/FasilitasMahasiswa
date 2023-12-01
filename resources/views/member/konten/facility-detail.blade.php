@@ -109,27 +109,39 @@
           <div
             class="container py-10 px-12 w-7/12 h-auto bg-white rounded-lg border border-gray-200 shadow-md relative z-50">
             <h2 class="text-xl font-semibold mb-3">Jadwal Tersedia</h2>
-            <div class="flex mx-5 my-5">
+            <form method="get">
+              @csrf
+              <div class="flex mx-5 my-5">
+                <input type="date" name="selected_date" required id="datepicker" id="start_date"
+                  value="{{ request('start_date') }}" placeholder="Select Date.." readonly="readonly">
+              </div>
 
-              <input id="datepicker" class="" type="text" placeholder="Select Date.." readonly="readonly">
+              <div class="my-5">
+                <h3 class="text-lg font-semibold mb-2">Transaction Data:</h3>
 
-              @foreach ($transactions as $transaction)
-                <div>
-                  nama aktivitas: {{ $transaction->activity_name }}
-                  Jadwal: {{ $transaction->schedule_start }}
-                </div>
-              @endforeach
+                @if ($transactions->count() > 0)
+                  <ul>
+                    @foreach ($transactions as $transaction)
+                      <li>{{ $transaction->activity_name }} {{ $transaction->schedule_start }} -
+                        {{ $transaction->schedule_end }} </li>
+                      <!-- Add other transaction details as needed -->
+                    @endforeach
+                  </ul>
+                @else
+                  <p>No transactions found for the selected date.</p>
+                @endif
+              </div>
 
 
-
-            </div>
-            <div class="flex justify-end pt-2">
-              <a class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">
-                action
-              </a>
-              <button class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400"
-                @click="showSchedule = false">Close</button>
-            </div>
+              <div class="flex justify-end pt-2">
+                <button type="submit"
+                  class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">
+                  Action
+                </button>
+                <button class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400"
+                  @click="showSchedule = false">Close</button>
+              </div>
+            </form>
 
           </div>
 
@@ -141,6 +153,7 @@
 
 
       </div>
+
     </div>
   </div>
 
