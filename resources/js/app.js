@@ -1,4 +1,5 @@
 import DataTable from "datatables.net-dt";
+// import 'datatables.net-dt/css/jquery.dataTables.min.css';
 
 import $ from "jquery";
 import datetimepicker from "jquery-datetimepicker";
@@ -25,7 +26,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
+$(document).ready( function () {
+    $('#mytable').DataTable();
+});
 // $(document).on('click', '#deleteButton', function(e) {
 //     e.preventDefault();
 //     var link = $(this).attr("href");

@@ -11,7 +11,7 @@
       <div>
         <h2 class="font-semibold text-xl text-blue-gray">Riwayat Transaksi</h2>
         <div class="overflow-x-scroll  rounded border border-white w-full">
-          <table class="table-auto w-full border-collapse bg-white text-left text-sm text-gray-500">
+          <table id="mytable" class="table-auto w-full border-collapse bg-white text-left text-sm text-gray-500">
             <thead>
               <tr>
                 <th scope="col" class="px-6 py-4 font-semibold text-gray-900">No.</th>
@@ -125,5 +125,7 @@
 
     </div>
   </div>
+
+
 
 @endsection
