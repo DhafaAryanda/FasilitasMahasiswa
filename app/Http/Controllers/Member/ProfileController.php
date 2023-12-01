@@ -26,6 +26,13 @@ class ProfileController extends Controller
         $transaction = Transaction::findOrFail($transactionId);
         $user = Auth::user();
 
+            // Validasi apakah pengguna memiliki akses ke transaksi ini
+        if ($user->id !== $transaction->user_id || $transaction->status !== 'confirmed') {
+            // Jika pengguna bukan pemilik transaksi atau transaksi tidak dalam status 'confirmed'
+            return redirect()->back()->with('error', 'Tidak dapat mengunduh invoice untuk transaksi ini.');
+        }
+
+
         $path = public_path().'/storage/assets/images/logo_mbkm.png';
         $type = pathinfo($path, PATHINFO_EXTENSION);
         $data = file_get_contents($path);

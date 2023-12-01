@@ -178,10 +178,12 @@
                               </div>
                             </div>
                             <div class="flex justify-end pt-2">
-                              <a class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2"
-                                href="{{ route('member.profile.generate.pdf', ['transactionId' => $transaction->id]) }}">
-                                Unduh
-                              </a>
+                              @if ($transaction->status === 'confirmed')
+                                <a class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2"
+                                  href="{{ route('member.profile.generate.pdf', ['transactionId' => $transaction->id]) }}">
+                                  Unduh
+                                </a>
+                              @endif
                               <button
                                 class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400"
                                 @click="showDetail = false">Close</button>
@@ -236,8 +238,8 @@
     }
 
     /* .duration-300 {
-          transition-duration: 300ms;
-        } */
+              transition-duration: 300ms;
+            } */
 
     .ease-in {
       transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
