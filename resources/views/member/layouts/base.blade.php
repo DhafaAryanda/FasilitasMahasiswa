@@ -20,7 +20,7 @@
 
   </head>
 
-  <body class="bg-[#EEF0F8]">
+  <body class="bg-gray-100 font-poppins">
 
     <div class="flex" :class="{ 'overflow-hidden': isSideMenuOpen }">
       <!-- sidebar -->
