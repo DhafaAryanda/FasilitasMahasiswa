@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 
@@ -61,6 +62,9 @@ class TransactionController extends Controller
         $request->validate([ 
             'message' => 'required|string',
             'refund_proof' => 'required|image|mimes:jpeg,jpg,png'
+        ], [
+            'message.required' => 'Alasan menolak sewa belum dimasukkan.',
+            'refund_proof.required' => 'Bukti pengembalian dana belum diunggah.'
         ]);
         
         $data = $request->except('_token');    

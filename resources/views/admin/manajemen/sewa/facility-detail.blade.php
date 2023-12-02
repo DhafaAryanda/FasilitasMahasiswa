@@ -143,7 +143,8 @@
       confirmationForm.addEventListener("submit", function(e) {
         if (refundProofInput.value === "" || messageInput.value === "") {
           e.preventDefault(); // Mencegah pengiriman formulir jika ada bidang yang kosong
-          alert("Pastikan untuk mengisi kedua bidang yang diperlukan sebelum menolak.");
+          alert() - > warning('kesalahan',
+            'Pastikan untuk mengisi kedua bidang yang diperlukan sebelum menolak.');
         }
       });
     });
