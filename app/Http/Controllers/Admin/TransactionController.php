@@ -19,7 +19,6 @@ class TransactionController extends Controller
 {
     public function index()
     {
-        $now = Carbon::now();
         // $transactions = Transaction::with(['user', 'facility'])->get();
         // dd($transactions);
 

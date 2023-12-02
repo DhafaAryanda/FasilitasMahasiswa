@@ -19,7 +19,7 @@
           </h2>
         </div>
 
-        <div class="flex flex-col pt-2 pb-5 gap-4 lg:gap-0 bg-white rounded-t-lg  h-full w-full relative"
+        <div class="flex flex-col pt-2 border-2 gap-4 lg:gap-0 bg-white rounded-lg  h-full w-full relative"
           x-data="{ selected: null }">
           <button type="button" class="mx-10 mt-3 mb-2 text-xs sm:text-sm lg:text-base font-medium"
             @click="selected !== 1 ? selected = 1 : selected = null">
@@ -27,9 +27,9 @@
               Prosedur Pengajuan Peminjaman Fasilitas USK Tahun 2023
             </span>
           </button>
-          <hr>
           <div class="relative overflow-hidden transition-all max-h-0 duration-700" x-ref="container1"
             x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+            <hr>
             <div class="mx-5 sm:mx-10 lg:mt-10 flex justify-center">
               <div class="text-xs md:text-sm bg-[#F4F3F3] rounded-lg w-full h-full lg:ml-10">
                 <div class="font-medium mx-5 my-3 flex items-center">
