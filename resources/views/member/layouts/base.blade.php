@@ -18,6 +18,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="{{ asset('fasilitasmahasiswa/assets/js/init-alpine.js') }}"></script>
 
+    @stack('styles')
   </head>
 
   <body class="bg-gray-100 font-poppins">
@@ -39,6 +40,8 @@
     </div>
     @yield('js')
     @include('sweetalert::alert')
+    @stack('scripts')
+    @livewireScripts
 
   </body>
 

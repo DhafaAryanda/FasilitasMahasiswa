@@ -109,7 +109,7 @@
           <div
             class="container py-10 px-12 w-7/12 h-auto bg-white rounded-lg border border-gray-200 shadow-md relative z-50">
             <h2 class="text-xl font-semibold mb-3">Jadwal Tersedia</h2>
-            <form method="get">
+            {{-- <form method="get">
               @csrf
               <div class="flex mx-5 my-5">
                 <input type="date" name="selected_date" required id="datepicker" id="start_date"
@@ -141,7 +141,8 @@
                 <button class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400"
                   @click="showSchedule = false">Close</button>
               </div>
-            </form>
+            </form> --}}
+            <livewire:schedule-table :facility="$facility" />
 
           </div>
 
@@ -150,8 +151,6 @@
           <h4 class="font-semibold text-base sm:text-lg md:text-xl text-slate-800 mb-3">About</h4>
           <p>{!! $facility->about !!}</p>
         </div>
-
-
       </div>
 
     </div>

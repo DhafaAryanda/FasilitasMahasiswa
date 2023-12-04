@@ -39,15 +39,16 @@ class FacilityController extends Controller
     {
         $facility = Facility::find($id);
 
-        $selectedDate = $request->input('selected_date');
+        // $selectedDate = $request->input('selected_date');
 
-         // Retrieve transactions based on the selected date
-        $transactions = Transaction::where('facility_id', $id)
-        ->whereDate('schedule_start', '=', $selectedDate)
-        ->get();
+        //  // Retrieve transactions based on the selected date
+        // $transactions = Transaction::where('facility_id', $id)
+        // ->whereDate('schedule_start', '=', $selectedDate)
+        // ->get();
 
+        return view('member.konten.facility-detail', ['facility' => $facility]);
         
-        return view('member.konten.facility-detail', ['facility' => $facility,  'transactions' => $transactions,  'selectedDate' => $selectedDate,]);
+        // return view('member.konten.facility-detail', ['facility' => $facility,  'transactions' => $transactions,  'selectedDate' => $selectedDate,]);
     }
 
 }

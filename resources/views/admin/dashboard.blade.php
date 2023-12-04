@@ -12,10 +12,10 @@
           <div class="flex justify-center items-center p-8 bg-purple-500/10 rounded-xl shadow-sm">
             <div class="flex flex-col justify-center items-center ">
               <p class="mb-2 text-3xl font-bold text-gray-600">
-                501
+                {{ $totalFacilityShow }}
               </p>
               <p class="text-sm font-semibold text-gray-700">
-                Prasarana
+                Total Prasarana
               </p>
             </div>
           </div>
@@ -23,7 +23,7 @@
           <div class="flex justify-center items-center p-8 bg-orange-500/10 rounded-lg shadow-sm">
             <div class="flex flex-col justify-center items-center ">
               <p class="mb-2 text-3xl font-bold text-gray-600">
-                21
+                {{ $pendingTransactions }}
               </p>
               <p class="text-sm font-semibold text-gray-700">
                 Menunggu Diterima
@@ -35,7 +35,8 @@
 
             <div class="flex flex-col justify-center items-center ">
               <p class="mb-2 text-3xl font-bold text-gray-600">
-                21
+                {{ $totalActiveTransactions }}
+
               </p>
               <p class="text-sm font-semibold text-gray-700">
                 Penyewa Aktif
