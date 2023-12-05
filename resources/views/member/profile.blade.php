@@ -134,45 +134,45 @@
                             <div class="flex flex-row mx-5 my-5">
                               <div class="text-sm flex flex-col gap-6 flex-1">
                                 <div class="">
-                                  <label for="title" class="font-medium">Fasilitas</label>
+                                  <p class="font-medium">Fasilitas</p>
                                   <p class=" mt-2 text-[#858584]">{{ $transaction->facility->title }}</p>
                                 </div>
                                 <div class="">
-                                  <label for="title" class="font-medium">Nama Kegiatan</label>
+                                  <p class="font-medium">Nama Kegiatan</p>
                                   <p class=" mt-2 text-[#858584]">{{ $transaction->activity_name }}</p>
                                 </div>
                                 <div class="">
-                                  <label for="title" class="font-medium">Nama Pemohon</label>
+                                  <p class="font-medium">Nama Pemohon</p>
                                   <p class=" mt-2 text-[#858584]">{{ $transaction->user->name }}</p>
                                 </div>
                                 <div class="">
-                                  <label for="title" class="font-medium">Nomor Telepon</label>
+                                  <p class="font-medium">Nomor Telepon</p>
                                   <p class=" mt-2 text-[#858584]">{{ $transaction->phone_number }}</p>
                                 </div>
                                 <div class="">
-                                  <label for="title" class="font-medium">Jadwal Kegiatan Berlangsung</label>
+                                  <p class="font-medium">Jadwal Kegiatan Berlangsung</p>
                                   <p class=" mt-2 text-[#858584]">{{ $transaction->schedule_start }}</p>
                                 </div>
                               </div>
                               <div class="text-sm flex flex-col gap-6 flex-1">
                                 <div class="col-span-5 ">
-                                  <label for="title" class="font-medium">Durasi Sewa</label>
+                                  <p class="font-medium">Durasi Sewa</p>
                                   <p class=" mt-2 text-[#858584]">{{ $transaction->duration_hours }}</p>
                                 </div>
                                 <div class="col-span-5">
-                                  <label for="title" class="font-medium">Jadwal Kegiatan Selesai</label>
+                                  <p class="font-medium">Jadwal Kegiatan Selesai</p>
                                   <p class=" mt-2 text-[#858584]">{{ $transaction->schedule_end }}</p>
                                 </div>
                                 <div class="col-span-5">
-                                  <label for="title" class="font-medium">Total Biaya</label>
+                                  <p class="font-medium">Total Biaya</p>
                                   <p class=" mt-2 text-[#858584]">{{ $transaction->amount }}</p>
                                 </div>
                                 <div class="col-span-5">
-                                  <label for="title" class="font-medium">Pesanan Dibuat</label>
+                                  <p class="font-medium">Pesanan Dibuat</->
                                   <p class=" mt-2 text-[#858584]">{{ $transaction->created_at }}</p>
                                 </div>
                                 <div class="col-span-5">
-                                  <label for="title" class="font-medium">Bukti Transfer</label>
+                                  <p class="font-medium">Bukti Transfer</p>
                                   <p class=" mt-2 text-[#858584]">{{ $transaction->proof_of_payment }}</p>
                                 </div>
                               </div>
@@ -238,8 +238,8 @@
     }
 
     /* .duration-300 {
-              transition-duration: 300ms;
-            } */
+                        transition-duration: 300ms;
+                      } */
 
     .ease-in {
       transition-timing-function: cubic-bezier(0.4, 0, 1, 1);

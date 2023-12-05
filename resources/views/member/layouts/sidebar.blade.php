@@ -3,7 +3,7 @@
 
   <div class="py-4 text-gray-500">
     <a class="flex ml-8 items-center mt-1 mb-7" href="#">
-      <img src="https://mbkmunggul.usk.ac.id/assets/img/logo/logo_mbkm_dark.png" alt="Logo" class="w-auto max-h-14">
+      <img src="{{ '/storage/assets/images/logo.png' }}" alt="Logo" class="w-auto max-h-14">
     </a>
 
     <div class="block px-6 py-4">
@@ -60,20 +60,7 @@
           </a>
         </div>
       </li>
-      {{-- <li
-        class="relative transition-colors duration-150 active:text-blue-500 active:bg-blue-sky-1 hover:text-blue-500 hover:bg-blue-sky-1 mx-4 my-1 rounded-md">
-        <div class="flex items-center">
-          <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold" href="#">
-            <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
-              stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
-              </path>
-            </svg>
-            <span class="ml-4">Kesenian </span>
-          </a>
-        </div>
-      </li> --}}
+
       <li
         class="relative transition-colors duration-150 active:text-red-800 active:bg-red-100 hover:text-red-800 hover:bg-red-100 mx-4 my-1 rounded-md">
         <div class="flex items-center">
@@ -97,11 +84,11 @@
 
 <!-- Mobile sidebar -->
 <!-- Backdrop -->
-<div x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
+{{-- <div x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
   x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
   x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100"
   x-transition:leave-end="opacity-0"
-  class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"></div>
+  class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"></div> --}}
 <aside
   class="shadow-lg fixed inset-y-0 z-20 flex-shrink-0 w-[274px] mt-16 overflow-y-auto bg-white md:hidden font-dmsans"
   x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
@@ -165,20 +152,6 @@
           </a>
         </div>
       </li>
-      {{-- <li
-        class="relative transition-colors duration-150 active:text-blue-500 active:bg-blue-sky-1 hover:text-blue-500 hover:bg-blue-sky-1 mx-4 my-1 rounded-md">
-        <div class="flex items-center">
-          <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold" href="#">
-            <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
-              stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
-              </path>
-            </svg>
-            <span class="ml-4">Kesenian </span>
-          </a>
-        </div>
-      </li> --}}
       <li
         class="relative transition-colors duration-150 active:text-red-800 active:bg-red-100 hover:text-red-800 hover:bg-red-100 mx-4 my-1 rounded-md">
         <div class="flex items-center">

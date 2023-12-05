@@ -12,10 +12,7 @@
       rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <link rel="stylesheet" type="text/css" href="/jquery.datetimepicker.css" />
 
-
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="{{ asset('fasilitasmahasiswa/assets/js/init-alpine.js') }}"></script>
 
     @stack('styles')

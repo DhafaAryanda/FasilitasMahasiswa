@@ -1,7 +1,5 @@
 @extends('member.layouts.base')
 
-@section('role', 'MAHASISWA')
-
 @section('title', 'Prasarana')
 
 @section('content')

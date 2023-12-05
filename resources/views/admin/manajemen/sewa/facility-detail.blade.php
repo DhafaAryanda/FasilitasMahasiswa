@@ -23,7 +23,13 @@
           </ul>
           <ul class="mt-5">
             <li class="text-base font-medium">Nama Penyewa</li>
-            <p class="text-sm text-gray-500">{{ $transaction->user->name }}</p>
+            <p class="text-sm text-gray-500">
+              @if ($transaction->user_id)
+                {{ $transaction->user->name }}
+              @else
+                {{ $transaction->guest_name }}
+              @endif
+            </p>
           </ul>
           <ul class="mt-5">
             <li class="text-base font-medium">Nomor Telepon</li>

@@ -54,7 +54,13 @@
                   <td class="px-6 py-4">{{ $counter }}</td>
                   <td class="px-6 py-4">{{ $transaction->transaction_code }}</td>
                   <td class="px-6 py-4">{{ $transaction->facility->title }}</td>
-                  <td class="px-6 py-4">{{ $transaction->user->name }}</td>
+                  <td class="px-6 py-4">
+                    @if ($transaction->user_id)
+                      {{ $transaction->user->name }}
+                    @else
+                      {{ $transaction->guest_name }}
+                    @endif
+                  </td>
                   <td class="px-6 py-4">{{ $transaction->schedule_start }}</td>
                   <td class="px-6 py-4">{{ $transaction->status }}</td>
                   <td class="px-6 py-4">

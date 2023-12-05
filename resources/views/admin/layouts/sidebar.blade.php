@@ -3,7 +3,7 @@
 
   <div class="py-4 text-gray-500">
     <a class="flex ml-8 items-center mt-1 mb-7" href="#">
-      <img src="https://mbkmunggul.usk.ac.id/assets/img/logo/logo_mbkm_dark.png" alt="Logo" class="w-auto max-h-14">
+      <img src="{{ '/storage/assets/images/logo.png' }}" alt="Logo" class="w-auto max-h-14">
     </a>
 
     <div class="pt-4">
@@ -169,11 +169,11 @@
 
 <!-- Mobile sidebar -->
 <!-- Backdrop -->
-<div x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
+{{-- <div x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
   x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
   x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100"
   x-transition:leave-end="opacity-0"
-  class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"></div>
+  class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"></div> --}}
 <aside class="shadow-lg fixed inset-y-0 z-20 flex-shrink-0 h-screen w-[274px] mt-16  bg-white md:hidden font-dmsans"
   x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
   x-transition:enter-start="opacity-0 transform -translate-x-20" x-transition:enter-end="opacity-100"

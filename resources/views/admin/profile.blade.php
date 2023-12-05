@@ -5,7 +5,7 @@
 @section('sidebar-menu-desktop')
   <div class="py-4 text-gray-500">
     <a class="flex ml-8 items-center mt-1 mb-7" href="{{ route('admin.dashboard') }}">
-      <img src="https://mbkmunggul.usk.ac.id/assets/img/logo/logo_mbkm_dark.png" alt="Logo" class="w-auto max-h-14">
+      <img src="{{ '/storage/assets/images/logo.png' }}" alt="Logo" class="w-auto max-h-14">
     </a>
 
     <div class="block px-6 py-3">

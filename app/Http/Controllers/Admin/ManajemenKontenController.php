@@ -12,7 +12,8 @@ class ManajemenKontenController extends Controller
 {
     public function index()
     {
-        $facilities = Facility::all();
+        // $facilities = Facility::all();
+        $facilities = Facility::paginate(8);
 
         return view('admin.manajemen.konten.facility', ['facilities' => $facilities]);
     }
