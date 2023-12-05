@@ -26,6 +26,12 @@ class TransactionHistoryController extends Controller
         return view('admin.manajemen.sewa.transaction-history', ['transactions' => $transactions]);
     }
 
+    public function show($id)
+    {
+        $transaction = Transaction::find($id);
+        return view('admin.manajemen.sewa.transaction-detail', ['transaction' => $transaction]);
+    }
+
     public function generatePDF($transactionId)
     {
         $transaction = Transaction::findOrFail($transactionId);

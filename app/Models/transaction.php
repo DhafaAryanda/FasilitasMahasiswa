@@ -39,5 +39,9 @@ class Transaction extends Model
     {
         return $this->belongsTo(Facility::class);
     }
+    public function rejected_transactions()
+    {
+        return $this->hasOne(RejectedTransaction::class);
+    }
     
 }
