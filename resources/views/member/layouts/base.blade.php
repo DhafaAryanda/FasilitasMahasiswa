@@ -16,6 +16,11 @@
     <script src="{{ asset('fasilitasmahasiswa/assets/js/init-alpine.js') }}"></script>
 
     @stack('styles')
+    <style>
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
   </head>
 
   <body class="bg-gray-100 font-poppins">
