@@ -6,9 +6,11 @@ use App\Models\Transaction;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
 
-class TransactionExport implements FromCollection, WithMapping, WithHeadings
+
+class TransactionExport implements FromCollection, WithMapping, WithHeadings, ShouldAutoSize
 {
     /**
     * @return \Illuminate\Support\Collection

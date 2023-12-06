@@ -48,10 +48,10 @@
 
             <div class="flex flex-col justify-center items-center ">
               <p class="mb-2 text-3xl font-bold text-gray-600">
-                21
+                0
               </p>
               <p class="text-sm font-semibold text-gray-700">
-                Total Prasarana
+                -
               </p>
             </div>
           </div>

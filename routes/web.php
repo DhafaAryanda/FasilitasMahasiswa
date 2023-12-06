@@ -77,7 +77,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function(){
 
         Route::group(['prefix' => 'riwayat-transaksi'], function() {
             Route::get('/', [TransactionHistoryController::class, 'index'])->name('admin.manajemen.history');
-            Route::get('/{id}', [TransactionHistoryController::class, 'show'])->name('admin.manajemen.history.detail');
+            Route::get('/detail/{id}', [TransactionHistoryController::class, 'show'])->name('admin.manajemen.history.detail');
             Route::get('/generate-pdf/{transactionId}', [TransactionHistoryController::class, 'generatePDF'])->name('admin.manajemen.history.generate.pdf');
             Route::get('/generate-pdf-guest/{guestTransactionId}', [TransactionHistoryController::class, 'generateGuestTransactionPDF'])->name('admin.manajemen.history.generate.guest.pdf');
             Route::get('/transaction-export', [TransactionHistoryController::class, 'export'])->name('admin.manajemen.history.export');
