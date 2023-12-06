@@ -9,7 +9,6 @@
     <div class="container max-w-screen-lg mx-auto">
 
       <div>
-        <h2 class="font-semibold text-xl text-blue-gray">Riwayat Transaksi</h2>
         <div class="overflow-x-scroll  rounded border border-white w-full">
           <table id="mytable" class="table-auto w-full border-collapse bg-white text-left text-sm text-gray-500">
             <thead>
