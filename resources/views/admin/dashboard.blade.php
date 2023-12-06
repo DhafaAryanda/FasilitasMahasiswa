@@ -97,9 +97,11 @@
                       <td class="px-6 py-4">{{ $transaction->schedule_start }}</td>
                       <td class="px-6 py-4">{{ $transaction->schedule_end }}</td>
                       <td class="px-6 py-4">
-                        <button class="rounded-xl bg-deep-purple text-white h-8 w-20 text-xs">
-                          Detail
-                        </button>
+                        <a href="{{ route('admin.manajemen.history.detail', $transaction->id) }}">
+                          <button class="rounded-xl bg-deep-purple text-white h-8 w-20 text-xs">
+                            Detail
+                          </button>
+                        </a>
                         </a>
                       </td>
                     </tr>
