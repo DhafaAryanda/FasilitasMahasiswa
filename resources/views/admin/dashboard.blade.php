@@ -76,35 +76,40 @@
 
               </thead>
               <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-                @php
-                  $counter = 0;
-                @endphp
-                @foreach ($activeTransactions as $key => $transaction)
+                @if (count($activeTransactions) > 0)
                   @php
-                    $counter++;
+                    $counter = 0;
                   @endphp
-                  <tr class="hover:bg-gray-50">
-                    <td class="px-6 py-4">{{ $counter }}</td>
-                    <td class="px-6 py-4">{{ $transaction->facility->title }}</td>
-                    <td class="px-6 py-4">
-                      @if ($transaction->user_id)
-                        {{ $transaction->user->name }}
-                      @else
-                        {{ $transaction->guest_name }}
-                      @endif
-                    </td>
-                    <td class="px-6 py-4">{{ $transaction->schedule_start }}</td>
-                    <td class="px-6 py-4">{{ $transaction->schedule_end }}</td>
-                    <td class="px-6 py-4">
-                      <button class="rounded-xl bg-deep-purple text-white h-8 w-20 text-xs">
-                        Detail
-                      </button>
-                      </a>
-                    </td>
-                  </tr>
-                @endforeach
+                  @foreach ($activeTransactions as $key => $transaction)
+                    @php
+                      $counter++;
+                    @endphp
+                    <tr class="hover:bg-gray-50">
+                      <td class="px-6 py-4">{{ $counter }}</td>
+                      <td class="px-6 py-4">{{ $transaction->facility->title }}</td>
+                      <td class="px-6 py-4">
+                        @if ($transaction->user_id)
+                          {{ $transaction->user->name }}
+                        @else
+                          {{ $transaction->guest_name }}
+                        @endif
+                      </td>
+                      <td class="px-6 py-4">{{ $transaction->schedule_start }}</td>
+                      <td class="px-6 py-4">{{ $transaction->schedule_end }}</td>
+                      <td class="px-6 py-4">
+                        <button class="rounded-xl bg-deep-purple text-white h-8 w-20 text-xs">
+                          Detail
+                        </button>
+                        </a>
+                      </td>
+                    </tr>
+                  @endforeach
+                @endif
               </tbody>
             </table>
+            @if (count($activeTransactions) === 0)
+              <p class="text-gray-500 text-center py-4">Data tidak tersedia.</p>
+            @endif
           </div>
         </div>
 

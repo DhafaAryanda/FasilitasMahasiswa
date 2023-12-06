@@ -4,7 +4,19 @@
 
 
 @section('content')
-  <div class=" m-10 items-center justify-center font-dmsans">
+
+
+  <div class=" my-8 mx-10 items-center justify-center font-dmsans">
+    <a href="{{ route('admin.manajemen.sewa.facility') }}">
+      <button type="button"
+        class="mb-5 w-full flex items-center justify-center px-5 py-2 text-sm text-white transition-colors duration-200 bg-blue-500 border rounded-lg gap-x-2 sm:w-auto  hover:bg-blue-600">
+        <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+          stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+        </svg>
+        <span>Kembali</span>
+      </button>
+    </a>
     <div class="container max-w-screen-lg mx-auto">
       <h2 class="font-semibold text-xl text-blue-gray">Detail Transaksi</h2>
       <div class="flex flex-row mt-5 mb-10">
