@@ -130,7 +130,7 @@
       </li>
       <li class="relative px-6 py-3">
         <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-blue-gray hover:text-red-800"
-          href="{{ route('admin.logout') }}">
+          href="{{ route('logout') }}">
           <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
             stroke="none" fill-rule="evenodd">
             <polygon fill-rule="nonzero" opacity="0.3" points="7 4.89473684 7 21 5 21 5 3 11 3 11 4.89473684">

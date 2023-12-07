@@ -20,6 +20,7 @@ export default {
                 "blue-sky-1": "#EEF5FF",
                 "blue-sky-2": "#9EB8D9",
                 "blue-sky-3": "#7C93C3",
+                "blue-primary" : "rgb(59 130 246)",
             },
         },
     },

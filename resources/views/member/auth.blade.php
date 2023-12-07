@@ -37,6 +37,15 @@
               <h5 class="my-5 text-sm font-semibold text-[#209AFB] text-left">
                 Login Akun Member
               </h5>
+              @if ($errors->any())
+                <div class="alert alert-danger">
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+              @endif
 
               <form action="{{ route('member.login.auth') }}" method="POST">
                 @csrf

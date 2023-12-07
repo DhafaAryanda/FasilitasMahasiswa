@@ -20,9 +20,25 @@ class RedirectIfAuthenticated
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
+            // if (Auth::guard($guard)->check()) {
+            //     return redirect(RouteServiceProvider::HOME);
+            // }
+
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                // Jika pengguna sudah login, periksa peran dan arahkan ke dashboard yang sesuai
+                $user = Auth::user();
+    
+                if ($user->hasRole('admin')) {
+                    return redirect()->route('admin.dashboard');
+                } elseif ($user->hasRole('operator')) {
+                    return redirect()->route('operator.dashboard'); // Sesuaikan dengan nama route untuk operator
+                } elseif ($user->hasRole('mahasiswa')) {
+                    return redirect()->route('mahasiswa.dashboard'); // Sesuaikan dengan nama route untuk mahasiswa
+                } elseif ($user->hasRole('umum')) {
+                    return redirect()->route('member.dashboard'); // Sesuaikan dengan nama route untuk umum
+                }
             }
+    
         }
 
         return $next($request);

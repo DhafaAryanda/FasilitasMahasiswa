@@ -17,7 +17,7 @@
 
             <div class="flex flex-col gap-4 mt-4 mb-4 items-center ">
               <a href="#biodata"
-                class="flex grow gap-4 text-gray-500 hover:bg-gray-100 w-48 hover:text-yellow-orange py-3 px-4 rounded-lg font-medium"
+                class="flex grow gap-4 text-gray-500 hover:bg-blue-sky-1 w-48 hover:text-blue-primary py-3 px-4 rounded-lg font-medium"
                 id="biodataLink">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                   stroke="none">
@@ -31,7 +31,7 @@
                 Biodata
               </a>
               <a href="#riwayat"
-                class="flex grow gap-4 text-gray-500 hover:bg-gray-100 w-48 hover:text-yellow-orange py-3 px-4 rounded-lg font-medium"
+                class="flex grow gap-4 text-gray-500 hover:bg-blue-sky-1 w-48 hover:text-blue-primary py-3 px-4 rounded-lg font-medium"
                 id="riwayatLink">
                 <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                   stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -209,7 +209,7 @@
   <script>
     // Function to set the "active" class for the initial state
     function setInitialActiveState() {
-      document.getElementById('biodataLink').classList.add('active', 'bg-gray-100', 'text-yellow-orange');
+      document.getElementById('biodataLink').classList.add('active', 'bg-blue-sky-1', 'text-blue-primary');
     }
 
     // Call the function when the page loads
@@ -218,8 +218,8 @@
     function toggleSections(activeSection, inactiveSection, activeLink, inactiveLink) {
       document.getElementById(activeSection).classList.remove('hidden');
       document.getElementById(inactiveSection).classList.add('hidden');
-      document.getElementById(activeLink).classList.add('active', 'bg-gray-100', 'text-yellow-orange');
-      document.getElementById(inactiveLink).classList.remove('active', 'bg-gray-100', 'text-yellow-orange');
+      document.getElementById(activeLink).classList.add('active', 'bg-blue-sky-1', 'text-blue-primary');
+      document.getElementById(inactiveLink).classList.remove('active', 'bg-blue-sky-1', 'text-blue-primary');
     }
 
     // Add event listeners to the navigation links
@@ -238,8 +238,8 @@
     }
 
     /* .duration-300 {
-                        transition-duration: 300ms;
-                      } */
+                                          transition-duration: 300ms;
+                                        } */
 
     .ease-in {
       transition-timing-function: cubic-bezier(0.4, 0, 1, 1);

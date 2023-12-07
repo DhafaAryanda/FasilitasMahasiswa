@@ -146,8 +146,7 @@
         <li
           class="relative transition-colors duration-150 active:text-red-800 active:bg-red-100 hover:text-red-800 hover:bg-red-100 mx-4 my-1 rounded-md">
           <div class="flex items-center">
-            <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold"
-              href="{{ route('member.logout') }}">
+            <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold" href="{{ route('logout') }}">
               <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                 stroke="none" fill-rule="evenodd">
                 <polygon fill-rule="nonzero" opacity="0.3" points="7 4.89473684 7 21 5 21 5 3 11 3 11 4.89473684">
@@ -337,8 +336,7 @@
       <li
         class="relative transition-colors duration-150 active:text-red-800 active:bg-red-100 hover:text-red-800 hover:bg-red-100 mx-4 my-1 rounded-md">
         <div class="flex items-center">
-          <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold"
-            href="{{ route('member.logout') }}">
+          <a class="px-6 py-4 inline-flex items-center w-full text-sm font-semibold" href="{{ route('logout') }}">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
               stroke="none" fill-rule="evenodd">
               <polygon fill-rule="nonzero" opacity="0.3" points="7 4.89473684 7 21 5 21 5 3 11 3 11 4.89473684">
