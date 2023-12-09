@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained('users');
+            $table->foreignId('admin_handler_id')->nullable()->constrained('users');
             $table->string('guest_name')->nullable();
             $table->string('guest_email')->nullable();
             $table->string('nim')->nullable();

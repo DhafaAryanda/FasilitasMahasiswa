@@ -143,7 +143,7 @@ class CreateTransactionController extends Controller
         $latestTransactionId = $latestTransaction ? $latestTransaction->id : 0;
         $transactionCode = 'TRX' . str_pad($latestTransactionId + 1, 5, '0', STR_PAD_LEFT);
             
-         
+        $transactionFacilityData['admin_handler_id'] = auth()->user()->id;
     
         $pricePerHour = $facility->price_per_hour;
         $durationHours = $transactionFacilityData['duration_hours'];
@@ -159,6 +159,7 @@ class CreateTransactionController extends Controller
         // Buat dan simpan transaksi ke database
         Transaction::create([
             // 'user_id' => Auth::id(),
+            'admin_handler_id' => $transactionFacilityData['admin_handler_id'],
             'guest_name' => $transactionFacilityData['guest_name'],
             'guest_email' => $transactionFacilityData['guest_email'],
             'facility_id' => $facilityId,
@@ -177,7 +178,6 @@ class CreateTransactionController extends Controller
         ]);
 
         // Alert::success('Hore!', 'Post Created Successfully');
-
         
         return redirect()->route('admin.dashboard')->with('success', 'Prasarana Berhasil Dibuat')->with('toast_success', 'Task Created Successfully!');;
 

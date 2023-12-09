@@ -49,6 +49,10 @@ class TransactionController extends Controller
         if ($transaction) {
             // Ubah status transaksi menjadi 'confirmed'
             $transaction->status = 'confirmed';
+
+            // Catat admin_handler_id
+            $transaction->admin_handler_id = auth()->user()->id;
+
             $transaction->save();
         }
 
@@ -80,6 +84,10 @@ class TransactionController extends Controller
         if ($transaction) {
             // Ubah status transaksi menjadi 'rejected'
             $transaction->status = 'rejected';
+
+            // Catat admin_handler_id
+            $transaction->admin_handler_id = auth()->user()->id;
+            
             $transaction->save();
         }
 
@@ -88,13 +96,4 @@ class TransactionController extends Controller
         return redirect()->route('admin.manajemen.sewa.facility')->with('success', 'Fasilitas berhasil ditolak');
 
     }
-
-    // public function monthlyIncome()
-    // {
-    //     $monthlyIncome = Transaction::select(DB::raw('YEAR(created_at) as year, MONTH(created_at) as month, SUM(amount) as total_income'))
-    //         ->groupBy('year', 'month')
-    //         ->get();
-
-    //     return view('admin.monthly-income', ['monthlyIncome' => $monthlyIncome]);
-    // }
 }

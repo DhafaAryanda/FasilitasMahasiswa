@@ -7,16 +7,14 @@
 
 
   <div class=" my-8 mx-10 items-center justify-center font-dmsans">
-    <a href="{{ route('admin.manajemen.sewa.facility') }}">
-      <button type="button"
-        class="mb-5 w-full flex items-center justify-center px-5 py-2 text-sm text-white transition-colors duration-200 bg-blue-500 border rounded-lg gap-x-2 sm:w-auto  hover:bg-blue-600">
-        <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-          stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
-        </svg>
-        <span>Kembali</span>
-      </button>
-    </a>
+    <button type="button" onclick="window.history.back();"
+      class="mb-5 w-full flex items-center justify-center px-5 py-2 text-sm text-white transition-colors duration-200 bg-blue-500 border rounded-lg gap-x-2 sm:w-auto  hover:bg-blue-600">
+      <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+      </svg>
+      <span>Kembali</span>
+    </button>
     <div class="container max-w-screen-lg mx-auto">
       <h2 class="font-semibold text-xl text-blue-gray">Detail Transaksi</h2>
       <div class="flex flex-row mt-5 mb-10">
@@ -34,6 +32,10 @@
             <p class="text-sm text-gray-500">{{ $transaction->activity_name }}</p>
           </ul>
           <ul class="mt-5">
+            <li class="text-base font-medium">Nama Kegiatan</li>
+            <p class="text-sm text-gray-500">{{ $transaction->description }}</p>
+          </ul>
+          <ul class="mt-5">
             <li class="text-base font-medium">Nama Penyewa</li>
             <p class="text-sm text-gray-500">
               @if ($transaction->user_id)
@@ -47,10 +49,45 @@
             <li class="text-base font-medium">Nomor Telepon</li>
             <p class="text-sm text-gray-500">{{ $transaction->phone_number }}</p>
           </ul>
+          <ul class="mt-5">
+            <li class="text-base font-medium">Alamat Email</li>
+            <p class="text-sm text-gray-500">
+              @if ($transaction->user_id)
+                {{ $transaction->user->email }}
+              @else
+                {{ $transaction->guest_email }}
+              @endif
+            </p>
+          </ul>
+
+          <ul class="mt-5">
+            @if ($transaction->user_id)
+              @if ($transaction->user->nim)
+                <li class="text-base font-medium">NIM/NIP</li>
+                <p class="text-sm text-gray-500"> {{ $transaction->user->nim }}</p>
+              @endif
+            @else
+              @if ($transaction->nim)
+                <li class="text-base font-medium">NIM/NIP</li>
+                <p class="text-sm text-gray-500"> {{ $transaction->nim }} </p>
+              @endif
+            @endif
+            </p>
+          </ul>
 
         </div>
 
         <div class="flex-1 flex-col">
+          <ul class="mt-5">
+            <li class="text-base font-medium">Peran Pengguna</li>
+            <p class="text-sm text-gray-500">
+              @if ($transaction->user_id)
+                {{ $transaction->user->role }}
+              @else
+                Tanpa Akun
+              @endif
+            </p>
+          </ul>
           <ul class="mt-5">
             <li class="text-base font-medium">Durasi Kegiatan</li>
             <p class="text-sm text-gray-500">{{ $transaction->duration_hours }} Jam</p>
@@ -91,6 +128,21 @@
             <li class="text-base font-medium">Nomor Rekening Pengirim</li>
             <p class="text-sm text-gray-500">{{ $transaction->bank_account_number }}</p>
           </ul>
+
+          <ul class="mt-5">
+            <li class="text-base font-medium">Status</li>
+            <p class="text-sm text-gray-500">{{ $transaction->status }}</p>
+          </ul>
+          <ul class="mt-5">
+            <li class="text-base font-medium">Ditangani oleh</li>
+            @if ($transaction->admin_handler_id)
+              <p class="text-sm text-gray-500">{{ $transaction->adminHandler->name }}</p>
+            @else
+              <p class="text-sm text-gray-500">Belum Ditangani</p>
+            @endif
+          </ul>
+
+
 
           @if ($transaction->status === 'rejected' && $transaction->rejected_transactions)
             <ul class="mt-5">

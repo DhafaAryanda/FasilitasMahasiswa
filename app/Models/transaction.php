@@ -13,6 +13,7 @@ class Transaction extends Model
 
     protected $fillable = [
         'user_id',
+        'admin_handler_id',
         'guest_name',
         'guest_email',
         'nim',
@@ -28,7 +29,8 @@ class Transaction extends Model
         'bank_name',
         'bank_account_number',
         'proof_of_payment',
-        'status'
+        'status',
+      
     ];
 
     public function user() 
@@ -42,6 +44,10 @@ class Transaction extends Model
     public function rejected_transactions()
     {
         return $this->hasOne(RejectedTransaction::class);
+    }
+    public function adminHandler()
+    {
+        return $this->belongsTo(User::class, 'admin_handler_id');
     }
     
 }
