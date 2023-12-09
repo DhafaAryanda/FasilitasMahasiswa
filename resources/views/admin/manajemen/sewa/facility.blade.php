@@ -24,7 +24,6 @@
       @endif
 
       <div>
-        <h2 class="font-semibold text-xl text-blue-gray">Fasilitas Gelanggang</h2>
         <p class="text-gray-700 mt-8  mx-7 text-sm font-medium">Menunggu Diterima</p>
 
         <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">

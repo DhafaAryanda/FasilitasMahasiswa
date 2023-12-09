@@ -10,11 +10,12 @@ use App\Http\Controllers\Admin\TransactionHistoryController;
 use App\Http\Controllers\Admin\CreateTransactionController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Member\RegisterController;
 use App\Http\Controllers\Member\LoginController as MemberLoginController;
 use App\Http\Controllers\Member\DashboardController as MemberDashboardController;
 use App\Http\Controllers\Member\FacilityController;
-use App\Http\Controllers\Member\ProfileController;
+use App\Http\Controllers\Member\ProfileController as MemberProfileController;
 use App\Http\Controllers\Member\TransactionController as MemberTransactionController;
 use App\Http\Controllers\Member\InvoiceController;
 
@@ -145,7 +146,8 @@ Route::prefix('admin')->middleware(['auth', 'UserAccess:admin'])->group(function
     // Add other routes specific to the 'admin' role here
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/monthly-income', [TransactionController::class, 'monthlyIncome'])->name('admin.monthly.income');
-    Route::view('/profile', 'admin.profile')->name('admin.profile');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('admin.profile');
+
 
     Route::group(['prefix' => 'manajemen'], function() {
         Route::group(['prefix' => 'konten'], function() {
@@ -201,7 +203,7 @@ Route::prefix('mhs')->middleware(['auth', 'UserAccess:mahasiswa'])->group(functi
 
 Route::prefix('umum')->middleware(['auth', 'UserAccess:umum'])->group(function(){    
     Route::get('/', [MemberDashboardController::class, 'index'])->name('member.dashboard');
-    Route::get('/profile', [ProfileController::class, 'index'])->name('member.profile');
+    Route::get('/profile', [MemberProfileController::class, 'index'])->name('member.profile');
     Route::get('/profile/generate-pdf/{transactionId}', [ProfileController::class, 'generatePDF'])->name('member.profile.generate.pdf');
    
     Route::group(['prefix' => 'konten'], function() {
